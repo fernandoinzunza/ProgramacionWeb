@@ -34,9 +34,7 @@ a {
 a:hover {
 	color: #000;
 }
-#usuarios{
-	background: #4682B4;
-}
+
 .containerr,
 .bb-custom-wrapper,
 .bb-bookblock {
@@ -62,7 +60,7 @@ a:hover {
 }
 
 .menu-panel {
-	background: blue;
+	background: black;
 	width: 240px;
 	height: 100%;
 	position: fixed;
@@ -96,13 +94,13 @@ a:hover {
 	line-height: 3.5;
 	padding: 0 20px;
 	cursor: pointer;
-	background: blue;
-	border-bottom: 1px solid blue;
+	background:black;
+	border-bottom: 1px solid gray;
 }
 
 .menu-toc li a:hover,
 .menu-toc li.menu-toc-current a{
-	background: darkblue;
+	background: rgb(24, 23, 23);
 }
 
 .menu-panel div {
@@ -116,7 +114,7 @@ a:hover {
 	padding: 5px 20px;
 	display: block;
 	border: none;
-	color: darkblue;
+	color:gray;
 	letter-spacing: 1px;
 	font-weight: 800;
 	text-shadow: 0 1px rgba(255,255,255,0.2);
@@ -142,7 +140,7 @@ a:hover {
 	height: 32px;
 	top: 0;
 	left: 0;
-	background: blue;
+	background: black;
 	border-radius: 50%;
 	color: #fff;
 	line-height: 30px;
