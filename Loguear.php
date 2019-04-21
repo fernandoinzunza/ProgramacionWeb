@@ -1,4 +1,5 @@
 <?php
+
 require_once("php/Clases/admin.php");
 $admin = new Admin();
 $admin->setUser($_POST['user']);
