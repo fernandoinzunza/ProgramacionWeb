@@ -57,7 +57,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-						Don't have an account?
+					¿No tienes una Cuenta?<a href="registrar.html">Registrate</a>
 						<div id="app">
 								<modal :show="showModal" @close="showModal = false"></modal>
 								<button class="btn btn-link" id="show-modal" @click="showModal = true">Sign Up</button>

@@ -1,9 +1,9 @@
 <?php
 require_once("conexion.php");
 class Admin{
-    public $User;
+    public $Usuario;
     public $Contraseña;
-    public function setUser($usuario) {
+    public function setUsuario($usuario) {
        $this->User =$usuario;
     }
     public function setContraseña($contraseña) {
@@ -11,7 +11,7 @@ class Admin{
     }
     
     public function _construct(){
-         $this->User ="";
+         $this->Usuario ="";
          $this->Contraseña ="";
     }
     public function LogearAdmin($admin){
@@ -19,10 +19,10 @@ class Admin{
         {
             $resultado=0;
             $conn = abrirBD();
-        if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM administrador WHERE User=? AND Contraseña=?"))
+        if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM administrador WHERE USUARIO=? AND CONTRA=?"))
             {
-                $sentencia_preparada->bind_param('ss',$usuario,$contra);
-                $usuario =$admin->User;
+                $sentencia_preparada->bind_param('ss',$user,$contra);
+                $user =$admin->Usuario;
                 $contra = $admin->Contraseña;
                 $sentencia_preparada->execute();
                 $sentencia_preparada->bind_result($user);
