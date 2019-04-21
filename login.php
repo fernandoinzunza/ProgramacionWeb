@@ -11,12 +11,14 @@
    
 	<!--Bootsrap 4 CDN-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+
     <!--Fontawesome CDN-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+<script src="vue.js"></script>
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link rel="stylesheet" href="modalvue.css">
+
 </head>
 <body>
 <div class="container">
@@ -56,6 +58,10 @@
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
 					¿No tienes una Cuenta?<a href="registrar.html">Registrate</a>
+						<div id="app">
+								<modal :show="showModal" @close="showModal = false"></modal>
+								<button class="btn btn-link" id="show-modal" @click="showModal = true">Sign Up</button>
+						</div>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="recuperarcontraseña.html">¿Olvidaste tu contraseña?</a>
@@ -64,5 +70,49 @@
 		</div>
 	</div>
 </div>
+<script type="x/template" id="modal-template">
+	<transition name="modal">
+		<div class="modal-mask" v-show="show">
+			<div class="modal-container">
+				<div class="modal-header">
+					<h3>New Post</h3>
+				</div>
+				<div class="modal-body">
+				 
+				<div class="modal-footer text-right">
+					<button class="modal-default-button" @click="savePost()">
+						Agregar
+					</button>
+				</div>
+			</div>
+		</div>
+	</transition>
+	</script>
+					<!-- app -->
+					<div id="app">
+						<modal :show="showModal" @close="showModal = false"></modal>
+						<button id="show-modal" @click="showModal = true">New Post</button>
+					</div>
+	
+					<script>
+						Vue.component('modal', {
+							template: '#modal-template',
+							props: ['show'],
+							methods: {
+								savePost: function () {
+									// Some save logic goes here...
+	
+									this.$emit('close');
+								}
+							}
+						});
+	
+						new Vue({
+							el: '#app',
+							data: {
+								showModal: false
+							}
+						});
+					</script>
 </body>
 </html>
