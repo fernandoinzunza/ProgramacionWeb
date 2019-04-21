@@ -1,7 +1,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<!-- Include the above in your HEAD tag -->
 
 <!DOCTYPE html>
 <html>
@@ -31,25 +31,25 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form action="Loguear.php" method="post" >
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input type="text" class="form-control" placeholder="Usuario" name="user">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" class="form-control" placeholder="contraseña" name="contra">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recordar
 					</div>
 					<div class="form-group">
-							<input type="submit" value="Entrar" class="btn float-right login_btn">	
+						<input type="submit" value="Entrar" class="btn float-right login_btn">	
 					</div>
 				</form>
 			</div>
