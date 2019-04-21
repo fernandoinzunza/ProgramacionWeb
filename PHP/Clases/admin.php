@@ -4,7 +4,7 @@ class Admin{
     public $Usuario;
     public $Contraseña;
     public function setUsuario($usuario) {
-       $this->User =$usuario;
+       $this->Usuario =$usuario;
     }
     public function setContraseña($contraseña) {
         $this->Contraseña =$contraseña;

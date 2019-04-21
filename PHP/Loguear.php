@@ -1,5 +1,5 @@
 <?php
-require_once("php/Clases/admin.php");
+require_once("Clases/admin.php");
 $admin = new Admin();
 $admin->setUsuario($_POST['user']);
 $admin->setContraseña($_POST['contra']);
@@ -8,9 +8,9 @@ if($resultado>0){
     $usuario= $admin->User;
     $_SESSION['usuario'] = $usuario;
     $_SESSION['loguear'] = "SI";
-   header("Location:template.html");
+   header("Location:../template.html");
 }
 else{
-    header("Location:login2.php");
+    header("Location:../log.html");
     }
 ?>

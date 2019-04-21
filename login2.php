@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form action="Loguear.php" method="post" >
+				<form action="php/Loguear.php" method="post" >
 					<div>
 						<div>
 							<span><i class="fas fa-user"></i></span>
