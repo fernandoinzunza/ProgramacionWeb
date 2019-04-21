@@ -20,23 +20,19 @@
 			</div>
 			<div class="card-body">
 				<form action="Loguear.php" method="post" >
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+					<div>
+						<div>
+							<span><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Usuario" name="user">
-						
+                        <input type="text" class="" placeholder="Usuario" name="user">
 					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="contraseña" name="contra">
+					<div>
+						<input type="password" class="" placeholder="contraseña" name="contra">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recordar
 					</div>
-					<div class="form-group">
+					<div>
 						<input type="submit" value="Entrar" class="btn float-right login_btn">	
 					</div>
 				</form>

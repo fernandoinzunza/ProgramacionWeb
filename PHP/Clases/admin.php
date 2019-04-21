@@ -19,21 +19,20 @@ class Admin{
         {
             $resultado=0;
             $conn = abrirBD();
-        if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM administrador WHERE USER=? AND CONTRASEÑA=?"))
+        if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM administrador WHERE User=? AND Contraseña=?"))
             {
-                $sentencia_preparada->bind_param('ss',$user,$contra);
-                $user =$admin->User;
+                $sentencia_preparada->bind_param('ss',$usuario,$contra);
+                $usuario =$admin->User;
                 $contra = $admin->Contraseña;
                 $sentencia_preparada->execute();
-                $sentencia_preparada->bind_result($numero);
+                $sentencia_preparada->bind_result($user);
                 while($sentencia_preparada->fetch()){
-                $resultado = $numero;
+                $resultado = $user;
                 }
                 $conn->close();
             }
     
             return $resultado;
-            echo $resultado;
         }
         catch (Exception $e)
         {
