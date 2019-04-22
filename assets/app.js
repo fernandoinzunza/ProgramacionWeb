@@ -1,3 +1,4 @@
+
 angular.module('rutas', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
@@ -11,4 +12,4 @@ angular.module('rutas', ['ngRoute'])
                 templateUrl: 'gestor.html'
             })
             .otherwise('/');
-    });
+});
