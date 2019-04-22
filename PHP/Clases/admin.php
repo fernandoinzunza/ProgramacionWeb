@@ -4,10 +4,10 @@ class Admin{
     public $Usuario;
     public $Contraseña;
     public function setUsuario($usuario) {
-       $this->Usuario =$usuario;
+       $this->Usuario = $usuario;
     }
     public function setContraseña($contraseña) {
-        $this->Contraseña =$contraseña;
+        $this->Contraseña = $contraseña;
     }
     
     public function _construct(){
@@ -21,13 +21,15 @@ class Admin{
             $conn = abrirBD();
         if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM administrador WHERE USUARIO=? AND CONTRA=?"))
             {
-                $sentencia_preparada->bind_param('ss',$user,$contra);
-                $user =$admin->Usuario;
+                $sentencia_preparada->bind_param('ss',$usuario,$contra);
+                $usuario =$admin->Usuario;
                 $contra = $admin->Contraseña;
+                echo $usuario;
+                echo $contra;
                 $sentencia_preparada->execute();
-                $sentencia_preparada->bind_result($user);
+                $sentencia_preparada->bind_result($numero);
                 while($sentencia_preparada->fetch()){
-                $resultado = $user;
+                $resultado = $numero;
                 }
                 $conn->close();
             }
