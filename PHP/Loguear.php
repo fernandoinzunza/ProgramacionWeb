@@ -9,7 +9,7 @@ if($resultado>0){
     $usuario= $admin->User;
     $_SESSION['usuario'] = $usuario;
     $_SESSION['loguear'] = "SI";
-   header("Location:../template.html");
+   header("Location:../assets/template.html");
 }
 else{
     header("Location:../log.html");
