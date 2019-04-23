@@ -33,7 +33,7 @@ $(document).ready(function () {
                         $(".toast-body").html(data);
                         $("#toast").addClass("animated");
                         $("#toast").addClass("rollIn");
-                        $(".toast").toast("show");
+                        $("#exampleModal").modal("show");
                     }
                 });
             }
