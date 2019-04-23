@@ -4,14 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <script src="js/usuariosdisponibles.js"></script>
 </head>
+
 <h1>Usuarios</h1>
-<div class="row filtros">
-    <div class=" w-100 ">
+<div class="form-row filtros">
+    <div class="md-form">
         <h4 class="lead">
-            Buscar: 
-            <input type="text" name="busqueda" id="busqueda"placeholder="Buscar">  
+            Buscar:
+            <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Buscar">
         </h4>
     </div>
+</div>
 </div>
 <div class="content">
     <div class="container-fluid">
@@ -19,16 +21,30 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Lista de usuarios</h4>
+                        <p class="category">La búsqueda puede ser por cualquier columna de la tabla</p>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <section class="w-100" id="tabla">
+                        <section class="w-100">
+                            <table class="table table-hover table-striped">
+                                <thead class="encabezado">
+                                    <tr>
+                                        <th class="lead">UserName</th>
+                                        <th class="lead">Contraseña</th>
+                                        <th class="lead">Correo</th>
+                                        <th class="lead">Nombre</th>
+                                        <th class="lead">Apellido_Paterno</th>
+                                        <th class="lead">Apellido_Materno</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla">
 
+                                </tbody>
+                            </table>
                         </section>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>

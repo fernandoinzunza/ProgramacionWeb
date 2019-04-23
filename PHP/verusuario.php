@@ -18,18 +18,6 @@ $buscarUsuarios=$conn->query($query);
 if ($buscarUsuarios->num_rows > 0)
 {
     
-	$tabla.= 
-	'<table class="table table-hover table-striped">
-    <thead class="encabezado">
-    <tr>
-        <th class="lead">UserName</th>
-        <th class="lead">Contraseña</th>
-        <th class="lead">Correo</th>
-        <th class="lead">Nombre</th>
-        <th class="lead">Apellido_Paterno</th>
-        <th class="lead">Apellido_Materno</th>
-    </tr>
-</thead>';
 	while($fila= $buscarUsuarios->fetch_assoc())
 	{
 		$tabla.=
@@ -42,14 +30,12 @@ if ($buscarUsuarios->num_rows > 0)
             <td>'.utf8_encode($fila['ap_mat']).'</td>
 		 </tr>
 		';
+		
+		
 	}
-
-	$tabla.='</table>';
 } else
 	{
 		$tabla="No se encontraron coincidencias con sus criterios de búsqueda.";
 	}
-
-
-echo $tabla;
+	echo $tabla;
 ?>

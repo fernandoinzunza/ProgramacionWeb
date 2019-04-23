@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $("li").click(function(){
-        $("li").removeClass("active");
+    $("#nav").click(function(){
+        $("#nav").removeClass("active");
         var li = $(this);
         $(li).addClass("active");
     })
