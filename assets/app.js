@@ -1,7 +1,10 @@
 
-angular.module('rutas', ['ngRoute'])
-    .config(function ($routeProvider) {
+angular.module("rutas", ['ngRoute'])
+    .config(function ($routeProvider, $locationProvider) {
         $routeProvider
+            .when('/', {
+                templateUrl: 'template.html'
+            })
             .when('/inicio', {
                 templateUrl: 'inicio.html'
             })
@@ -12,4 +15,5 @@ angular.module('rutas', ['ngRoute'])
                 templateUrl: 'gestor.html'
             })
             .otherwise('/');
-});
+            $locationProvider.html5Mode(true);
+    });
