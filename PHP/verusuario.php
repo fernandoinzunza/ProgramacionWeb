@@ -27,7 +27,9 @@ if ($buscarUsuarios->num_rows > 0)
         <th class="lead">Correo</th>
         <th class="lead">Nombre</th>
         <th class="lead">Apellido_Paterno</th>
-        <th class="lead">Apellido_Materno</th>
+		<th class="lead">Apellido_Materno</th>
+        <th class="lead">Modificar</th>
+        <th class="lead">Borrar</th>
     </tr>
 </thead>';
 	while($fila= $buscarUsuarios->fetch_assoc())
@@ -39,7 +41,13 @@ if ($buscarUsuarios->num_rows > 0)
 			<td>'.utf8_encode($fila['correo']).'</td>
 			<td>'.utf8_encode($fila['nombre']).'</td>
 			<td>'.utf8_encode($fila['ap_pat']).'</td>
-            <td>'.utf8_encode($fila['ap_mat']).'</td>
+			<td>'.utf8_encode($fila['ap_mat']).'</td>
+			<td><div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+			<div class="font-icon-detail"><i class="pe-7s-diskette"></i>
+			</div></td>
+			<td><div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+			<div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
+			</div><td>
 		 </tr>
 		';
 	}
