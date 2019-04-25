@@ -50,14 +50,12 @@ if ($buscarUsuarios->num_rows > 0)
 			</div><td>
 		 </tr>
 		';
+		
+		
 	}
-
-	$tabla.='</table>';
 } else
 	{
 		$tabla="No se encontraron coincidencias con sus criterios de búsqueda.";
 	}
-
-
-echo $tabla;
+	echo $tabla;
 ?>

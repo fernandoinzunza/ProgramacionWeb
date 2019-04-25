@@ -12,12 +12,12 @@
     <meta name="viewport" content="width=device-width" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="app.js"></script>
     <!-- Bootstrap core CSS     -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
     <link rel="stylesheet" href="log.css">
     <link rel="stylesheet" href="style.css">
     <!--  Light Bootstrap Table core CSS    -->
@@ -30,41 +30,43 @@
 
 </head>
 
-<body class="container" ng-app="demoApp">
-    <div class="row justify-content-center" style="margin-top:10%">
-        <div class="card">
+<body class="container">
+    <div class="row justify-content-center animated zoomIn" style="margin-top:10%">
+        <div class="card w-50">
             <div class="header">
                 <h4 class="title">Login</h4>
             </div>
             <div class="content">
                 <form action="php/Loguear.php" method="post">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col">
                             <div class="form-group">
                                 <label>Username</label>
                                 <input type="text" class="form-control" placeholder="Username" name="usuario">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" name="contra">
+                                <label>Password</label>
+                                <input type="text" class="form-control" placeholder="Password" name="contra">
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-info btn-fill w-75">Ingresar</button>
+                        <button type="submit" rel="pulse-shrink" class="btn btn-info btn-fill w-75 hvr-pulse">Ingresar</button>
                     </div>
                 </form>
                 <div class="row mt-3">
                     <div class="col-md-6 col-sm-12 mt-2">
                         <div class="row justify-content-center">
-                            <button class="btn btn-link">Olvide mi contraseña</button>
+                            <button class="btn btn-link hvr-pulse">Olvide mi contraseña</button>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 mt-2">
                         <div class="row justify-content-center">
-                            <input type="button" class="btn btn-link" data-target="#exampleModalCenter"
+                            <input type="button" class="btn btn-link hvr-pulse" data-target="#exampleModalCenter"
                                 data-toggle="modal" value="Registrar">
                         </div>
                     </div>
@@ -75,7 +77,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-lg animated rubberBand" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -95,92 +97,89 @@
                                             <h4 class="title">Crear cuenta</h4>
                                         </div>
                                         <div class="content">
-                                            <form>
+                                            <form id="form" class="needs-validation" novalidate>
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Username</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Username">
+                                                                <label>Username</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Username" id="user" required>
+                                                                <div class="invalid-feedback">Ingresa tu nombre!
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">Password</label>
-                                                            <input type="password" class="form-control"
-                                                                placeholder="Password">
+
+                                                                <label for="exampleInputEmail1">Password</label>
+                                                                <input type="password" class="form-control"
+                                                                    placeholder="Password" id="pass" required>
+                                                                <div class="invalid-feedback">Escoge una contraseña!
+                                                                </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Correo electrónico</label>
-                                                            <input type="email" class="form-control"
-                                                                placeholder="Email">
+                                                            <input type="email" class="form-control" placeholder="Email"
+                                                                id="email" required>
+                                                                <div class="invalid-feedback">Ingresa un correo!
+                                                                    </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="row">
-                                                    <div class="col-md-6 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Nombre(s)</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Nombre">
+                                                            <input type="text" class="form-control" placeholder="Nombre"
+                                                                id="nombre" required>
+                                                                <div class="invalid-feedback">Ingresa tu nombre!
+                                                                    </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <div class="form-group">
-                                                            <label>Apellido</label>
+                                                            <label>Apellido Paterno</label>
                                                             <input type="text" class="form-control"
-                                                                placeholder="Apellido">
+                                                                placeholder="Apellido Paterno" id="appat" required>
+                                                                <div class="invalid-feedback">Ingresa tu apellido paterno!
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Apellido Materno</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Apellido Materno" id="apmat" required>
+                                                                <div class="invalid-feedback">Ingresa tu apellido materno!
+                                                                    </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-12 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>Dirección</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Dirección">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>Ciudad</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Ciudad">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>País</label>
-                                                            <input type="text" class="form-control" placeholder="País">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary"
-                                data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-outline-success">Crear cuenta</button>
+                            <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" id="crear" class="btn btn-outline-success hvr-pulse-shrink">Crear cuenta</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
 </body>
 
 <!--   Core JS Files   -->
-<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+    crossorigin="anonymous"></script>
+<script src="js/Registrar.js"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
