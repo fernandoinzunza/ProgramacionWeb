@@ -57,6 +57,75 @@ class Usuario
             echo $error;
         }
     }
+    public function ActualizarDatos($usuario){
+        try
+        {
+         $conn = abrirBD();
+         if($sentencia_preparada =$conn->prepare("UPDATE Usuarios SET PASS=?,CORREO=?,NOMBRE=?,AP_PAT=?,AP_MAT=? WHERE USERNAME=?"))
+         {
+             $sentencia_preparada->bind_param('ssssss',$pass,$correo,$nombre,$appat,$apmat,$username);
+             $username = $usuario->Username;
+             $pass = $usuario->Pass;
+             $correo = $usuario->Correo;
+             $nombre = $usuario->Nombre;
+             $appat = $usuario->Ap_Pat;
+             $apmat = $usuario->Ap_Mat;
+             $sentencia_preparada->execute();
+             $conn->close();
+         }
+        }
+        catch(Exception $e)
+        {
+            $error = $e->getMessage();
+            echo error;
+        }
+    }
+    public function EliminarUsuario($user){
+        try
+        {
+         $conn = abrirBD();
+         if($sentencia_preparada =$conn->prepare("DELETE FROM usuarios WHERE username=?"))
+         {
+             $sentencia_preparada->bind_param('s',$username);
+             $username = $user;
+             $sentencia_preparada->execute();
+             $conn->close();
+         }
+        
+        }
+        catch(Exception $e)
+        {
+            $error = $e->getMessage();
+            echo error;
+        }
+    }
+    public function ObtenerDatos($name,$usa){
+        try
+        {
+         $conn = abrirBD();
+         if($sentencia_preparada =$conn->prepare("SELECT * FROM administrador WHERE USUARIO=?"))
+         {
+             $sentencia_preparada->bind_param('s',$usuario);
+             $usuario = $name;
+             $sentencia_preparada->execute();
+             $sentencia_preparada->bind_result($usuario,$pass,$correo,$nombre,$appat,$apmat);
+             while($sentencia_preparada->fetch()){
+             $usa->setUsername($usuario);
+             $usa->setPass($pass);
+             $usa->setCorreo($correo);
+             $usa->setNombre($nombre);
+             $usa->setAp_Pat($appat);
+             $usa->setAp_Mat($apmat);
+             }
+             $conn->close();
+         }
+        }
+        catch(Exception $e)
+        {
+            $error = $e->getMessage();
+            echo error;
+        }
+    }
 }
 
 ?>

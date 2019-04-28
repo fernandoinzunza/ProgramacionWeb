@@ -1,0 +1,11 @@
+<?php
+session_start();
+if($_SESSION['loguear']!="SI"){
+    header("Location:../log.php");
+    session_destroy();
+}
+else{
+    header("Location:../log.php");
+    session_destroy();
+}
+?>

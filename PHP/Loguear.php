@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("Clases/admin.php");
 $admin = new Admin();
 $admin->setUsuario($_POST['usuario']);
@@ -12,6 +13,6 @@ if($resultado>0){
    header("Location:../assets/");
 }
 else{
-    header("Location:../log.html");
+    header("Location:../log.php");
     }
 ?>

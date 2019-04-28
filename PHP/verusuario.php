@@ -42,12 +42,14 @@ if ($buscarUsuarios->num_rows > 0)
 			<td>'.utf8_encode($fila['nombre']).'</td>
 			<td>'.utf8_encode($fila['ap_pat']).'</td>
 			<td>'.utf8_encode($fila['ap_mat']).'</td>
-			<td><div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-			<div class="font-icon-detail"><i class="pe-7s-diskette"></i>
-			</div></td>
-			<td><div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-			<div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
-			</div><td>
+			<td><div class="font-icon-list">
+			<a href="#/usuarios" data-target="#modificar"
+			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-diskette"></i>
+			</a></div></div></td>
+			<td><div class="font-icon-list">
+			<a href="#/usuarios" data-target="#eliminar"
+			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
+			<a/></div></div><td>
 		 </tr>
 		';
 		

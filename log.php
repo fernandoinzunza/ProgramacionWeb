@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
-
+<?php
+session_start();
+if(isset($_SESSION['loguear']))
+{
+if($_SESSION['loguear']=='SI'){
+            header("Location: log.php");
+        }
+}
+?>
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
