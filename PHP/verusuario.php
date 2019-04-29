@@ -17,21 +17,7 @@ if(isset($_POST['busqueda']))
 $buscarUsuarios=$conn->query($query);
 if ($buscarUsuarios->num_rows > 0)
 {
-    
-	$tabla.= 
-	'<table class="table table-hover table-striped">
-    <thead class="encabezado">
-    <tr>
-        <th class="lead">UserName</th>
-        <th class="lead">Contraseña</th>
-        <th class="lead">Correo</th>
-        <th class="lead">Nombre</th>
-        <th class="lead">Apellido_Paterno</th>
-		<th class="lead">Apellido_Materno</th>
-        <th class="lead">Modificar</th>
-        <th class="lead">Borrar</th>
-    </tr>
-</thead>';
+	$tabla="";
 	while($fila= $buscarUsuarios->fetch_assoc())
 	{
 		$tabla.=
@@ -43,9 +29,7 @@ if ($buscarUsuarios->num_rows > 0)
 			<td>'.utf8_encode($fila['ap_pat']).'</td>
 			<td>'.utf8_encode($fila['ap_mat']).'</td>
 			<td><div class="font-icon-list">
-			<a href="#/usuarios" data-target="#modificar"
-			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-diskette"></i>
-			</a></div></div></td>
+			<button id="editar"data-toggle="modal" data-id="'.utf8_encode($fila['username']).'"><div class="font-icon-detail"><i class="pe-7s-diskette"></i></button></div></div></td>
 			<td><div class="font-icon-list">
 			<a href="../php/eliminar.php" id="eliminar"><div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
 			<a/></div></div><td>

@@ -103,7 +103,7 @@ class Usuario
         try
         {
          $conn = abrirBD();
-         if($sentencia_preparada =$conn->prepare("SELECT * FROM administrador WHERE USUARIO=?"))
+         if($sentencia_preparada =$conn->prepare("SELECT * FROM usuario WHERE USUARIO=?"))
          {
              $sentencia_preparada->bind_param('s',$usuario);
              $usuario = $name;
@@ -123,7 +123,7 @@ class Usuario
         catch(Exception $e)
         {
             $error = $e->getMessage();
-            echo error;
+            echo $error;
         }
     }
 }
