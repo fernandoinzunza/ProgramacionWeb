@@ -47,8 +47,7 @@ if ($buscarUsuarios->num_rows > 0)
 			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-diskette"></i>
 			</a></div></div></td>
 			<td><div class="font-icon-list">
-			<a href="#/usuarios" data-target="#eliminar"
-			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
+			<a href="../php/eliminar.php" id="eliminar"><div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
 			<a/></div></div><td>
 		 </tr>
 		';

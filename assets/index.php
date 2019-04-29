@@ -8,7 +8,6 @@ if($_SESSION['loguear']!='SI'){
 require_once('../php/Clases/conexion.php');
 require_once('../php/Clases/admin.php');
 $name = "pepe";
-echo $name;
 $sql = "SELECT username,pass,Correo,Nombre,Ap_Pat,Ap_Mat FROM usuarios WHERE username='$name'";
 $conn = abrirBD();
 $resultado = $conn->query($sql);
@@ -63,6 +62,7 @@ $nombre = utf8_encode($admin->Usuario);
     <script src="rutas.js"></script>
     <script src="js/style.js"></script>
     <script src="../js/modificar.js"></script>
+    <script src="../js/eliminar.js"></script>
 </head>
 
 <body>
@@ -285,29 +285,13 @@ $nombre = utf8_encode($admin->Usuario);
                 </div>
             </div>
         <!--Modal de Eliminar-->
-        <div class="modal fade" id="Eliminar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="modalLabel">
-                                Mensaje del Sistema
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row mt-2 justify-content-center">
-                                ¿Seguro que desea cerrar la sesión?
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a class="btn btn-warning lead" href="#"style="color:red;">Aceptar</a>
-                            <button type="button" class="btn btn-primary lead" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-    </div>
+<script language="javascript">
+$(document).ready(function(){
+    $("#eliminar").click(function(){
+    window.location.href='eliminar.php?nc=<?php echo $name;?>';
+    });
+});
+</script>
 </body>
 
 
