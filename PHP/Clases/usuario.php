@@ -103,7 +103,7 @@ class Usuario
         try
         {
          $conn = abrirBD();
-         if($sentencia_preparada =$conn->prepare("SELECT * FROM usuario WHERE USUARIO=?"))
+         if($sentencia_preparada = $conn->prepare("SELECT * FROM usuarios WHERE USERNAME=?"))
          {
              $sentencia_preparada->bind_param('s',$usuario);
              $usuario = $name;
