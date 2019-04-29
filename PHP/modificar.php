@@ -8,5 +8,5 @@ $usuario->setNombre(strip_tags($_POST['nombre']));
 $usuario->setApPat(strip_tags($_POST['appat']));
 $usuario->setApMat(strip_tags($_POST['apmat']));
 $usuario->ActualizarDatos($usuario);
-echo "Se Modifico Exitosamente correctamente!";
+echo "Usuario modificado Exitosamente";
 ?>

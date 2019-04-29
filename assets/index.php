@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="en" ng-app='rutas'>
 <?php
 session_start();
 if($_SESSION['loguear']!='SI'){
@@ -7,26 +6,16 @@ if($_SESSION['loguear']!='SI'){
 }
 require_once('../php/Clases/conexion.php');
 require_once('../php/Clases/admin.php');
-$name = "pepe";
-$sql = "SELECT username,pass,Correo,Nombre,Ap_Pat,Ap_Mat FROM usuarios WHERE username='$name'";
-$conn = abrirBD();
-$resultado = $conn->query($sql);
-while($resul = mysqli_fetch_array($resultado)){ 
-    $name = $resul[0];
-    $contraseña = $resul[1];
-    $correo = $resul[2];
-    $Nombrea = $resul[3];
-    $Ape_pat = $resul[4];
-    $Ape_mat = $resul[5];
-    }
-$conn->close();  
 $admin = new Admin();
-$usuario = $_SESSION['usuario'];
-$admin->ObtenerDatos($usuario,$admin);
-$user = $usuario;
+$user = $_SESSION['usuario'];
+$admin->ObtenerDatos($user,$admin);
+$name = $user;
 $nombre = utf8_encode($admin->Usuario);
-?>
+echo $nombre;
 
+?>
+<?php include('modal.php');?>
+<html lang="en" ng-app='rutas'>
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -63,9 +52,10 @@ $nombre = utf8_encode($admin->Usuario);
     <script src="http://code.angularjs.org/1.3.14/angular-route.min.js"></script>
     <script src="http://code.angularjs.org/1.3.14/i18n/angular-locale_es-es.js"></script>
     <script src="rutas.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/modificar.js"></script>
+    <script src="../js/eliminar.js"></script>
     <script src="js/style.js"></script>
-    <script src="js/MostrarDatos.js"></script>
-    <script src="js/ModificarUsuario.js"></script>
 </head>
 
 <body>
@@ -190,111 +180,48 @@ $nombre = utf8_encode($admin->Usuario);
                     </div>
                 </div>
     </div>
-    <!--Modal de Modificar-->
-    <div class="modal fade bd-example-modal-lg animated rubberBand" id="modificar" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modificar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="modal fade" id="borrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea eliminar
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" name="eliminar" id="eliminar" data-dismiss="modal">Confirmar</button>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <div class="">
-                <div class="">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Modificar cuenta</h4>
+        <div class="modal fade" id="mensaje" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modalLabel">
+                                        Mensaje del Sistema
+                                    </h4>
+                                    <button type="button" class="close" data-dismiss="modal" id="" name="" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="content">
-                                    <form id="form" class="needs-validation" novalidate>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Username" id="user" value="<?php echo $name;?>" required>
-                                                        <div class="invalid-feedback">Ingresa tu nombre!
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-
-                                                        <label for="exampleInputEmail1">Password</label>
-                                                        <input type="password" class="form-control"
-                                                            placeholder="Password" id="pass" value="<?php echo $contraseña;?>" required>
-                                                        <div class="invalid-feedback">Escoge una contraseña!
-                                                        </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Correo electrónico</label>
-                                                    <input type="email" class="form-control" placeholder="Email"
-                                                        id="email" value="<?php echo $correo;?>" required>
-                                                        <div class="invalid-feedback">Ingresa un correo!
-                                                            </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Nombre(s)</label>
-                                                    <input type="text" class="form-control" placeholder="Nombre"
-                                                        id="nombre" value="<?php echo $Nombrea;?>" required>
-                                                        <div class="invalid-feedback">Ingresa tu nombre!
-                                                            </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Apellido Paterno</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Apellido Paterno" id="appat" value="<?php echo $Ape_pat;?>" required>
-                                                        <div class="invalid-feedback">Ingresa tu apellido paterno!
-                                                        </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Apellido Materno</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Apellido Materno" id="apmat" value="<?php echo $Ape_mat;?>" required>
-                                                        <div class="invalid-feedback">Ingresa tu apellido materno!
-                                                            </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                <div class="modal-body" id="mens">
+                                </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary lead" id="" name="" data-dismiss="modal">Aceptar</button>
+                                  </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" id="modificar" class="btn btn-outline-success hvr-pulse-shrink">Modificar</button>
-                </div>
-                </form>
-            </div>
+            
         </div>
-    </div>
-        <!--Modal de Eliminar-->
-<script language="javascript">
-$(document).ready(function(){
-    $("#eliminar").click(function(){
-    window.location.href='eliminar.php?nc=<?php echo $name;?>';
-    });
-});
-</script>
 </body>
 
 
