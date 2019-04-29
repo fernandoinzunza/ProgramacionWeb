@@ -17,37 +17,21 @@ if(isset($_POST['busqueda']))
 $buscarUsuarios=$conn->query($query);
 if ($buscarUsuarios->num_rows > 0)
 {
-    
-	$tabla.= 
-	'<table class="table table-hover table-striped">
-    <thead class="encabezado">
-    <tr>
-        <th class="lead">UserName</th>
-        <th class="lead">Contraseña</th>
-        <th class="lead">Correo</th>
-        <th class="lead">Nombre</th>
-        <th class="lead">Apellido_Paterno</th>
-		<th class="lead">Apellido_Materno</th>
-        <th class="lead">Modificar</th>
-        <th class="lead">Borrar</th>
-    </tr>
-</thead>';
 	while($fila= $buscarUsuarios->fetch_assoc())
 	{
 		$tabla.=
 		'<tr>
-            <td>'.utf8_encode($fila['username']).'</td>
-            <td>'.utf8_encode($fila['pass']).'</td>   
-			<td>'.utf8_encode($fila['correo']).'</td>
-			<td>'.utf8_encode($fila['nombre']).'</td>
-			<td>'.utf8_encode($fila['ap_pat']).'</td>
-			<td>'.utf8_encode($fila['ap_mat']).'</td>
+            <td><span id ="username"</span>'.utf8_encode($fila['username']).'</td>
+            <td><span id = "pass'.$fila['username'].'"</span>'.utf8_encode($fila['pass']).'</td>   
+			<td><span id = "correo'.$fila['username'].'"</span>'.utf8_encode($fila['correo']).'</td>
+			<td><span id = "nombre'.$fila['username'].'"</span>'.utf8_encode($fila['nombre']).'</td>
+			<td><span id = "appat'.$fila['username'].'"</span>'.utf8_encode($fila['ap_pat']).'</td>
+			<td><span id = "apmat'.$fila['username'].'"</span>'.utf8_encode($fila['ap_mat']).'</td>
 			<td><div class="font-icon-list">
-			<a href="#/usuarios" data-target="#modificar"
-			data-toggle="modal"><div class="font-icon-detail"><i class="pe-7s-diskette"></i>
-			</a></div></div></td>
+			<div class="font-icon-detail"><button type="button" id="mostrar" value="'.$fila['username'].'" ><i class="pe-7s-diskette"></i></button>
+			</div></div></td>
 			<td><div class="font-icon-list">
-			<a href="../php/eliminar.php" id="eliminar"><div class="font-icon-detail"><i class="pe-7s-delete-user"></i>
+			<a><div class="font-icon-detail"><button type="button" id="elim" value="'.$fila['username'].'" data-toggle="modal" data-target="#borrar" ><i class="pe-7s-delete-user"></i></button>
 			<a/></div></div><td>
 		 </tr>
 		';

@@ -2,15 +2,11 @@ $(document).ready(function () {
     $("#modificar").click(function () {
         var user = $("#user").val();
         var pass = $("#pass").val();
-        var email = $("#email").val();
+        var email = $("#correo").val();
         var nombre = $("#nombre").val();
         var appat = $("#appat").val();
         var apmat = $("#apmat").val();
-        $('#form').submit(function (event) {
-            event.preventDefault();
-            if ($('#form')[0].checkValidity() === false) {
-                event.stopPropagation();
-            } else {
+        var mens = $("#mens");
                 $.ajax({
                     url: '../php/modificar.php',
                     method: 'POST',
@@ -23,21 +19,12 @@ $(document).ready(function () {
                         apmat: apmat
                     },
                     success: function (data) {
-                        $("#user").val("");
-                        $("#pass").val("");
-                        $("#email").val("");
-                        $("#nombre").val("");
-                        $("#appat").val("");
-                        $("#apmat").val("");
-                        $(".toast-body").html(data);
-                        $("#toast").addClass("animated");
-                        $("#toast").addClass("rollIn");
-                        $("#exampleModal").modal("show");
+                        $("#edit").modal("hide");
+                        $("#tabla").load('../php/verusuario.php');
+                        mens.text(data);
+                        $("#mensaje").modal("show");
                     }
                 });
-            }
-            $('#form').addClass('was-validated');
-        });
         
     });
 });
