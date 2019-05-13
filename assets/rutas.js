@@ -10,5 +10,8 @@ angular.module("rutas", ['ngRoute'])
             .when('/gestor', {
                 templateUrl: 'gestor.html'
             })
+            .when('/articulos', {
+                templateUrl: 'articulos.html'
+            })
             .otherwise('/');
     });

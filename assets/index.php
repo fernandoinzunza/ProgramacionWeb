@@ -15,6 +15,7 @@ echo $nombre;
 
 ?>
 <?php include('modal.php');?>
+<?php include('modal2.php');?>
 <html lang="en" ng-app='rutas'>
 <head>
     <meta charset="utf-8" />
@@ -55,6 +56,9 @@ echo $nombre;
     <script src="../js/custom.js"></script>
     <script src="../js/modificar.js"></script>
     <script src="../js/eliminar.js"></script>
+    <script src="../js/modalarticulo.js"></script>
+    <script src="../js/modificararticulo.js"></script>
+    <script src="../js/eliminararticulo.js"></script>
     <script src="js/style.js"></script>
 </head>
 
@@ -87,6 +91,12 @@ echo $nombre;
                         <a href="#/usuarios" class="hvr-wobble-horizontal">
                             <i class="pe-7s-user"></i>
                             <p>Usuarios</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/articulos" class="hvr-wobble-horizontal">
+                            <i class="pe-7s-wallet"></i>
+                            <p>Articulos</p>
                         </a>
                     </li>
 
