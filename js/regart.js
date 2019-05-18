@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    var fileName = ""
+    $("#imagenes").change(function (){
+        fileName = $(this).val().replace("C:\\fakepath\\", "../assets/img/");
+        });
     $('#regart').click(function(){
         var codi = $('#codi').val();
         var titu = $('#titu').val();
@@ -7,8 +11,8 @@ $(document).ready(function(){
         var descrip = $('#descrip').val();
         var prec = $('#prec').val();
         var unid = $('#unid').val();
-        var imagenes = $('#imagenes').val();
-        var msj = $('#msj');
+        var imagenes = fileName;
+        var msj = $('#mens');
             $.ajax({
                 url: '../php/registrarart.php',
                 method:'POST',
@@ -19,7 +23,7 @@ $(document).ready(function(){
                     auto:auto,
                     descrip:descrip,
                     prec:prec,
-                    unidad:unid,
+                    unid:unid,
                     imagenes:imagenes
                 },
                 success: function(data){
@@ -34,10 +38,9 @@ $(document).ready(function(){
                     $('#regisart').modal("hide");
                     $("#tabla").load('../php/verarticulos.php');
                     msj.text(data);
-                    $('#msj').modal("show");
+                    $('#mensaje').modal("show");
                 }
             });
-
     });
 
 });
