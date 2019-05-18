@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var fileName = ""
     $("#imagenes").change(function (){
-        fileName = $(this).val().replace("C:\\fakepath\\", "../assets/img/");
+        fileName = $(this).val().replace("C:\\fakepath\\", "");
         });
     $('#regart').click(function(){
         var codi = $('#codi').val();
