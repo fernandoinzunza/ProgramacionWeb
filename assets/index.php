@@ -259,14 +259,14 @@ echo $nombre;
                                                         <div class="form-group">
                                                                 <label>Codigo</label>
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Codigo" id="codigo" required>
+                                                                    placeholder="Codigo" id="codi" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                                 <label>Titulo</label>
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Titulo" id="titulo" required>
+                                                                    placeholder="Titulo" id="titu" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -275,7 +275,7 @@ echo $nombre;
                                                         <div class="form-group">
                                                             <label >Categoria</label>
                                                             <input type="text" class="form-control" placeholder="Categoria"
-                                                                id="categoria" required>
+                                                                id="cate" required>
                                                                 
                                                         </div>
                                                     </div>
@@ -283,7 +283,7 @@ echo $nombre;
                                                         <div class="form-group">
                                                             <label>Autor</label>
                                                             <input type="text" class="form-control" placeholder="Autor"
-                                                                id="autor" required>
+                                                                id="auto" required>
                                                                 
                                                         </div>
                                                     </div>
@@ -293,7 +293,7 @@ echo $nombre;
                                                         <div class="form-group">
                                                             <label>Descripcion</label>
                                                             <br>
-                                                            <textarea name="descripcion" id="descripcion" form="form" rows="4" cols="110">
+                                                            <textarea name="descripcion" id="descrip" form="form" rows="4" cols="110">
 
                                                             </textarea>
                                                         </div>
@@ -304,20 +304,20 @@ echo $nombre;
                                                         <div class="form-group">
                                                             <label>Precio</label>
                                                             <input type="text" class="form-control" placeholder="Precio"
-                                                                id="precio" required>
+                                                                id="prec" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Unidades</label>
                                                             <input type="text" class="form-control"
-                                                                placeholder="Unidades" id="unidades" required>
+                                                                placeholder="Unidades" id="unid" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 col-sm-12">
                                                             <label>Imagen</label>
                                                             <input type="file" class="btn btn-info"
-                                                                name="uploadedfile" id="imagen" required>
+                                                                name="uploadedfile" id="imagenes" required>
                                                     </div>
                                                 </div>
 
