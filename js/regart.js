@@ -1,36 +1,36 @@
 $(document).ready(function(){
     $('#regart').click(function(){
-        var cod = $('#codigo').val();
-        var titulo = $('#titulo').val();
-        var categoria = $('#categoria').val();
-        var autor = $('#autor').val();
-        var descripcion = $('#descripcion').val();
-        var precio = $('#precio').val();
-        var unidades = $('#unidades').val();
-        var imagen = $('#imagen').val();
+        var codi = $('#codi').val();
+        var titu = $('#titu').val();
+        var cate = $('#cate').val();
+        var auto = $('#auto').val();
+        var descrip = $('#descrip').val();
+        var prec = $('#prec').val();
+        var unid = $('#unid').val();
+        var imagenes = $('#imagenes').val();
         var msj = $('#msj');
             $.ajax({
                 url: '../php/registrarart.php',
                 method:'POST',
                 data:{
-                    cod:cod,
-                    titulo,titulo,
-                    categoria:categoria,
-                    autor:autor,
-                    descripcion:descripcion,
-                    precio:precio,
-                    unidades:unidades,
-                    imagen:imagen
+                    codi:codi,
+                    titu,titu,
+                    cate:cate,
+                    auto:auto,
+                    descrip:descrip,
+                    prec:prec,
+                    unidad:unid,
+                    imagenes:imagenes
                 },
                 success: function(data){
-                    $('#codigo').val("");
-                    $('#titulo').val("");
-                    $('#categoria').val("");
-                    $('#autor').val("");
-                    $('#descripcion').val("");
-                    $('#precio').val("");
-                    $('#unidades').val("");
-                    $('#imagen').val("");
+                    $('#codi').val("");
+                    $('#titu').val("");
+                    $('#cate').val("");
+                    $('#auto').val("");
+                    $('#descrip').val("");
+                    $('#prec').val("");
+                    $('#unid').val("");
+                    $('#imagenes').val("");
                     $('#regisart').modal("hide");
                     $("#tabla").load('../php/verarticulos.php');
                     msj.text(data);
