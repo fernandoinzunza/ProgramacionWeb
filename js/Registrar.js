@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $("#crear").click(function () {
         var user = $("#user").val();
         var pass = $("#pass").val();

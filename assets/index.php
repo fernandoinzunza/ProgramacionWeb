@@ -22,7 +22,7 @@ echo $nombre;
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-    <base href="/ProgWeb/assets/"/>
+    <base href="/proyectoweb/ProgramacionWeb/assets/"/>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -55,6 +55,7 @@ echo $nombre;
     <script src="rutas.js"></script>
     <script src="../js/custom.js"></script>
     <script src="../js/modificar.js"></script>
+    <script src="../js/regart.js"></script>
     <script src="../js/eliminar.js"></script>
     <script src="../js/modalarticulo.js"></script>
     <script src="../js/modificararticulo.js"></script>
@@ -94,10 +95,10 @@ echo $nombre;
                         </a>
                     </li>
                     <li>
-                        <a href="#/articulos" class="hvr-wobble-horizontal">
-                            <i class="pe-7s-wallet"></i>
-                            <p>Articulos</p>
-                        </a>
+                            <a href="#/articulos" class="hvr-wobble-horizontal dropdown-toggle">
+                                <i class="pe-7s-wallet"></i>
+                                <p>Articulos</p>
+                            </a>
                     </li>
 
                 </ul>
@@ -232,6 +233,109 @@ echo $nombre;
                         </div>
             
         </div>
+<div class="modal fade bd-example-modal-lg animated rubberBand" id="regisart" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Articulos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <div class="">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="header">
+                                            <h4 class="title">Registrar Articulo</h4>
+                                        </div>
+                                        <div class="content">
+                                            <form id="form" class="needs-validation" novalidate>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                                <label>Codigo</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Codigo" id="codigo" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                                <label>Titulo</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Titulo" id="titulo" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label >Categoria</label>
+                                                            <input type="text" class="form-control" placeholder="Categoria"
+                                                                id="categoria" required>
+                                                                
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Autor</label>
+                                                            <input type="text" class="form-control" placeholder="Autor"
+                                                                id="autor" required>
+                                                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Descripcion</label>
+                                                            <br>
+                                                            <textarea name="descripcion" id="descripcion" form="form" rows="4" cols="110">
+
+                                                            </textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Precio</label>
+                                                            <input type="text" class="form-control" placeholder="Precio"
+                                                                id="precio" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Unidades</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Unidades" id="unidades" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-12">
+                                                            <label>Imagen</label>
+                                                            <input type="file" class="btn btn-info"
+                                                                name="uploadedfile" id="imagen" required>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" id="regart" class="btn btn-success">Registrar</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 </body>
 
 
