@@ -191,7 +191,7 @@ echo $nombre;
                     </div>
                 </div>
     </div>
-    <div class="modal fade" id="borrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="borrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -212,27 +212,26 @@ echo $nombre;
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="mensaje" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="modalLabel">
-                                        Mensaje del Sistema
-                                    </h4>
-                                    <button type="button" class="close" data-dismiss="modal" id="" name="" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body" id="mens">
-                                </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary lead" id="" name="" data-dismiss="modal">Aceptar</button>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-            
+</div>
+<div class="modal fade" id="mensaje" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalLabel">
+                    Mensaje del Sistema
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" id="" name="" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="mens">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary lead" id="" name="" data-dismiss="modal">Aceptar</button>
+            </div>
         </div>
+    </div>
+</div>
 <div class="modal fade bd-example-modal-lg animated rubberBand" id="regisart" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -253,7 +252,7 @@ echo $nombre;
                                             <h4 class="title">Registrar Articulo</h4>
                                         </div>
                                         <div class="content">
-                                            <form id="form" class="needs-validation" novalidate>
+                                            <form id="form" class="needs-validation" enctype="multipart/form-data" novalidate>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -315,9 +314,11 @@ echo $nombre;
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 col-sm-12">
+                                                        <div class="form-group">
                                                             <label>Imagen</label>
                                                             <input type="file" class="btn btn-info"
-                                                                name="uploadedfile" id="imagenes" required>
+                                                                name="archivos  " id="imagenes"  required>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -336,6 +337,13 @@ echo $nombre;
             </div>
         </div>
 </div>
+<script>
+$(document).ready(function(){
+    $("#imagenes").change(function (){
+              var fileName = $(this).val().replace("C:\\fakepath\\", "");
+            });
+});
+</script>
 </body>
 
 
