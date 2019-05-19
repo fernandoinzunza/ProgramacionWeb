@@ -1,27 +1,22 @@
 $(document).ready(function () {
     $("#modificarart").click(function () {
-        var cod = $("#cod").val();
-        var tit = $("#tit").val();
-        var cat = $("#cat").val();
-        var aut = $("#aut").val();
-        var des = $("#des").val();
-        var pc = $("#pc").val();
-        var uni = $("#uni").val();
-        var img = $("#img").val();
+        var frmData = new FormData;
+        frmData.append("cod",$("#cod").val());
+        frmData.append("tit",$("#tit").val());
+        frmData.append("cat",$("#cat").val());
+        frmData.append("aut",$("#aut").val());
+        frmData.append("des",$("#des").val());
+        frmData.append("pc",$("#pc").val());
+        frmData.append("uni",$("#uni").val());
+        frmData.append("img",$("input[name=img]")[0].files[0]);
         var mens = $("#mens");
                 $.ajax({
                     url: '../php/modificararticulo.php',
                     method: 'POST',
-                    data: {
-                        cod: cod,
-                        tit: tit,
-                        cat: cat,
-                        aut: aut,
-                        des: des,
-                        pc: pc,
-                        uni:uni,
-                        img:img
-                    },
+                    data:frmData,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
                     success: function (data) {
                         $("#edit").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
