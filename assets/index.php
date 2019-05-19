@@ -16,6 +16,7 @@ echo $nombre;
 ?>
 <?php include('modal.php');?>
 <?php include('modal2.php');?>
+<?php include('imagenModal.php');?>
 <html lang="en" ng-app='rutas'>
 <head>
     <meta charset="utf-8" />
@@ -53,6 +54,7 @@ echo $nombre;
     <script src="http://code.angularjs.org/1.3.14/angular-route.min.js"></script>
     <script src="http://code.angularjs.org/1.3.14/i18n/angular-locale_es-es.js"></script>
     <script src="rutas.js"></script>
+    <script src="js/SubirImagen.js"></script>
     <script src="../js/custom.js"></script>
     <script src="../js/modificar.js"></script>
     <script src="../js/regart.js"></script>
@@ -337,13 +339,6 @@ echo $nombre;
             </div>
         </div>
 </div>
-<script>
-$(document).ready(function(){
-    $("#imagenes").change(function (){
-              var fileName = $(this).val().replace("C:\\fakepath\\", "");
-            });
-});
-</script>
 </body>
 
 
