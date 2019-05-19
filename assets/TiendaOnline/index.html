@@ -53,7 +53,6 @@
                       <span class="count">2</span>
                     </a>
                   </li> 
-                  <li><button class="btn btn-outline-secondary" data-toggle="modal" data-target="#modal">Sign up</button></li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
               </div> 
@@ -62,42 +61,35 @@
           </div>
         </div>
       </div> 
+     <div class="container"> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
-          <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
-              <a href="index.html">Inicio</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
+          <ul class="nav site-menu js-clone-nav d-none d-md-block">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
             </li>
-            <li class="has-children">
-              <a href="about.html">About</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
+            <li class="nav-item dropdown"><a href="#">Categorias</a>
+              <div class="dropdown-menu">
+                <a href="#">Menu One</a>
+              </div>
             </li>
-            <li><a href="#">Catalogo</a></li>
-            <li><a href="#">Nuevos</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mi Cuenta</a>
+              <div class="dropdown-menu">
+                <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
+                <button class="dropdown-item"><a href="../../log.php">Ingresar</a></button>
+              </div>
+            </li>
             <li><a href="contact.html">Contacto</a></li>
           </ul>
         </div>
       </nav>
+    </div>
     </header>
-
-    <div class="site-blocks-cover" style="background-image: url(images/libro.jpg);" data-aos="fade">
+    <div class="site-blocks-cover" style="background: url(images/libro.jpg);" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">

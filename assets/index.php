@@ -23,7 +23,7 @@ echo $nombre;
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-    <base href="/ProgWeb/assets/"/>
+    <base href="/proyectoweb/ProgramacionWeb/assets/"/>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -254,7 +254,7 @@ echo $nombre;
                                             <h4 class="title">Registrar Articulo</h4>
                                         </div>
                                         <div class="content">
-                                            <form id="form" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                            <form method="post" id="forms" enctype="multipart/form-dat" novalidate>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -285,7 +285,6 @@ echo $nombre;
                                                             <label>Autor</label>
                                                             <input type="text" class="form-control" placeholder="Autor"
                                                                 id="auto" required>
-                                                                
                                                         </div>
                                                     </div>
                                                 </div>
@@ -294,36 +293,43 @@ echo $nombre;
                                                         <div class="form-group">
                                                             <label>Descripcion</label>
                                                             <br>
-                                                            <textarea name="descripcion" id="descrip" form="form" rows="4" cols="110">
-
+                                                            <textarea name="descripcion" id="descrip" form="form" rows="4" cols="90 ">
                                                             </textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Precio</label>
                                                             <input type="text" class="form-control" placeholder="Precio"
                                                                 id="prec" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Unidades</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Unidades" id="unid" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>Imagen</label>
-                                                            <input type="file" class="btn btn-info"
-                                                                name="archivos  " id="imagenes"  required>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                            <img class="card-img-left" style="width: 18rem;" src="TiendaOnline/images/libro.jpg"
+                                                                alt="Card image cap" id="referencia">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">Imagen</h5>
+                                                                    <label class="custom-file" id="customFile">
+                                                                    <input type="file" class="custom-file-input" name="imagen" id="imagenes">
+                                                                    <span class="custom-file-control form-control-file"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </div> 
                                                 </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -331,7 +337,7 @@ echo $nombre;
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" id="regart" class="btn btn-success">Registrar</button>
+                            <button type="button" id="regart" class="btn btn-success">Registrar</button>
                         </div>
                         </form>
                     </div>
