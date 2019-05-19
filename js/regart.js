@@ -1,32 +1,23 @@
 $(document).ready(function(){
-    var fileName = ""
-    $("#imagenes").change(function (){
-        fileName = $(this).val().replace("C:\\fakepath\\", "");
-        });
     $('#regart').click(function(){
-        var codi = $('#codi').val();
-        var titu = $('#titu').val();
-        var cate = $('#cate').val();
-        var auto = $('#auto').val();
-        var descrip = $('#descrip').val();
-        var prec = $('#prec').val();
-        var unid = $('#unid').val();
-        var imagenes = fileName;
-        var msj = $('#mens');
+        var frmData = new FormData;
+        frmData.append("codi",$("#codi").val());
+        frmData.append("titu",$("#titu").val());
+        frmData.append("cate",$("#cate").val());
+        frmData.append("auto",$("#auto").val());
+        frmData.append("descrip",$("#descrip").val());
+        frmData.append("prec",$("#prec").val());
+        frmData.append("unid",$("#unid").val());
+        frmData.append("imagen",$("input[name=imagen]")[0].files[0]);
             $.ajax({
                 url: '../php/registrarart.php',
                 method:'POST',
-                data:{
-                    codi:codi,
-                    titu,titu,
-                    cate:cate,
-                    auto:auto,
-                    descrip:descrip,
-                    prec:prec,
-                    unid:unid,
-                    imagenes:imagenes
-                },
-                success: function(data){
+                data:frmData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data){            
+                    $("#referencia").attr("src",data);
                     $('#codi').val("");
                     $('#titu').val("");
                     $('#cate').val("");
@@ -34,7 +25,6 @@ $(document).ready(function(){
                     $('#descrip').val("");
                     $('#prec').val("");
                     $('#unid').val("");
-                    $('#imagenes').val("");
                     $('#regisart').modal("hide");
                     $("#tabla").load('../php/verarticulos.php');
                     msj.text(data);

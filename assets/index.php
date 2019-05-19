@@ -58,7 +58,6 @@ echo $nombre;
     <script src="../js/custom.js"></script>
     <script src="../js/modificar.js"></script>
     <script src="../js/regart.js"></script>
-    <script src="../js/subimagen.js"></script>
     <script src="../js/eliminar.js"></script>
     <script src="../js/modalarticulo.js"></script>
     <script src="../js/modificararticulo.js"></script>

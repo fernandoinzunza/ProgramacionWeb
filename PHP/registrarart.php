@@ -8,7 +8,18 @@ $articulo->setAutor(strip_tags($_POST['auto']));
 $articulo->setDescripcion(strip_tags($_POST['descrip']));
 $articulo->setPrecio(strip_tags($_POST['prec']));
 $articulo->setUnidades(strip_tags($_POST['unid']));
-$articulo->setImagen(strip_tags($_POST['imagenes']));
+$ruta_carpeta="../assets/img/";
+$nombre_imagen = "imagenPrincipal".date('dHis').".".pathinfo($_FILES['imagen']['name'],PATHINFO_EXTENSION);
+$ruta_guardar_archivo=$ruta_carpeta.$nombre_imagen;
+if(move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta_guardar_archivo))
+{
+    $articulo->setImagen(strip_tags($nombre_imagen));
+}
+else
+{
+    echo "no se pudo";
+}
 $articulo->RegistrarArticulo($articulo);
-echo "Se registró correctamente!";
+echo "se registro";
+
 ?>
