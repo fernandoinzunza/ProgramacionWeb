@@ -252,7 +252,7 @@ echo $nombre;
                                             <h4 class="title">Registrar Articulo</h4>
                                         </div>
                                         <div class="content">
-                                            <form id="form" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                            <form method="post" action="#" enctype="multipart/form-dat" novalidate>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -316,8 +316,8 @@ echo $nombre;
                                                     <div class="col-md-3 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Imagen</label>
-                                                            <input type="file" class="btn btn-info"
-                                                                name="archivos  " id="imagenes"  required>
+                                                            <input type="file" class="form-control-file"
+                                                                name="imagenes" id="imagenes"  required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -329,7 +329,7 @@ echo $nombre;
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" id="regart" class="btn btn-success">Registrar</button>
+                            <button type="button" id="regart" class="btn btn-success">Registrar</button>
                         </div>
                         </form>
                     </div>
@@ -337,13 +337,6 @@ echo $nombre;
             </div>
         </div>
 </div>
-<script>
-$(document).ready(function(){
-    $("#imagenes").change(function (){
-              var fileName = $(this).val().replace("C:\\fakepath\\", "");
-            });
-});
-</script>
 </body>
 
 
