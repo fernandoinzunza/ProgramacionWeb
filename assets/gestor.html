@@ -1,7 +1,10 @@
 <h1>Gestor de contenido</h1>
+<head>
+    <script src="js/SubirImagen.js"></script>
+</head>
 
 
-<div class="form-row filtros">
+<div class="form-row filtros" >
     <div class="md-form">
         <div class="row">
             <div class="col-md-6">
@@ -26,17 +29,19 @@
                 </h4>
             </div>
         </div>
+        <form  id="formImg" method="post" enctype="multipart/form-data">
             <div class="card text-center" style="width: 18rem; margin: 0 auto;">
                 <img class="card-img-top" style="width: 18rem;" src="TiendaOnline/images/libro.jpg"
-                    alt="Card image cap">
+                    alt="Card image cap" id="referencia">
                 <div class="card-body">
                     <h5 class="card-title">Imagen principal</h5>
                     <label class="custom-file" id="customFile">
-                        <input type="file" class="custom-file-input" id="image">
+                        <input type="file" class="custom-file-input" name="imagen" id="image">
                         <span class="custom-file-control form-control-file"></span>
                     </label>
-                    <button class="btn btn-primary" id="upload">Subir imagen</button>
+                    <button type="submit" class="btn btn-primary" id="upload">Subir Imagen</button>
                 </div>
             </div>
+        </form>
     </div>
 </div>
