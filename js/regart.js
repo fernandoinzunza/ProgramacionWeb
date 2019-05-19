@@ -16,8 +16,7 @@ $(document).ready(function(){
                 processData: false,
                 contentType: false,
                 cache: false,
-                success: function(data){            
-                    $("#referencia").attr("src",data);
+                success: function(data){
                     $('#codi').val("");
                     $('#titu').val("");
                     $('#cate').val("");
@@ -27,7 +26,7 @@ $(document).ready(function(){
                     $('#unid').val("");
                     $('#regisart').modal("hide");
                     $("#tabla").load('../php/verarticulos.php');
-                    msj.text(data);
+                    $("#mens").text("Se Registro Exitosamente!");
                     $('#mensaje').modal("show");
                 }
             });

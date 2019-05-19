@@ -299,36 +299,26 @@ echo $nombre;
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-sm-3">
                                                         <div class="form-group">
                                                             <label>Precio</label>
                                                             <input type="text" class="form-control" placeholder="Precio"
                                                                 id="prec" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-sm-3">
                                                         <div class="form-group">
                                                             <label>Unidades</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Unidades" id="unid" required>
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-sm-2">
                                                             <div class="form-group">
-                                                            <img class="card-img-left" style="width: 18rem;" src="TiendaOnline/images/libro.jpg"
-                                                                alt="Card image cap" id="referencia">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">Imagen</h5>
-                                                                    <label class="custom-file" id="customFile">
-                                                                    <input type="file" class="custom-file-input" name="imagen" id="imagenes">
-                                                                    <span class="custom-file-control form-control-file"></span>
-                                                                </label>
-                                                                </div>
+                                                                    <label class="custom-file" id="customFile">Imagen</label>
+                                                                    <input type="file" class="btn btn-primary" name="imagen" id="imagenes">
                                                             </div>
                                                         </div>
-                                                    </div> 
                                                 </div>
                                         </div>
                                     </div>
