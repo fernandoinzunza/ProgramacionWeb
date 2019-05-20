@@ -4,9 +4,15 @@
 session_start();
 if(isset($_SESSION['loguear']))
 {
-if($_SESSION['loguear']=='SI'){
+    if($_SESSION['loguear']=='SI'){
             header("Location: log.php");
         }
+}
+elseif(isset($_SESSION['ingresar']))
+{
+    if($_SESSION['ingresar']=='SI'){
+        header("Location: assets/TiendaOnline/index.html ");
+    }
 }
 ?>
 <head>

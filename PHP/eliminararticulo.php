@@ -14,7 +14,6 @@ $sentencia_preparada1->fetch();
 $imageneliminar = "../assets/img/".$nameimagen;
 if(unlink($imageneliminar)){
 $articulo->EliminarArticulo($cod);
-echo "Articulo Eliminado Exitosamente";
 }else{
     echo"no se pudo";
 }

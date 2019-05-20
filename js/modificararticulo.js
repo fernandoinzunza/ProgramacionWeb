@@ -9,7 +9,6 @@ $(document).ready(function () {
         frmData.append("pc",$("#pc").val());
         frmData.append("uni",$("#uni").val());
         frmData.append("img",$("input[name=img]")[0].files[0]);
-        var mens = $("#mens");
                 $.ajax({
                     url: '../php/modificararticulo.php',
                     method: 'POST',
@@ -20,8 +19,8 @@ $(document).ready(function () {
                     success: function (data) {
                         $("#edit").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
-                        mens.text(data);
-                        $("#mensaje").modal("show");
+                        $("#msjbody").text("Editado exitosamente");
+                        $("#msjsis").modal("show");
                     }
                 });
     });
