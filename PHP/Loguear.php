@@ -21,7 +21,7 @@ elseif($resultado1>0){
     $username = $cliente->Username;
     $_SESSION['username'] = $username;
     $_SESSION['ingresar'] = 'SI';
-    header("Location:../assets/TiendaOnline/index.html");
+    header("Location:../assets/TiendaOnline/index.php");
 }
 else{
     header("Location:../log.php");

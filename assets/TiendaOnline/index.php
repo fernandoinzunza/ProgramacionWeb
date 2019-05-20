@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if($_SESSION['ingresar']!='SI'){
+    header("Location: log.php");
+}
+require_once('../../php/Clases/conexion.php');
+require_once('../../php/Clases/usuario.php');
+$usuario = new Usuario();
+$user = $_SESSION['username'];
+$usuario->ObtenerDatos($user,$usuario);
+$name = $usuario;
+$nombre = utf8_encode($usuario->Nombre);
+$appat = utf8_encode($usuario->Ap_Pat);
+$apmat = utf8_encode($usuario->Ap_Mat);
+$correo = utf8_encode($usuario->Correo);
+$nombrecompleto = $nombre." ".$appat." ".$apmat;
+
+?>
 <html lang="en">
   <head>
     <title>Tienda en línea</title>
@@ -45,7 +63,7 @@
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li><a href="#"><?php echo $correo?><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart.html" class="site-cart">
@@ -66,10 +84,10 @@
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+              <a class="nav-link" href="index.php">Inicio</a>
             </li>
             <li class="nav-item dropdown"><a href="#">Categorias</a>
-              <div class="dropdown-menu">
+              <div class="dropdown-menu" id="categorias">
                 <a href="#">Menu One</a>
               </div>
             </li>
