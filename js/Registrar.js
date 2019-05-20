@@ -38,6 +38,5 @@ $(document).ready(function () {
             }
             $('#form').addClass('was-validated');
         });
-        
     });
 });
