@@ -17,6 +17,9 @@ $(document).ready(function(){
                 contentType: false,
                 cache: false,
                 success: function(data){
+                    $('#regisart').modal("hide");
+                    $("#msjbody").text("Se Registro Exitosamente!");
+                    $('#msjsis').modal("show");
                     $('#codi').val("");
                     $('#titu').val("");
                     $('#cate').val("");
@@ -24,10 +27,7 @@ $(document).ready(function(){
                     $('#descrip').val("");
                     $('#prec').val("");
                     $('#unid').val("");
-                    $('#regisart').modal("hide");
                     $("#tabla").load('../php/verarticulos.php');
-                    $("#mens").text("Se Registro Exitosamente!");
-                    $('#mensaje').modal("show");
                 }
             });
     });

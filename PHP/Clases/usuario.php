@@ -57,6 +57,32 @@ class Usuario
             echo $error;
         }
     }
+    public function LogearUser($user){
+        try
+        {
+            $resultado=0;
+            $conn = abrirBD();
+        if($sentencia_preparada =$conn->prepare("SELECT count(*) FROM USUARIOS WHERE USERNAME=? AND PASS=?"))
+            {
+                $sentencia_preparada->bind_param('ss',$usuario,$pass);
+                $usuario =$user->Username;
+                $pass = $user->Pass;
+                $sentencia_preparada->execute();
+                $sentencia_preparada->bind_result($numero);
+                while($sentencia_preparada->fetch()){
+                $resultado = $numero;
+                }
+                $conn->close();
+            }
+    
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+        $error = $e->getMessage();
+        echo $error;
+        }
+    }
     public function ActualizarDatos($usuario){
         try
         {

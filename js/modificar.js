@@ -6,7 +6,7 @@ $(document).ready(function () {
         var nombre = $("#nombre").val();
         var appat = $("#appat").val();
         var apmat = $("#apmat").val();
-        var mens = $("#mens");
+        var mens = $("#msjbody");
                 $.ajax({
                     url: '../php/modificar.php',
                     method: 'POST',
@@ -22,7 +22,7 @@ $(document).ready(function () {
                         $("#edit").modal("hide");
                         $("#tabla").load('../php/verusuario.php');
                         mens.text(data);
-                        $("#mensaje").modal("show");
+                        $("#msjsis").modal("show");
                     }
                 });
         
