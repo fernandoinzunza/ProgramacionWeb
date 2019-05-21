@@ -39,7 +39,6 @@ session_start();
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/vercategorias.js"></script>
     
   </head>
   <body>
@@ -112,7 +111,7 @@ session_start();
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html">Acerca de</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mi Cuenta</a>
