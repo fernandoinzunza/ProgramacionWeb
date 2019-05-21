@@ -11,6 +11,18 @@ var modulo = angular.module("rutas", ['ngRoute'])
             .when('/articulos', {
                 templateUrl: 'articulos.html'
             })
+            .when('/gestor/Encabezado',{
+                templateUrl: 'primera_seccion.html'
+            })
+            .when('/gestor/Categorias',{
+                templateUrl: 'segunda_seccion.html'
+            })
+            .when('/gestor/Carrusel',{
+                templateUrl: 'tercera_seccion.html'
+            })
+            .when('/gestor/Footer',{
+                templateUrl: 'cuarta_seccion.html'
+            })
             .otherwise('/');
 });
 modulo.controller('myCtrl', ['$scope', function($scope) {
