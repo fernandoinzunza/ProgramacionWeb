@@ -1,0 +1,11 @@
+<?php
+session_start();
+if($_SESSION['ingresar']=="SI"){
+    header("Location:../TiendaOnline/index.php");
+    session_destroy();
+}
+else{
+    header("Location:../TiendaOnline/index.php");
+    session_destroy();
+}
+?>
