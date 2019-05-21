@@ -19,10 +19,9 @@ function showPorCategoria(CantidadPagina, PaginaNumero, categoria) {
     $.ajax({
         type: "GET",
         url: "php/paginarCategorias.php",
-        data: {"PaginaNumero": PaginaNumero , categoria:categoria},
+        data: {"PaginaNumero": PaginaNumero , "categoria":categoria},
         cache: false,
         beforeSend: function() {
-     
             
         },
         success: function(html) {
@@ -37,5 +36,8 @@ $(document).ready(function() {
     $(".categoria").click(function(){
         var categoria = $(this).data('id');
         showPorCategoria(10,1,categoria);
+    });
+    $(".todos").click(function(){
+        showRecords(10, 1);        
     });
 });

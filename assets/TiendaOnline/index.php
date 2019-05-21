@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+<?php
+require_once('../../php/Clases/conexion.php');
+session_start();
+  if(!isset($_SESSION['ingresar'])){
+    $correo="";
+    } else{
+    require_once('../../php/Clases/usuario.php');
+    $usuario = new Usuario();
+    $user = $_SESSION['username'];
+    $usuario->ObtenerDatos($user,$usuario);
+    $name = $usuario;
+    $nombre = utf8_encode($usuario->Nombre);
+    $appat = utf8_encode($usuario->Ap_Pat);
+    $apmat = utf8_encode($usuario->Ap_Mat);
+    $correo = utf8_encode($usuario->Correo);
+    }
+
+
+
+?>
 <html lang="en">
   <head>
     <title>Tienda en línea</title>
@@ -19,6 +39,7 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/vercategorias.js"></script>
     
   </head>
   <body>
@@ -45,7 +66,25 @@
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <?php echo $correo?><span class="icon icon-person"></span>
+                  </a>
+                    <div class="dropdown-menu">
+                      <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
+                      <?php
+                      if(isset($_SESSION['ingresar'])){
+                        echo '<button class="dropdown-item"><a data-toggle="modal" data-target="#cerrar" >CerrarSesion</a></button>';
+                      }
+                        
+                      else{
+                        echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
+                      }
+                      
+                      
+                      ?>
+                    </div>
+                  </li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart.html" class="site-cart">
@@ -66,11 +105,16 @@
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+              <a class="nav-link" href="index.php">Inicio</a>
             </li>
+<<<<<<< HEAD:assets/TiendaOnline/index.html
             <li class="nav-item dropdown"><a href="shop.php">Compras</a>
               <div class="dropdown-menu">
                 <a href="#">Menu One</a>
+=======
+            <li class="nav-item dropdown"><a href="shop.html">compras</a>
+              <div class="dropdown-menu" id="tienda">
+>>>>>>> origin/manny:assets/TiendaOnline/index.php
               </div>
             </li>
             <li class="nav-item">
@@ -78,10 +122,6 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mi Cuenta</a>
-              <div class="dropdown-menu">
-                <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
-                <button class="dropdown-item"><a href="../../log.php">Ingresar</a></button>
-              </div>
             </li>
             <li><a href="contact.html">Contacto</a></li>
           </ul>
@@ -348,7 +388,31 @@
   <link rel="stylesheet" href="css/animate.min.css">
 
   <script src="js/main.js"></script>
-  <div class="modal fade bd-example-modal-lg animated rubberBand" id="modal" tabindex="-1" role="dialog"
+  <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modalLabel">
+                                Mensaje del Sistema
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mt-2 justify-content-center">
+                                ¿Seguro que desea cerrar la sesión?
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-warning lead" href="../php/cerrarsesion.php"style="color:red;">Aceptar</a>
+                            <button type="button" class="btn btn-primary lead" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg animated rubberBand" id="modal" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -444,5 +508,8 @@
               </div>
           </div>
       </div>
+    </div>
+  </div>
+</div>
   </body>
 </html>

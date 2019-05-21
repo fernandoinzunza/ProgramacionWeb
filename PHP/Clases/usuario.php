@@ -20,10 +20,10 @@ class Usuario
     public function setNombre($nombre){
         $this->Nombre = $nombre;
     }
-    public function setApPat($appat){
+    public function setAp_Pat($appat){
         $this->Ap_Pat = $appat;
     }
-    public function setApMat($apmat){
+    public function setAp_Mat($apmat){
         $this->Ap_Mat = $apmat;
     }
 
@@ -35,6 +35,7 @@ class Usuario
         $this->Ap_Pat="";
         $this->Ap_Mat="";
     }
+    
     public function RegistrarUsuario($usuario){
         try
         {
