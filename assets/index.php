@@ -11,7 +11,6 @@ $user = $_SESSION['usuario'];
 $admin->ObtenerDatos($user,$admin);
 $name = $user;
 $nombre = utf8_encode($admin->Usuario);
-echo $nombre;
 
 ?>
 <?php include('modal.php');?>
@@ -163,11 +162,7 @@ echo $nombre;
 
                         </ul>
                     </nav>
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>document.write(new Date().getFullYear())</script> <a
-                            href="http://www.creative-tim.com">Copyright</a>, made with love for a better web
-                    </p>
+
                 </div>
             </footer>
 
