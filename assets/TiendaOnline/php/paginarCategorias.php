@@ -6,10 +6,10 @@ if (! (isset($_GET['PaginaNumero']))) {
 } else {
     $PaginaNumero = $_GET['PaginaNumero'];
 }
-
+$categoria = $_POST['categoria'];
 $CantidadPagina = 9;
 
-$sql = "SELECT * FROM articulos";
+$sql = "SELECT * FROM articulos where categoria = $categoria";
 
 if ($result = mysqli_query($conn, $sql)) {
     $rowCount = mysqli_num_rows($result);
