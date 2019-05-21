@@ -23,7 +23,7 @@ echo $nombre;
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-    <base href="/ProgWeb/assets/"/>
+    <base href="/ProgramacionWeb/assets/"/>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -97,12 +97,11 @@ echo $nombre;
                         </a>
                     </li>
                     <li>
-                            <a href="#/articulos" class="hvr-wobble-horizontal dropdown-toggle">
-                                <i class="pe-7s-wallet"></i>
-                                <p>Articulos</p>
-                            </a>
+                        <a href="#/articulos" class="hvr-wobble-horizontal dropdown-toggle">
+                            <i class="pe-7s-wallet"></i>
+                            <p>Articulos</p>
+                        </a>
                     </li>
-
                 </ul>
             </div>
         </div>
