@@ -1,51 +1,56 @@
 <h1>Gestor de contenido</h1>
 <head>
-    <script src="js/SubirImagen.js"></script>
+<link rel="stylesheet" href="css/cards.css">
+<script src="js/carrusel.js"></script>
 </head>
-<<<<<<< HEAD
+<div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+      
+        <div class="item active">
+          <img src="http://placehold.it/1200x400/cccccc/ffffff">
+           <div class="carousel-caption">
+            <h3>Headline</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
+          </div>
+        </div><!-- End Item -->
+ 
+         <div class="item">
+          <img src="http://placehold.it/1200x400/999999/cccccc">
+           <div class="carousel-caption">
+            <h3>Headline</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
+          </div>
+        </div><!-- End Item -->
+        
+        <div class="item">
+          <img src="http://placehold.it/1200x400/dddddd/333333">
+           <div class="carousel-caption">
+            <h3>Headline</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
+          </div>
+        </div><!-- End Item -->
+        
+        <div class="item">
+          <img src="http://placehold.it/1200x400/999999/cccccc">
+           <div class="carousel-caption">
+            <h3>Headline</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+          </div>
+        </div><!-- End Item -->
+                
+      </div><!-- End Carousel Inner -->
 
-<!-- Comentario-->
-=======
->>>>>>> origin/manny
-<div class="form-row filtros" >
-    <div class="md-form">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 class="lead">
-                    Titulo de la página:
-                    <input type="text" class="form-control" name="busqueda" id="titulo" placeholder="Ingresar">
-                </h4>
-            </div>
-            <div class="col-md-6">
-                <h4 class="lead">
-                    Encabezado de imagen:
-                    <input type="text" class="form-control" name="busqueda" id="encimg" placeholder="Ingresar">
-                </h4>
-            </div>
-        </div>
-        <!-- Comentario-->
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="lead">
-                    Descripcion de imagen:
-                    <textarea type="text" class="form-control" name="busqueda" id="descrimg"
-                        placeholder="Ingresar"></textarea>
-                </h4>
-            </div>
-        </div>
-        <form  id="formImg" method="post" enctype="multipart/form-data">
-            <div class="card text-center" style="width: 18rem; margin: 0 auto;">
-                <img class="card-img-top" style="width: 18rem;" src="TiendaOnline/images/libro.jpg"
-                    alt="Card image cap" id="referencia">
-                <div class="card-body">
-                    <h5 class="card-title">Imagen principal</h5>
-                    <label class="custom-file" id="customFile">
-                        <input type="file" class="custom-file-input" name="imagen" id="image">
-                        <span class="custom-file-control form-control-file"></span>
-                    </label>
-                    <button type="submit" class="btn btn-primary" id="upload">Subir Imagen</button>
-                </div>
-            </div>
-        </form>
-    </div>
+
+    	<ul class="nav nav-pills nav-justified">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#/gestor/Encabezado">About<small>Lorem ipsum dolor sit</small></a></li>
+          <li data-target="#myCarousel" data-slide-to="1"><a href="#/gestor/Categorias">Projects<small>Lorem ipsum dolor sit</small></a></li>
+          <li data-target="#myCarousel" data-slide-to="2"><a href="#/gestor/Carrusel">Portfolio<small>Lorem ipsum dolor sit</small></a></li>
+          <li data-target="#myCarousel" data-slide-to="3"><a href="#/gestor/Footer">Services<small>Lorem ipsum dolor sit</small></a></li>
+        </ul>
+
+
+    </div><!-- End Carousel -->
 </div>
