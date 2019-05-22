@@ -16,8 +16,7 @@ session_start();
     $correo = utf8_encode($usuario->Correo);
     }
 
-
-
+    
 ?>
 <html lang="en">
   <head>
@@ -106,14 +105,8 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="index.php">Inicio</a>
             </li>
-<<<<<<< HEAD:assets/TiendaOnline/index.html
-            <li class="nav-item dropdown"><a href="shop.php">Compras</a>
-              <div class="dropdown-menu">
-                <a href="#">Menu One</a>
-=======
             <li class="nav-item dropdown"><a href="shop.html">compras</a>
               <div class="dropdown-menu" id="tienda">
->>>>>>> origin/manny:assets/TiendaOnline/index.php
               </div>
             </li>
             <li class="nav-item">

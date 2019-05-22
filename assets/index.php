@@ -22,11 +22,9 @@ $nombre = utf8_encode($admin->Usuario);
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-<<<<<<< HEAD
+
     <base href="/ProgramacionWeb/assets/"/>
-=======
     <base href="/proyectoweb/ProgramacionWeb/assets/"/>
->>>>>>> eb0729083a6b7650f1c9619c17e85ef4b51c42d8
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
