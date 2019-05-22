@@ -28,6 +28,8 @@ while($resul = mysqli_fetch_array($resultado)){
 $conn->close();
 
 
+
+    
 ?>
 <html lang="en">
   <head>

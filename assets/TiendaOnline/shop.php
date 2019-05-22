@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <?php 
+  require_once('php/conexion.php');
 
-<head>
+  $conn = abrirBD();
+  
+  $sql = "select distinct categoria from articulos";
+  
+  $categorias = $conn->query($sql);
+  ?>
+  <head>
   <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -150,15 +158,13 @@
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span
-                      class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span
-                      class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span
-                      class="text-black ml-auto">(2,124)</span></a></li>
-              </ul>
-            </div>
+              <li class="mb-1 list-unstyled todos"><a href="#" class="d-flex"><span>Todos</span></a></li>
 
+                  <?php while($item = $categorias->fetch_assoc()){?>
+                    <li class="mb-1 list-unstyled categoria" data-id="<?php echo $item['categoria'];?>"><a href="#" class="d-flex"><span><?php echo $item['categoria'];?></span></a></li>
+                    </ul>
+                  <?php }?>
+            </div>
             <div class="border p-4 rounded mb-4">
               <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>

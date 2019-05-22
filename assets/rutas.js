@@ -5,8 +5,7 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'usuarios.html'
             })
             .when('/gestor', {
-                templateUrl: 'gestor.html',
-                controller:'myCtrl'
+                templateUrl: 'gestor.html'
             })
             .when('/articulos', {
                 templateUrl: 'articulos.html'
@@ -25,8 +24,3 @@ var modulo = angular.module("rutas", ['ngRoute'])
             })
             .otherwise('/');
 });
-modulo.controller('myCtrl', ['$scope', function($scope) {
-    $scope.alerta = function() {
-        alert('hola');
-    };
-}]);

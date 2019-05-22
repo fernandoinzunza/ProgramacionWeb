@@ -6,10 +6,11 @@ if (! (isset($_GET['PaginaNumero']))) {
 } else {
     $PaginaNumero = $_GET['PaginaNumero'];
 }
+$categoria = $_GET['categoria'];
 
 $CantidadPagina = 9;
 
-$sql = "SELECT * FROM articulos";
+$sql = "SELECT * FROM articulos where categoria ='$categoria'";
 
 if ($result = mysqli_query($conn, $sql)) {
     $rowCount = mysqli_num_rows($result);
@@ -23,7 +24,7 @@ $lowerLimit = ($PaginaNumero - 1) * $CantidadPagina;
 // Controlar las tildes y ñ en los resultados desde MySQL
 mysqli_set_charset($conn,"utf8");
 
-$sqlQuery = " SELECT * FROM ARTICULOS limit " . ($lowerLimit) . " ,  " . ($CantidadPagina) . " ";
+$sqlQuery = " SELECT * FROM ARTICULOS where categoria='$categoria' limit " . ($lowerLimit) . " ,  " . ($CantidadPagina) . " ";
 $results = mysqli_query($conn, $sqlQuery);
 
 ?>
@@ -44,7 +45,6 @@ $results = mysqli_query($conn, $sqlQuery);
     <?php
     }
     ?>
-
 <table width="100%" align="center">
     <tr>
 
@@ -68,10 +68,8 @@ $results = mysqli_query($conn, $sqlQuery);
 <?php
     } // endIf
 } // endFor
-
 ?>
 </ul>
-
 </td>
         <td align="right" valign="top">
 	     Pagina <?php echo $PaginaNumero; ?> de <?php echo $pagesCount; ?>
