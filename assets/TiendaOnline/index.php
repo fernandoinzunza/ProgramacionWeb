@@ -15,6 +15,19 @@ session_start();
     $apmat = utf8_encode($usuario->Ap_Mat);
     $correo = utf8_encode($usuario->Correo);
     }
+$conn = abrirBD();
+$sql = "SELECT titulo_pag,encabezado_img,descripcion_img,img_principal FROM encabezado";
+$conn = abrirBD();
+$resultado = $conn->query($sql);
+while($resul = mysqli_fetch_array($resultado)){ 
+    $titulopag = $resul[0];
+    $encimg = utf8_encode($resul[1]);
+    $descrimg = utf8_encode($resul[2]);
+    $imagenes = $resul[3];
+    }
+$conn->close();
+
+
 
     
 ?>
@@ -57,7 +70,7 @@ session_start();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Tienda en línea</a>
+                <a href="index.html" class="js-logo-clone"><?php echo $titulopag ?></a>
               </div>
             </div>
 
@@ -105,7 +118,7 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="index.php">Inicio</a>
             </li>
-            <li class="nav-item dropdown"><a href="shop.html">compras</a>
+            <li class="nav-item dropdown"><a href="shop.html">Compras</a>
               <div class="dropdown-menu" id="tienda">
               </div>
             </li>
@@ -121,13 +134,13 @@ session_start();
       </nav>
     </div>
     </header>
-    <div class="site-blocks-cover" style="background: url(images/libro.jpg);" data-aos="fade">
+    <div class="site-blocks-cover" style="background: url(../img/<?php echo $imagenes?>);" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2" style="color:white">Encuentra tus libros favoritos</h1>
+            <h1 class="mb-2" style="color:white"><?php echo $encimg?></h1>
             <div class="intro-text text-center text-md-left">
-              <p class="mb-4"style="color:white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
+              <p class="mb-4"style="color:white"><?php echo $descrimg?></p>
               <p>
                 <a href="#" class="btn btn-sm btn-primary">Compra ya!</a>
               </p>
