@@ -6,11 +6,15 @@
                     <center><h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4></center>
                 </div>
                 <div class="modal-body">
-
+                    <form method="post" id="cambioImg" enctype="multipart/form-dat">
+                    <div class="row">
+                        <input type="file" class="btn btn-success" name="img" id="">
+                    </div>
 				</div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success"data-dismiss="modal"> Actualizar</button>
+                    <button class="btn btn-success cambiar"> Actualizar</button>
                 </div>
+                </form>
             </div>
         </div>
 </div>
