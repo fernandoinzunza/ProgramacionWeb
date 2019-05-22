@@ -23,13 +23,19 @@ $nombre = utf8_encode($admin->Usuario);
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <base href="/ProgWeb/assets/"/>
 =======
 <<<<<<< HEAD
-    <base href="/ProgramacionWeb/assets/"/>
 =======
+
+>>>>>>> origin/Isma2
+    <base href="/ProgramacionWeb/assets/"/>
     <base href="/proyectoweb/ProgramacionWeb/assets/"/>
+<<<<<<< HEAD
 >>>>>>> eb0729083a6b7650f1c9619c17e85ef4b51c42d8
+>>>>>>> origin/Isma2
+=======
 >>>>>>> origin/Isma2
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
