@@ -16,6 +16,7 @@ $nombre = utf8_encode($admin->Usuario);
 <?php include('modal.php');?>
 <?php include('modal2.php');?>
 <?php include('imagenModal.php');?>
+<?php include('modalCarrusel.php');?>
 <html lang="en" ng-app='rutas'>
 <head>
     <meta charset="utf-8" />
@@ -67,20 +68,15 @@ $nombre = utf8_encode($admin->Usuario);
     <div class="wrapper">
         <div class="sidebar" data-color="blue">
 
-            <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        <!--Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
         Tip 2: you can also add an image using data-image tag
-
-    -->
-
+        -->
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="#/" class="simple-text">
                         Tienda online
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
                         <a href="#/gestor" class="hvr-wobble-horizontal">

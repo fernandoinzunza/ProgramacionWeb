@@ -17,7 +17,7 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'segunda_seccion.html'
             })
             .when('/gestor/Carrusel',{
-                templateUrl: 'tercera_seccion.html'
+                templateUrl: 'tercera_seccion.php'
             })
             .when('/gestor/Footer',{
                 templateUrl: 'cuarta_seccion.html'
