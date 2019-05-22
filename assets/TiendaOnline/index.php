@@ -118,7 +118,7 @@ $conn->close();
             <li class="nav-item">
               <a class="nav-link" href="index.php">Inicio</a>
             </li>
-            <li class="nav-item dropdown"><a href="shop.html">Compras</a>
+            <li class="nav-item dropdown"><a href="shop.php">Compras</a>
               <div class="dropdown-menu" id="tienda">
               </div>
             </li>
