@@ -35,11 +35,11 @@ $resultado = $conn->query($sql);
         <div class="nonloop-block-3 owl-carousel">
           <?php while($fila = $resultado->fetch_assoc()){?>
           <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
+            <div class="block-5 text-center">
+              <figure class="block-5-image">
                 <img src="img/<?php echo $fila['id_img'];?>" alt="Image placeholder" class="img-fluid">
               </figure>
-              <div class="block-4-text p-4">
+              <div class="block-5-text p-5">
                 <h3><a href="#"><?php echo $fila['titulo_libro'];?></a></h3>
                 <p class="mb-0"><?php echo $fila['autor'];?></p>
                 <p class="text-primary font-weight-bold"><?php echo $fila['precio'];?></p>
