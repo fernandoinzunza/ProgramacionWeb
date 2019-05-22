@@ -5,8 +5,7 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'usuarios.html'
             })
             .when('/gestor', {
-                templateUrl: 'gestor.html',
-                controller:'myCtrl'
+                templateUrl: 'gestor.html'
             })
             .when('/articulos', {
                 templateUrl: 'articulos.html'
@@ -18,15 +17,10 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'segunda_seccion.html'
             })
             .when('/gestor/Carrusel',{
-                templateUrl: 'tercera_seccion.html'
+                templateUrl: 'tercera_seccion.php'
             })
             .when('/gestor/Footer',{
                 templateUrl: 'cuarta_seccion.html'
             })
             .otherwise('/');
 });
-modulo.controller('myCtrl', ['$scope', function($scope) {
-    $scope.alerta = function() {
-        alert('hola');
-    };
-}]);
