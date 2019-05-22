@@ -4,7 +4,7 @@ $tituloenc = $_POST['tituloenc'];
 $encimg = $_POST['encimg'];
 $descrimg = $_POST['descrimg'];
 $ruta_carpeta="../assets/img/";
-$nombre_imagen = "encabezado.".pathinfo($_FILES['imagen']['name'],PATHINFO_EXTENSION);
+$nombre_imagen = "encabezados.".pathinfo($_FILES['imagen']['name'],PATHINFO_EXTENSION);
 $ruta_guardar_archivo=$ruta_carpeta.$nombre_imagen;
 if(unlink($ruta_guardar_archivo)){
     if(move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta_guardar_archivo))
