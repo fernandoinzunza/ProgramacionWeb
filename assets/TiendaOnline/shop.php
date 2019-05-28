@@ -8,6 +8,28 @@
   $sql = "select distinct categoria from articulos";
   
   $categorias = $conn->query($sql);
+  session_start();
+  if(!isset($_SESSION['ingresar'])){
+    $correo="";
+    } else{
+    require_once('../../php/Clases/usuario.php');
+    $usuario = new Usuario();
+    $user = $_SESSION['username'];
+    $usuario->ObtenerDatos($user,$usuario);
+    $name = $usuario;
+    $nombre = utf8_encode($usuario->Nombre);
+    $appat = utf8_encode($usuario->Ap_Pat);
+    $apmat = utf8_encode($usuario->Ap_Mat);
+    $correo = utf8_encode($usuario->Correo);
+    }
+$conn = abrirBD();
+$sql = "SELECT titulo_pag FROM encabezado";
+$conn = abrirBD();
+$resultado = $conn->query($sql);
+while($resul = mysqli_fetch_array($resultado)){ 
+    $titulopag = $resul[0];
+    }
+$conn->close();
   ?>
   <head>
   <title>Shoppers &mdash;</title>
@@ -46,7 +68,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.php" class="js-logo-clone">Shoppers</a>
+                <a href="index.php" class="js-logo-clone"><?php echo $titulopag?></a>
               </div>
             </div>
 
@@ -72,34 +94,13 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="http://localhost/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
             </li>
-            <li class="has-children">
-              <a href="about.html">About</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
+            <li class="nav-item">
+              <a href="about">Acerca de</a>
             </li>
-            <li class="active"><a href="shop.php">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
           </ul>
         </div>
       </nav>
