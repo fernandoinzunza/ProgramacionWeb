@@ -23,7 +23,7 @@ $nombre = utf8_encode($admin->Usuario);
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-    <base href="/proyectoweb/ProgramacionWeb/assets/"/>
+    <base href="/ProgWeb/assets/"/>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
@@ -62,6 +62,8 @@ $nombre = utf8_encode($admin->Usuario);
     <script src="../js/modificararticulo.js"></script>
     <script src="../js/eliminararticulo.js"></script>
     <script src="js/style.js"></script>
+    <script src="js/imagenesCarrusel.js"></script>
+
 </head>
 
 <body>
@@ -325,7 +327,4 @@ $nombre = utf8_encode($admin->Usuario);
         </div>
 </div>
 </body>
-
-
-
 </html>
