@@ -36,7 +36,7 @@ $results = mysqli_query($conn, $sqlQuery);
             <a href="shop_articulo?cod=<?php echo $data['codigo'] ?>"><img src="../img/<?php echo $data['imagen']?>" alt="Image placeholder" class="img-fluid" style="width: 18rem; height: 18rem;"></a>
           </figure>
           <div class="block-4-text p-4">
-            <h3><a href="shop_articulo?cod='<?php echo $data['codigo'] ?>'"><?php echo $data['titulo']?></a></h3>
+            <h3><a href="shop_articulo?cod=<?php echo $data['codigo'] ?>"><?php echo $data['titulo']?></a></h3>
             <p class="text-primary font-weight-bold"><?php echo $data['precio']?></p>
             <button class="btn btn-info codigo" data-id="<?php echo $data['codigo']?>">Ver descripcion</button>
           </div>
