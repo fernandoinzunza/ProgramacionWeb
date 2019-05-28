@@ -2,7 +2,7 @@
 <?php
 session_start();
 if($_SESSION['loguear']!='SI'){
-    header("Location: log.php");
+    header("Location: ../log.php");
 }
 require_once('../php/Clases/conexion.php');
 require_once('../php/Clases/admin.php');
