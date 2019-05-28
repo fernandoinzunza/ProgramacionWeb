@@ -32,12 +32,12 @@ $results = mysqli_query($conn, $sqlQuery);
         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" >
         <div class="block-4 text-center border">
           <figure class="block-4-image">
-            <a href="shop-single.html"><img src="../img/<?php echo $data['imagen']?>" alt="Image placeholder" class="img-fluid" style="width: 18rem; height: 18rem;"></a>
+            <a href="shop_articulo.php?cod=<?php echo $data['codigo'] ?>"><img src="../img/<?php echo $data['imagen']?>" alt="Image placeholder" class="img-fluid" style="width: 18rem; height: 18rem;"></a>
           </figure>
           <div class="block-4-text p-4">
-            <h3><a href="shop-single.html"><?php echo $data['titulo']?></a></h3>
+            <h3><a href="shop_articulo.php?cod=<?php echo $data['codigo']?>"><?php echo $data['titulo']?></a></h3>
             <p class="text-primary font-weight-bold"><?php echo $data['precio']?></p>
-            <button class="btn btn-info" data-id="<?php echo $data['codigo']?>">Ver descripcion</button>
+            <button class="btn btn-info codigo" data-id="<?php echo $data['codigo']?>">Ver descripcion</button>
           </div>
         </div>
       </div>

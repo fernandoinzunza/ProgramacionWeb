@@ -24,6 +24,7 @@
   <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
     crossorigin="anonymous"></script>
   <script src="js/paginacion.js"></script>
+  <script src="js/verarticulo.js"></script>
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -45,7 +46,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Shoppers</a>
+                <a href="index.php" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -347,7 +348,6 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-
   <script src="js/main.js"></script>
 
 </body>
