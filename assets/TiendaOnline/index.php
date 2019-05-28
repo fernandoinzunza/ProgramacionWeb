@@ -27,9 +27,9 @@ while($resul = mysqli_fetch_array($resultado)){
     }
 $conn->close();
 
-
-
-    
+$conn = abrirBD();
+$sql = "SELECT * FROM EDITAR_CARRUSEL";
+$resultado = $conn->query($sql);
 ?>
 <html lang="en">
   <head>
@@ -45,13 +45,12 @@ $conn->close();
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.3.14/angular-route.min.js"></script>
+    <script src="http://code.angularjs.org/1.3.14/i18n/angular-locale_es-es.js"></script>
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
-    
   </head>
   <body>
   
@@ -70,7 +69,7 @@ $conn->close();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone"><?php echo $titulopag ?></a>
+                <a href="index.php" class="js-logo-clone"><?php echo $titulopag ?></a>
               </div>
             </div>
 
@@ -118,12 +117,12 @@ $conn->close();
             <li class="nav-item">
               <a class="nav-link" href="index.php">Inicio</a>
             </li>
-            <li class="nav-item dropdown"><a href="shop.php">Compras</a>
+            <li class="nav-item dropdown"><a href="shop">Compras</a>
               <div class="dropdown-menu" id="tienda">
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Acerca de</a>
+              <a class="nav-link" href="about">Acerca de</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mi Cuenta</a>
@@ -223,7 +222,7 @@ $conn->close();
         </div>
       </div>
     </div>
-    <div class="site-section block-3 site-blocks-2 bg-light">
+    <div class="site-section block-3 site-blocks-2 bg-light" data-aos="fade" data-aos-delay="100">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
@@ -233,54 +232,22 @@ $conn->close();
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
+              
+            <?php while($fila = $resultado->fetch_assoc()){?>
               <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/ws1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Richard III</a></h3>
-                    <p class="mb-0">by William Shakespeare</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
+            <div class="block-4 text-center">
+              <figure class="block-4-image">
+              </figure>
+                <img src="images/carrusel/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
+              <div class="block-4-text p-4">
+                <h3><a href="#" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
+                <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
+                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>"><?php echo $fila['precio'];?></p>
               </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/ws2.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Hamlet</a></h3>
-                    <p class="mb-0">by William Shakespeare</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/hbf.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Huckleberry Finn</a></h3>
-                    <p class="mb-0">by Mark Twain</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
+            </div>
+          </div>
+              <?php }?>
+
             </div>
           </div>
         </div>

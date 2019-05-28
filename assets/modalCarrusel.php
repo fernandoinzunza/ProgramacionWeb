@@ -8,11 +8,11 @@
                 <div class="modal-body">
                     <form method="post" id="cambioImg" enctype="multipart/form-dat">
                     <div class="row">
-                        <input type="file" class="btn btn-success" name="img" id="">
+                        <input type="file" class="btn btn-success" name="imgCarousel" id="">
                     </div>
 				</div>
                 <div class="modal-footer">
-                    <button class="btn btn-success cambiar"> Actualizar</button>
+                    <button class="btn btn-success" id="cambiar"> Actualizar</button>
                 </div>
                 </form>
             </div>
