@@ -97,6 +97,12 @@ $nombre = utf8_encode($admin->Usuario);
                             <p>Articulos</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="#/compras" class="hvr-wobble-horizontal dropdown-toggle">
+                            <i class="pe-7s-cart"></i>
+                            <p>Compras</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
