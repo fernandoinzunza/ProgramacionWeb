@@ -365,6 +365,130 @@ $conn->close();
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/Registrar.js"></script>
+  <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modalLabel">
+                                Mensaje del Sistema
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mt-2 justify-content-center">
+                                ¿Seguro que desea cerrar la sesión?
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-warning lead" href="../php/cerrarsesion.php"style="color:red;">Aceptar</a>
+                            <button type="button" class="btn btn-primary lead" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg animated rubberBand" id="modal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Registrarme</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="">
+                  <div class="">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="card">
+                                  <div class="header">
+                                      <h4 class="title">Crear cuenta</h4>
+                                  </div>
+                                  <div class="content">
+                                      <form id="form" class="needs-validation" novalidate>
+                                          <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                          <label>Username</label>
+                                                          <input type="text" class="form-control"
+                                                              placeholder="Username" id="user" required>
+                                                          <div class="invalid-feedback">Ingresa tu nombre!
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+
+                                                          <label for="exampleInputEmail1">Password</label>
+                                                          <input type="password" class="form-control"
+                                                              placeholder="Password" id="pass" required>
+                                                          <div class="invalid-feedback">Escoge una contraseña!
+                                                          </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-12">
+                                                  <div class="form-group">
+                                                      <label for="exampleInputEmail1">Correo electrónico</label>
+                                                      <input type="email" class="form-control" placeholder="Email"
+                                                          id="email" required>
+                                                          <div class="invalid-feedback">Ingresa un correo!
+                                                              </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-4 col-sm-12">
+                                                  <div class="form-group">
+                                                      <label>Nombre(s)</label>
+                                                      <input type="text" class="form-control" placeholder="Nombre"
+                                                          id="nombre" required>
+                                                          <div class="invalid-feedback">Ingresa tu nombre!
+                                                              </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4 col-sm-12">
+                                                  <div class="form-group">
+                                                      <label>Apellido Paterno</label>
+                                                      <input type="text" class="form-control"
+                                                          placeholder="Apellido Paterno" id="appat" required>
+                                                          <div class="invalid-feedback">Ingresa tu apellido paterno!
+                                                          </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4 col-sm-12">
+                                                  <div class="form-group">
+                                                      <label>Apellido Materno</label>
+                                                      <input type="text" class="form-control"
+                                                          placeholder="Apellido Materno" id="apmat" required>
+                                                          <div class="invalid-feedback">Ingresa tu apellido materno!
+                                                              </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" id="crear" class="btn btn-outline-success hvr-pulse-shrink">Crear cuenta</button>
+                  </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 
