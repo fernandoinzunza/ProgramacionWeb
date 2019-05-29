@@ -64,7 +64,7 @@ $conn->close();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone"><?php echo $titulopag?></a>
+                <a href="index" class="js-logo-clone">Compras</a>
               </div>
             </div>
 
@@ -110,7 +110,7 @@ $conn->close();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a>
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
