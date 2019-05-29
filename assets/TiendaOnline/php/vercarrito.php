@@ -8,7 +8,7 @@ if (isset($_SESSION['carrito']))
 	{
 		$tabla.=
 		'<tr>
-            <td><img src="../img/'.$fila['imagenes'].'"></td>
+            <td><img src="../img/'.$fila['imagenes'].'" style="width: 6rem;"></td>
             <td>'.$fila['codigos'].'</td>   
 			<td>'.$fila['titulos'].'</td>
 			<td>'.$fila['des'].'</td>
