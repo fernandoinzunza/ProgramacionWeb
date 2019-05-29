@@ -2,7 +2,7 @@
 require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
-  $correo="";
+  header("Location: index.php");
   } else{
   require_once('../../php/Clases/usuario.php');
   $usuario = new Usuario();
@@ -24,7 +24,6 @@ if(!isset($_SESSION['ingresar'])){
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -54,29 +53,14 @@ if(!isset($_SESSION['ingresar'])){
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Tienda Online</a>
+                <a href="index" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                  <?php echo $correo?><span class="icon icon-person"></span>
-                  </a>
-                  <div class="dropdown-menu">
-                      <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
-                      <?php
-                      if(isset($_SESSION['ingresar'])){
-                        echo '<button class="dropdown-item"><a data-toggle="modal" data-target="#cerrar" >CerrarSesion</a></button>';
-                      }
-                        
-                      else{
-                        echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
-                      }
-                      ?>
-                    </div>
-                  </li>
+                  <li><a href="#"><?php echo $correo?><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
@@ -101,7 +85,7 @@ if(!isset($_SESSION['ingresar'])){
             <li class="active">
               <a href="about">Acerca de</a>
             </li>
-            <li><a href="shop">Compras</a></li>
+            <li><a href="shop">Compra</a></li>
           </ul>
         </div>
       </nav>
@@ -110,7 +94,7 @@ if(!isset($_SESSION['ingresar'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
         </div>
       </div>
     </div>
@@ -118,84 +102,81 @@ if(!isset($_SESSION['ingresar'])){
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
-            <div class="site-blocks-table">
-              <table class="table table-bordered">
-              <thead class="encabezado">
-                  <tr>
-                    <th class="lead">Imagen</th>
-                    <th class="lead">Codigo</th>
-                    <th class="lead">Titulo</th>
-                    <th class="lead">Descripcion</th>
-                    <th class="lead">Precio</th>
-                    <th class="lead">Unidades</th>                    
-                  </tr>
-                </thead>
-                <tbody id="tablacarrito">
-
-                </tbody>
-              </table>
+          <div class="col-md-12">
+            <div class="border p-4 rounded" role="alert">
+              Returning customer? <a href="#">Click here</a> to login
             </div>
-          </form>
+          </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-6">
             <div class="row mb-5">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
-              </div>
-              <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">Apply Coupon</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 pl-5">
-            <div class="row justify-content-end">
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
-                <div class="row mb-5">
-                  <div class="col-md-6">
-                    <span class="text-black">Total</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
+                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <div class="p-3 p-lg-5 border">
+                  <table class="table site-block-order-table mb-5">
+                    <thead>
+                      <th>Product</th>
+                      <th>Total</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
+                        <td>$250.00</td>
+                      </tr>
+                      <tr>
+                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
+                        <td>$100.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                        <td class="text-black">$350.00</td>
+                      </tr>
+                      <tr>
+                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                <div class="row">
-                  <div class="col-md-12">
-                    <button data-id="ismaputo" id="comprar" class="btn btn-primary btn-lg py-3 btn-block">Proceder a la Compra</button>
+                  <div class="border p-3 mb-3">
+                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
+
+                    <div class="collapse" id="collapsebank">
+                      <div class="py-2">
+                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="border p-3 mb-3">
+                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
+
+                    <div class="collapse" id="collapsecheque">
+                      <div class="py-2">
+                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border p-3 mb-5">
+                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
+
+                    <div class="collapse" id="collapsepaypal">
+                      <div class="py-2">
+                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button id="rgCompra" data-id="<?php echo $correo?>" class="btn btn-primary btn-lg py-3 btn-block">Comprar</button>
+                  </div>
+
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+        <!-- </form> -->
       </div>
     </div>
 
@@ -273,6 +254,7 @@ if(!isset($_SESSION['ingresar'])){
       </div>
     </footer>
   </div>
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
@@ -281,8 +263,7 @@ if(!isset($_SESSION['ingresar'])){
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/carritodisponible.js"></script>
-  <script src="js/vercompra.js"></script>
+  <script src="js/agregarcompra.js"></script>
     
   </body>
 </html>

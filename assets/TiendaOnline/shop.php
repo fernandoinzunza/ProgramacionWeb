@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php 
-  require_once('php/conexion.php');
-
-  $conn = abrirBD();
-  
-  $sql = "select distinct categoria from articulos";
-  
-  $categorias = $conn->query($sql);
+  require_once('../../php/Clases/conexion.php');
   session_start();
   if(!isset($_SESSION['ingresar'])){
     $correo="";
@@ -22,9 +16,11 @@
     $apmat = utf8_encode($usuario->Ap_Mat);
     $correo = utf8_encode($usuario->Correo);
     }
-$conn = abrirBD();
+  $conn = abrirBD();
+  $sql = "select distinct categoria from articulos";
+  $categorias = $conn->query($sql);
+$conn=abrirBD();    
 $sql = "SELECT titulo_pag FROM encabezado";
-$conn = abrirBD();
 $resultado = $conn->query($sql);
 while($resul = mysqli_fetch_array($resultado)){ 
     $titulopag = $resul[0];
@@ -69,17 +65,36 @@ $conn->close();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.php" class="js-logo-clone"><?php echo $titulopag?></a>
+                <a href="index" class="js-logo-clone"><?php echo $titulopag?></a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <?php echo $correo?><span class="icon icon-person"></span></a>
+                  <div class="dropdown-menu">
+                      <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
+                      <?php
+                      if(isset($_SESSION['ingresar'])){
+                        echo '<button class="dropdown-item"><a data-toggle="modal" data-target="#cerrar" >CerrarSesion</a></button>';
+                      }
+                        
+                      else{
+                        echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
+                      }
+                      
+                      
+                      ?>
+                    </div>
+                  </li>
+                  
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>

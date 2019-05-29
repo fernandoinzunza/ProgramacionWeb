@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <?php
-require_once("php/conexion.php");
+require_once('../../php/Clases/conexion.php');
 session_start();
+if(!isset($_SESSION['ingresar'])){
+  $correo="";
+  } else{
+  require_once('../../php/Clases/usuario.php');
+  $usuario = new Usuario();
+  $user = $_SESSION['username'];
+  $usuario->ObtenerDatos($user,$usuario);
+  $name = $usuario;
+  $nombre = utf8_encode($usuario->Nombre);
+  $appat = utf8_encode($usuario->Ap_Pat);
+  $apmat = utf8_encode($usuario->Ap_Mat);
+  $correo = utf8_encode($usuario->Correo);
+  }
 $cod = $_GET["cod"];
 $conn = abrirBD();
 $sql = "SELECT codigo,titulo,categoria,autor,descripcion,precio,unidades,imagen FROM articulos where codigo = '$cod'";
@@ -61,7 +74,24 @@ $conn->close();
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <?php echo $correo?><span class="icon icon-person"></span></a>
+                  <div class="dropdown-menu">
+                      <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
+                      <?php
+                      if(isset($_SESSION['ingresar'])){
+                        echo '<button class="dropdown-item"><a data-toggle="modal" data-target="#cerrar" >CerrarSesion</a></button>';
+                      }
+                        
+                      else{
+                        echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
+                      }
+                      
+                      
+                      ?>
+                    </div>
+                  </li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
@@ -94,7 +124,7 @@ $conn->close();
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
         </div>
       </div>
     </div>  
@@ -136,7 +166,7 @@ $conn->close();
             </div>
 
             </div>
-            <p><a id="carrito" data-id="<?php echo $cod?>" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+            <p><a id="carrito" data-id="<?php echo $cod?>" class="buy-now btn btn-sm btn-primary">Añadir al carrito</a></p>
 
           </div>
         </div>
