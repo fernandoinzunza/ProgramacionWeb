@@ -110,7 +110,7 @@ $conn->close();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>

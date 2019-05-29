@@ -115,7 +115,7 @@ $resultado = $conn->query($sql);
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
+              <a class="nav-link" href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item dropdown">
               <a href="shop">Compras</a>
