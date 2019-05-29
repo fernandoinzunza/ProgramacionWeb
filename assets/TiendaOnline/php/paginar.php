@@ -37,7 +37,7 @@ $results = mysqli_query($conn, $sqlQuery);
           <div class="block-4-text p-4">
             <h3><a href="shop_articulo?cod=<?php echo $data['codigo']?>"><?php echo $data['titulo']?></a></h3>
             <p class="text-primary font-weight-bold"><?php echo $data['precio']?></p>
-            <button class="btn btn-info codigo" data-id="<?php echo $data['codigo']?>">Ver descripcion</button>
+            <button class="btn btn-info codigo" data-id="<?php echo $data['codigo']?>" onclick="window.location.href='shop_articulo?cod=<?php echo $data['codigo']?>'">Agregar al carrito <i class="fas fa-cart-plus"></i></button>
           </div>
         </div>
       </div>
