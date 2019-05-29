@@ -22,5 +22,8 @@ var modulo = angular.module("rutas", ['ngRoute'])
             .when('/gestor/Footer',{
                 templateUrl: 'cuarta_seccion.html'
             })
+            .when('/compras', {
+                templateUrl: 'compras.html'
+            })
             .otherwise('/');
 });

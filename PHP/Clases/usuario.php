@@ -20,10 +20,10 @@ class Usuario
     public function setNombre($nombre){
         $this->Nombre = $nombre;
     }
-    public function setAp_Pat($appat){
+    public function setApPat($appat){
         $this->Ap_Pat = $appat;
     }
-    public function setAp_Mat($apmat){
+    public function setApMat($apmat){
         $this->Ap_Mat = $apmat;
     }
 
@@ -141,8 +141,8 @@ class Usuario
              $usa->setPass($pass);
              $usa->setCorreo($correo);
              $usa->setNombre($nombre);
-             $usa->setAp_Pat($appat);
-             $usa->setAp_Mat($apmat);
+             $usa->setApPat($appat);
+             $usa->setApMat($apmat);
              }
              $conn->close();
          }
