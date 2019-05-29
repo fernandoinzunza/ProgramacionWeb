@@ -11,7 +11,7 @@ $(document).ready(function(){
                 if(data == "no"){
                     alert("necesitas loguearte prro bandido");
                 }else{
-                    location.href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/checkout.php";
+                    location.href="http://localhost/ProgWeb/assets/TiendaOnline/checkout.php";
                 }
             }
         });

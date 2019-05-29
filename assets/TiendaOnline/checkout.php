@@ -2,7 +2,7 @@
 require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
-  header("Location: index.php");
+  header("Location: http://localhost/ProgWeb/assets/TiendaOnline/");
   } else{
   require_once('../../php/Clases/usuario.php');
   $usuario = new Usuario();

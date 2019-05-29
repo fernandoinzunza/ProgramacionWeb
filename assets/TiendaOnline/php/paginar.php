@@ -53,7 +53,7 @@ $results = mysqli_query($conn, $sqlQuery);
 
         <td valign="top" align="center">
  <ul class="pagination">
- 
+
 	<?php
 	for ($i = 1; $i <= $pagesCount; $i ++) {
     if ($i == $PaginaNumero) {
