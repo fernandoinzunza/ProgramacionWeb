@@ -6,7 +6,7 @@ if(!isset($_SESSION['carrito'])){
 }else{
     $arreglo = $_SESSION['carrito'];
     foreach($arreglo as $key => $fila){
-        $folio = "1";
+        //$folio = "1";
         $correo = $_POST['correo'];
         $cod_art = $fila['codigos'];
         $titulo = $fila['titulos'];
@@ -15,7 +15,7 @@ if(!isset($_SESSION['carrito'])){
         $unidades = $fila['cantidad'];
         $imagen_art = $fila['imagenes'];
         $conn = abrirBD();
-        $sql = "INSERT INTO COMPRAS VALUES('$folio','$correo','$cod_art','$titulo','$descripcion','$precio','$unidades','$imagen_art')";
+        $sql = "INSERT INTO COMPRAS ( `correo`, `cod_art`, `titulo`, `descripcion`, `precio`, `unidades`, `imagen_art`) VALUES('$correo','$cod_art','$titulo','$descripcion','$precio','$unidades','$imagen_art')";
         $conn->query($sql);
         $conn->close();
     }
