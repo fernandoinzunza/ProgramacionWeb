@@ -115,19 +115,14 @@ $resultado = $conn->query($sql);
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Inicio</a>
+              <a class="nav-link" href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
-            <li class="nav-item dropdown"><a href="shop">Compras</a>
-              <div class="dropdown-menu" id="tienda">
-              </div>
+            <li class="nav-item dropdown">
+              <a href="shop">Compras</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about">Acerca de</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mi Cuenta</a>
-            </li>
-            <li><a href="contact.html">Contacto</a></li>
           </ul>
         </div>
       </nav>
