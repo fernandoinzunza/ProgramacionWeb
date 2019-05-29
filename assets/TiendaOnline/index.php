@@ -97,7 +97,7 @@ $resultado = $conn->query($sql);
                   </li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
@@ -234,27 +234,6 @@ $categorias = $conexion->query($mostrar);
       </div>
     </div>
 
-    <div class="site-section block-8">
-      <div class="container">
-        <div class="row justify-content-center  mb-5">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Gran venta!</h2>
-          </div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="images/libros3.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
-          </div>
-          <div class="col-md-12 col-lg-5 text-center pl-md-5">
-            <h2><a href="#">50% less in all items</a></h2>
-            <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <footer class="site-footer border-top">
       <div class="container">
         <div class="row">
@@ -337,6 +316,7 @@ $categorias = $conexion->query($mostrar);
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <link rel="stylesheet" href="css/animate.min.css">
+  <script src="js/Registrar.js"></script>
 
   <script src="js/main.js"></script>
   <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
