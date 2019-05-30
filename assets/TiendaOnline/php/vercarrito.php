@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $tabla ="";
-
+$i = 0;
 if (isset($_SESSION['carrito']))
 {
     $arreglo = $_SESSION['carrito'];
