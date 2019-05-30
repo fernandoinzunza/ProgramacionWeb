@@ -21,6 +21,7 @@ if($resultado){
     else{
         $arreglo = $_SESSION['carrito'];
         $num = count($arreglo);
+        if($num>1){
         $arreglo[$num+1]['codigos'] = $fila['codigo'];
         $arreglo[$num+1]['titulos'] = $fila['titulo'];
         $arreglo[$num+1]['des'] = $fila['descripcion'];
@@ -28,6 +29,15 @@ if($resultado){
         $arreglo[$num+1]['cantidad'] = $cant;
         $arreglo[$num+1]['imagenes'] = $fila['imagen'];
         $_SESSION['carrito'] = $arreglo;
+        }else{
+        $arreglo[$num]['codigos'] = $fila['codigo'];
+        $arreglo[$num]['titulos'] = $fila['titulo'];
+        $arreglo[$num]['des'] = $fila['descripcion'];
+        $arreglo[$num]['precios'] = $fila['precio'];
+        $arreglo[$num]['cantidad'] = $cant;
+        $arreglo[$num]['imagenes'] = $fila['imagen'];
+        $_SESSION['carrito'] = $arreglo;
+        }
     }
 }
 $conn->close();

@@ -30,6 +30,12 @@ $conn->close();
 $conn = abrirBD();
 $sql = "SELECT * FROM EDITAR_CARRUSEL";
 $resultado = $conn->query($sql);
+if(!isset($_SESSION['carrito'])){
+  $num = 0;
+}else{
+  $arreglo = $_SESSION['carrito'];
+  $num = count($arreglo);
+}
 ?>
 <html lang="en">
   <head>
@@ -61,12 +67,7 @@ $resultado = $conn->query($sql);
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
-
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
                 <a href="index.php" class="js-logo-clone"><?php echo $titulopag ?></a>
@@ -95,11 +96,10 @@ $resultado = $conn->query($sql);
                       ?>
                     </div>
                   </li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num ?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -136,7 +136,7 @@ $resultado = $conn->query($sql);
             <div class="intro-text text-center text-md-left">
               <p class="mb-4"style="color:white"><?php echo $descrimg?></p>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Compra ya!</a>
+                <a href="shop" class="btn btn-sm btn-primary">Compra ya!</a>
               </p>
             </div>
           </div>

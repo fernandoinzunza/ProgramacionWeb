@@ -15,6 +15,13 @@ session_start();
     $apmat = utf8_encode($usuario->Ap_Mat);
     $correo = utf8_encode($usuario->Correo);
     }
+    if(!isset($_SESSION['carrito'])){
+      $num = 0;
+    }else{
+      $arreglo = $_SESSION['carrito'];
+      $num = count($arreglo);
+    }
+    
 ?>
 <html lang="en">
   <head>
@@ -85,7 +92,7 @@ session_start();
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span

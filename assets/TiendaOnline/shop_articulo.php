@@ -31,6 +31,12 @@ while($resul = mysqli_fetch_array($resultado)){
     $imagenes = $resul[7];
     }
 $conn->close();
+if(!isset($_SESSION['carrito'])){
+  $num = 0;
+}else{
+  $arreglo = $_SESSION['carrito'];
+  $num = count($arreglo);
+}
 ?>
 <html lang="en">
   <head>
@@ -96,7 +102,7 @@ $conn->close();
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>

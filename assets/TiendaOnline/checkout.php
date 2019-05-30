@@ -3,7 +3,11 @@ require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
   header("Location: index.php");
-  } else{
+  }
+  elseif(!isset($_SESSION['carrito'])){
+    header("Location: index.php");
+  }
+  else{
   require_once('../../php/Clases/usuario.php');
   $usuario = new Usuario();
   $user = $_SESSION['username'];
@@ -14,11 +18,17 @@ if(!isset($_SESSION['ingresar'])){
   $apmat = utf8_encode($usuario->Ap_Mat);
   $correo = utf8_encode($usuario->Correo);
   }
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,10 +39,7 @@ if(!isset($_SESSION['ingresar'])){
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
     
   </head>
@@ -53,7 +60,7 @@ if(!isset($_SESSION['ingresar'])){
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Shoppers</a>
+                <a href="index" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -65,7 +72,7 @@ if(!isset($_SESSION['ingresar'])){
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -94,23 +101,16 @@ if(!isset($_SESSION['ingresar'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <a href="cart">Carrito</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Compra</strong></div>
         </div>
       </div>
     </div>
 
     <div class="site-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12">
-            <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
-            </div>
-          </div>
-        </div>
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <h2 class="h3 mb-3 text-black">Tu Orden</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
