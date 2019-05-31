@@ -115,11 +115,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-<<<<<<< HEAD
               <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
-=======
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
->>>>>>> origin/manny
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
@@ -132,13 +128,8 @@ if(!isset($_SESSION['carrito'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-<<<<<<< HEAD
           <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <strong
               class="text-black">Shop</strong></div>
-=======
-          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Compras</strong></div>
->>>>>>> origin/manny
         </div>
       </div>
     </div>

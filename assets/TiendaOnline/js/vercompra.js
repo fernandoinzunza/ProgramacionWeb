@@ -11,16 +11,12 @@ $(document).ready(function(){
                 if(data == "no"){
                     alert("necesitas loguearte prro bandido");
                 }else{
-<<<<<<< HEAD
-                    location.href="http://localhost/ProgWeb/assets/TiendaOnline/checkout.php";
-=======
                     if (data == "tampoco") {
                     alert("necesitas realizar una compra por lo menos");
                     } else {
-                        location.href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/checkout.php";    
+                        location.href="http://localhost:/ProgWeb/assets/TiendaOnline/checkout";    
                     }
                     
->>>>>>> origin/manny
                 }
             }
         });

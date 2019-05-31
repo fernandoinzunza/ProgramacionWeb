@@ -2,17 +2,12 @@
 require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
-<<<<<<< HEAD
-  header("Location: http://localhost/ProgWeb/assets/TiendaOnline/");
-  } else{
-=======
-  header("Location: index.php");
+  header("Location: index");
   }
   elseif(!isset($_SESSION['carrito'])){
-    header("Location: index.php");
+    header("Location: index");
   }
   else{
->>>>>>> origin/manny
   require_once('../../php/Clases/usuario.php');
   $usuario = new Usuario();
   $user = $_SESSION['username'];
