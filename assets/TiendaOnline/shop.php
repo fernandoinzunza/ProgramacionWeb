@@ -31,7 +31,6 @@ if(!isset($_SESSION['carrito'])){
 }else{
   $arreglo = $_SESSION['carrito'];
   $num = count($arreglo);
-  
 }
 
   ?>

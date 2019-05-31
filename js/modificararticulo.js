@@ -17,7 +17,7 @@ $(document).ready(function () {
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        $("#edit").modal("hide");
+                        $("#edit2").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
                         $("#msjbody").text("Editado exitosamente");
                         $("#msjsis").modal("show");

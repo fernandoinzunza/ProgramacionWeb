@@ -16,15 +16,24 @@ if(!isset($_SESSION['ingresar'])){
   }
   if(!isset($_SESSION['carrito'])){
     $num = 0;
+    $total = 0;
   }else{
     $arreglo = $_SESSION['carrito'];
     $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
+    }
   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Tienda en Linea</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
@@ -141,20 +150,12 @@ if(!isset($_SESSION['ingresar'])){
                     <h3 class="text-black h4 text-uppercase">Total Carrito</h3>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="mx-2">$</strong><strong class="text-black"><?php echo $total?></strong>
                   </div>
                 </div>
 
