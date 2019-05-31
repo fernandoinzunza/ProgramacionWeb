@@ -118,10 +118,11 @@ if(!isset($_SESSION['carrito'])){
             <li class="nav-item">
               <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
+            <li class="active"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item">
               <a href="nav-item">Acerca de</a>
             </li>
-            <li class="active"><a href="shop">Compras</a></li>
           </ul>
         </div>
       </nav>
@@ -197,12 +198,6 @@ if(!isset($_SESSION['carrito'])){
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
@@ -391,6 +386,5 @@ if(!isset($_SESSION['carrito'])){
     </div>
   </div>
 </div>
-
-  </body>
+</body>
 </html>

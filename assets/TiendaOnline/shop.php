@@ -115,10 +115,11 @@ if(!isset($_SESSION['carrito'])){
             <li class="nav-item">
               <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
             </li>
-            <li class="nav-item"><a href="shop">Compras</a></li>
           </ul>
         </div>
       </nav>
@@ -140,32 +141,7 @@ if(!isset($_SESSION['carrito'])){
             <div class="row">
               <div class="col-md-12 mb-5">
                 <div class="float-md-left mb-4">
-                  <h2 class="text-black h5">Shop All</h2>
-                </div>
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference"
-                      data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
+                  <h2 class="text-black h5">Todos los Articulos</h2>
                 </div>
               </div>
             </div>
@@ -271,7 +247,6 @@ if(!isset($_SESSION['carrito'])){
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -312,12 +287,6 @@ if(!isset($_SESSION['carrito'])){
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
