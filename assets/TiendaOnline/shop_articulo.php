@@ -147,6 +147,7 @@ if(!isset($_SESSION['carrito'])){
             <p><?php echo utf8_decode($aut);?></p>
             <p class="mb-4"><?php echo utf8_decode($des);?></p>
             <p><strong class="text-primary h4">$<?php echo $prec?></strong></p>
+        
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
               <div class="input-group-prepend">

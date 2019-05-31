@@ -2,10 +2,10 @@
 require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
-  header("Location: index.php");
+  header("Location: index");
   }
   elseif(!isset($_SESSION['carrito'])){
-    header("Location: index.php");
+    header("Location: index");
   }
   else{
   require_once('../../php/Clases/usuario.php');

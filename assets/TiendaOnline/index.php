@@ -59,7 +59,6 @@ if(!isset($_SESSION['carrito'])){
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-  
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -115,7 +114,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost:/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="shop">Compras</a>
@@ -178,43 +177,28 @@ if(!isset($_SESSION['carrito'])){
         </div>
       </div>
     </div>
-
+<?php 
+$sql = 'select distinct categoria from articulos';
+$mostrar = 'select * from editar_categorias';
+$conexion = abrirBD();
+$categorias = $conexion->query($mostrar);
+?>
     <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
+        <?php while($fila = $categorias->fetch_assoc()){?>
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-            <a class="block-2-item" href="#">
+            <a class="block-2-item" href="shop">
               <figure class="image">
-                <img src="images/horror.jpg" alt="" class="img-fluid">
+                <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:400px;" class="img-fluid">
               </figure>
               <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Horror</h3>
+                <span class="text-uppercase">Categorias</span>
+                <h3><?php echo $fila['categoria']?></h3>
               </div>
             </a>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img src="images/libro2.jpg" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Mistery</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img src="images/libro3.jpg" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Science fiction</h3>
-              </div>
-            </a>
-          </div>
+        <?php }?>
         </div>
       </div>
     </div>
@@ -236,9 +220,9 @@ if(!isset($_SESSION['carrito'])){
               </figure>
                 <img src="images/carrusel/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               <div class="block-4-text p-4">
-                <h3><a href="#" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
+                <h3><a href="shop_articulo?cod=<?php echo $fila['id'];?>" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
                 <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
-                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>"><?php echo $fila['precio'];?></p>
+                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>">$<?php echo $fila['precio'];?></p>
               </div>
             </div>
           </div>

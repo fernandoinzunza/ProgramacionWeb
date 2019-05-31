@@ -39,6 +39,7 @@ if(!isset($_SESSION['carrito'])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
@@ -113,7 +114,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
             </li>
             <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
@@ -127,8 +128,8 @@ if(!isset($_SESSION['carrito'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Compras</strong></div>
+          <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">Shop</strong></div>
         </div>
       </div>
     </div>
@@ -146,12 +147,13 @@ if(!isset($_SESSION['carrito'])){
               </div>
             </div>
               <div class="row mb-5" id="catalogo">
+                      
               </div>
           </div>
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorias</h3>
               <ul class="list-unstyled mb-0">
               <li class="mb-1 list-unstyled todos"><a href="#" class="d-flex"><span>Todos</span></a></li>
 
@@ -160,46 +162,6 @@ if(!isset($_SESSION['carrito'])){
                     </ul>
                   <?php }?>
             </div>
-            <div class="border p-4 rounded mb-4">
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                <div id="slider-range" class="border-primary"></div>
-                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div>
-
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                </label>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red
-                    (2,429)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span
-                    class="text-black">Green (2,298)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue
-                    (1,075)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span
-                    class="text-black">Purple (1,075)</span>
-                </a>
-              </div>
-
             </div>
           </div>
         </div>
@@ -316,9 +278,9 @@ if(!isset($_SESSION['carrito'])){
               Copyright &copy;
               <script data-cfasync="false"
                 src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-              with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
-                class="text-primary">Colorlib</a>
+              <script>document.write(new Date().getFullYear());</script>
+               <i class="icon-heart" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"
+                class="text-primary"></a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
