@@ -41,5 +41,6 @@ if($resultado){
     }
 }
 $conn->close();
-echo "Agregado Correctamente al Carrito";
+$num = count($arreglo);
+echo $num;
 ?>

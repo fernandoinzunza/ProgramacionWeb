@@ -115,13 +115,13 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="shop">Compras</a>
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about">Acerca de</a>
+              <a href="about">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a href="shop">Compras</a>
             </li>
           </ul>
         </div>

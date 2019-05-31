@@ -46,10 +46,6 @@ if(!isset($_SESSION['ingresar'])){
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -81,7 +77,7 @@ if(!isset($_SESSION['ingresar'])){
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count"><?php echo $num?></span>
+                      <span class="count" id="cars"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -94,12 +90,12 @@ if(!isset($_SESSION['ingresar'])){
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="active">
+            <li class="nav-item">
               <a href="index">Inicio</a>
             </li>
-            <li class="active">
+            <li class="nav-item">
               <a href="about">Acerca de</a>
-            </li>
+            </li class="nav-item">
             <li><a href="shop">Compras</a></li>
           </ul>
         </div>
@@ -108,7 +104,7 @@ if(!isset($_SESSION['ingresar'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Carrito</strong></div>
         </div>
       </div>
     </div>

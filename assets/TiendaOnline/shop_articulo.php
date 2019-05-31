@@ -73,7 +73,7 @@ if(!isset($_SESSION['carrito'])){
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Shoppers</a>
+                <a href="index" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -102,7 +102,7 @@ if(!isset($_SESSION['carrito'])){
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count"><?php echo $num?></span>
+                      <span class="count" id="cars"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -115,11 +115,11 @@ if(!isset($_SESSION['carrito'])){
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="active">
+            <li class="nav-item">
               <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
-            <li class="active">
-              <a href="about">Acerca de</a>
+            <li class="nav-item">
+              <a href="nav-item">Acerca de</a>
             </li>
             <li class="active"><a href="shop">Compras</a></li>
           </ul>
@@ -130,7 +130,7 @@ if(!isset($_SESSION['carrito'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span><a href="shop">Compras</a><span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
         </div>
       </div>
     </div>  

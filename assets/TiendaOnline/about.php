@@ -61,7 +61,7 @@ session_start();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Acerca de</a>
+                <a href="index" class="js-logo-clone">Tienda en Linea</a>
               </div>
             </div>
 
@@ -107,7 +107,7 @@ session_start();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
@@ -120,8 +120,8 @@ session_start();
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">Acerca de</strong></div>
         </div>
       </div>
     </div> 

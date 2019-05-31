@@ -12,8 +12,9 @@ $(document).ready(function(){
             cant:cant
             },
             success: function(data){
-            mens.text(data);
+            mens.text("Agregado Correctamente al Carrito");
             $("#msjsis").modal("show");
+            $("#cars").text(data);
             }
         });
     });

@@ -31,7 +31,9 @@ if(!isset($_SESSION['carrito'])){
 }else{
   $arreglo = $_SESSION['carrito'];
   $num = count($arreglo);
+  
 }
+
   ?>
   <head>
   <title>Shoppers &mdash;</title>
@@ -62,15 +64,11 @@ if(!isset($_SESSION['carrito'])){
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Compras</a>
+                <a href="index" class="js-logo-clone">Tienda en Linea</a>
               </div>
             </div>
 
@@ -116,7 +114,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
@@ -129,15 +127,14 @@ if(!isset($_SESSION['carrito'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">Compras</strong></div>
         </div>
       </div>
     </div>
 
     <div class="site-section">
       <div class="container">
-
         <div class="row mb-5">
           <div class="col-md-9 order-2">
 

@@ -18,7 +18,8 @@ function obtener_registros()
 				},
 				success: function (data){
                     $("#tablacarrito").load('php/vercarrito.php');
-                    alert(data);
+					alert("Articulo Eliminado Correctamente");
+					$("#cars").text(data);
 				}
 			});
 		
