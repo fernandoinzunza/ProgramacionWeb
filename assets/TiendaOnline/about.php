@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 require_once('../../php/Clases/conexion.php');
 session_start();
@@ -15,6 +15,13 @@ session_start();
     $apmat = utf8_encode($usuario->Ap_Mat);
     $correo = utf8_encode($usuario->Correo);
     }
+    if(!isset($_SESSION['carrito'])){
+      $num = 0;
+    }else{
+      $arreglo = $_SESSION['carrito'];
+      $num = count($arreglo);
+    }
+    
 ?>
 <html lang="en">
   <head>
@@ -54,7 +61,7 @@ session_start();
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Acerca de</a>
+                <a href="index" class="js-logo-clone">Tienda en Linea</a>
               </div>
             </div>
 
@@ -85,7 +92,7 @@ session_start();
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
@@ -100,7 +107,7 @@ session_start();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
@@ -113,8 +120,8 @@ session_start();
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">Acerca de</strong></div>
         </div>
       </div>
     </div> 
@@ -125,7 +132,7 @@ session_start();
           <div class="col-md-6">
             <div class="block-16">
               <figure>
-                <img src="images/person_3.jpg" alt="Image placeholder" class="img-fluid rounded">
+                <img src="images/librotecaf.png" alt="Image placeholder" class="img-fluid rounded">
               </figure>
             </div>
           </div>
@@ -158,7 +165,7 @@ session_start();
           <div class="col-md-6">
             <div class="block-16">
               <figure>
-                <img src="images/men.jpg" alt="Image placeholder" class="img-fluid rounded">
+                <img src="images/mision-vision.png" alt="Image placeholder" class="img-fluid rounded">
               </figure>
             </div>
           </div>

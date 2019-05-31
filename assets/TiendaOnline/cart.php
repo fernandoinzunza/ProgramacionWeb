@@ -14,6 +14,12 @@ if(!isset($_SESSION['ingresar'])){
   $apmat = utf8_encode($usuario->Ap_Mat);
   $correo = utf8_encode($usuario->Correo);
   }
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,24 +27,18 @@ if(!isset($_SESSION['ingresar'])){
     <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
     
   </head>
   <body>
-  
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -46,10 +46,6 @@ if(!isset($_SESSION['ingresar'])){
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -81,40 +77,37 @@ if(!isset($_SESSION['ingresar'])){
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count" id="cars"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
               </div> 
             </div>
-
           </div>
         </div>
       </div> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="active">
+            <li class="nav-item">
               <a href="index">Inicio</a>
             </li>
-            <li class="active">
+            <li class="nav-item">
               <a href="about">Acerca de</a>
-            </li>
+            </li class="nav-item">
             <li><a href="shop">Compras</a></li>
           </ul>
         </div>
       </nav>
     </header>
-
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Carrito</strong></div>
         </div>
       </div>
     </div>
-
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
@@ -128,7 +121,8 @@ if(!isset($_SESSION['ingresar'])){
                     <th class="lead">Titulo</th>
                     <th class="lead">Descripcion</th>
                     <th class="lead">Precio</th>
-                    <th class="lead">Unidades</th>                    
+                    <th class="lead">Unidades</th>
+                    <th class="lead">Eliminar</th>                  
                   </tr>
                 </thead>
                 <tbody id="tablacarrito">
@@ -138,14 +132,13 @@ if(!isset($_SESSION['ingresar'])){
             </div>
           </form>
         </div>
-
         <div class="row">
           <div class="col-md-12">
             <div class="row justify-content-center">
               <div class="col-md-6">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">Total Carrito</h3>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -262,6 +255,7 @@ if(!isset($_SESSION['ingresar'])){
   <script src="js/carritodisponible.js"></script>
   <script src="js/vercompra.js"></script>
   <script src="js/Registrar.js"></script>
+  <script src="js/eliminarcarrito.js"></script>
   <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -385,6 +379,27 @@ if(!isset($_SESSION['ingresar'])){
     </div>
   </div>
 </div>
-
-  </body>
+<div class="modal fade" id="eliminarcar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea eliminar el articulo del carrito
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" name="borrarcarrito" id="borrarcarrito" data-dismiss="modal">Confirmar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
 </html>
