@@ -1,86 +1,56 @@
+<?php
+require_once('../../php/Clases/conexion.php');
+session_start();
+if(!isset($_SESSION['ingresar'])){
+  header("Location: index.php");
+  }
+  else{
+  require_once('../../php/Clases/usuario.php');
+  $usuario = new Usuario();
+  $user = $_SESSION['username'];
+  $usuario->ObtenerDatos($user,$usuario);
+  $name = $usuario;
+  $nombre = utf8_encode($usuario->Nombre);
+  $appat = utf8_encode($usuario->Ap_Pat);
+  $apmat = utf8_encode($usuario->Ap_Mat);
+  $correo = utf8_encode($usuario->Correo);
+  }
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <?php 
-  require_once('../../php/Clases/conexion.php');
-  session_start();
-  if(!isset($_SESSION['ingresar'])){
-    $correo="";
-    } else{
-    require_once('../../php/Clases/usuario.php');
-    $usuario = new Usuario();
-    $user = $_SESSION['username'];
-    $usuario->ObtenerDatos($user,$usuario);
-    $name = $usuario;
-    $nombre = utf8_encode($usuario->Nombre);
-    $appat = utf8_encode($usuario->Ap_Pat);
-    $apmat = utf8_encode($usuario->Ap_Mat);
-    $correo = utf8_encode($usuario->Correo);
-    }
-  $conn = abrirBD();
-  $sql = "select distinct categoria from articulos";
-  $categorias = $conn->query($sql);
-$conn=abrirBD();    
-$sql = "SELECT titulo_pag FROM encabezado";
-$resultado = $conn->query($sql);
-while($resul = mysqli_fetch_array($resultado)){ 
-    $titulopag = $resul[0];
-    }
-$conn->close();
-$selecCateg ="";
-if(isset($_POST['categ'])){
-  $selecCateg = "si";
-}
-if(!isset($_SESSION['carrito'])){
-  $num = 0;
-}else{
-  $arreglo = $_SESSION['carrito'];
-  $num = count($arreglo);
-}
-  ?>
   <head>
-  <title>Shoppers &mdash;</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-    crossorigin="anonymous"></script>
-  <script src="js/paginacion.js"></script>
-  <script src="js/verarticulo.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+    <title>Tienda en Linea</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-<body>
-<script>
-$(document).ready(function() {
-
-  var selecCate = "<?php echo $selecCateg;?>";
-  if(selecCate == "si" ){
-    var categoriaSelect = "<?php echo $_POST['categ'];?>";
-    showPorCategoria(10,1,categoriaSelect);
-  }
-});
-</script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
         <div class="container">
           <div class="row align-items-center">
-
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
             </div>
-
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Tienda en Linea</a>
+                <a href="index" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -88,8 +58,7 @@ $(document).ready(function() {
               <div class="site-top-icons">
                 <ul>
                   <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                  <?php echo $correo?><span class="icon icon-person"></span></a>
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><?php echo $correo?><span class="icon icon-person"></span></a>
                   <div class="dropdown-menu">
                       <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
                       <?php
@@ -105,155 +74,54 @@ $(document).ready(function() {
                       ?>
                     </div>
                   </li>
-                  
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count"><?php echo $num?></span>
                     </a>
-                  </li>
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
-                        class="icon-menu"></span></a></li>
+                  </li> 
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
-              </div>
+              </div> 
             </div>
+
           </div>
         </div>
-      </div>
+      </div> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
+              <a href="index">Inicio</a>
             </li>
-            <li class="nav-item"><a href="shop">Compras</a></li>
-            <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
             </li>
+            <li><a href="shop">Compras</a></li>
+            <li><a href="cart">Carrito</a></li>
           </ul>
         </div>
       </nav>
     </header>
+
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Agradecimientos</strong></div>
         </div>
       </div>
-    </div>
+    </div>  
 
     <div class="site-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-9 order-2">
-
-            <div class="row">
-              <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4">
-<<<<<<< HEAD
-                  <h2 class="text-black h5" id="tituloCat"></h2>
-                </div>
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference"
-                      data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
-=======
-                  <h2 class="text-black h5">Todos los Articulos</h2>
->>>>>>> origin/manny
-                </div>
-              </div>
-            </div>
-              <div class="row mb-5" id="catalogo">
-                      
-              </div>
-          </div>
-
-          <div class="col-md-3 order-1 mb-5 mb-md-0">
-            <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorias</h3>
-              <ul class="list-unstyled mb-0">
-              <li class="mb-1 list-unstyled todos"><a href="#" class="d-flex"><span>Todos</span></a></li>
-
-                  <?php while($item = $categorias->fetch_assoc()){?>
-                    <li class="mb-1 list-unstyled categoria" data-id="<?php echo $item['categoria'];?>"><a href="#" class="d-flex"><span><?php echo $item['categoria'];?></span></a></li>
-                    </ul>
-                  <?php }?>
-            </div>
-            </div>
-          </div>
-        </div>
-
         <div class="row">
-          <div class="col-md-12">
-            <div class="site-section site-blocks-2">
-              <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4">
-                  <h2>Categories</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/women.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Women</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/children.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Children</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/men.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Men</h3>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-12 text-center">
+            <span class="icon-check_circle display-3 text-success"></span>
+            <h2 class="display-3 text-black">Gracias!</h2>
+            <p class="lead mb-5">Tu Orden ha sido completada satisfactoriamente.</p>
+            <p><a href="shop" class="btn btn-sm btn-primary">Volver a Comprar</a></p>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -315,17 +183,12 @@ $(document).ready(function() {
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script data-cfasync="false"
-                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-              <script>document.write(new Date().getFullYear());</script>
-               <i class="icon-heart" aria-hidden="true"></i>  <a href="https://colorlib.com" target="_blank"
-                class="text-primary"></a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-
+          
         </div>
       </div>
     </footer>
@@ -463,7 +326,6 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-
-</body>
-
+    
+  </body>
 </html>

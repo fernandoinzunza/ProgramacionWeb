@@ -23,6 +23,13 @@ if(!isset($_SESSION['ingresar'])){
   }else{
     $arreglo = $_SESSION['carrito'];
     $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -64,7 +71,6 @@ if(!isset($_SESSION['ingresar'])){
               <div class="site-top-icons">
                 <ul>
                   <li><a href="#"><?php echo $correo?><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -85,10 +91,11 @@ if(!isset($_SESSION['ingresar'])){
             <li class="active">
               <a href="index">Inicio</a>
             </li>
+            <li><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="active">
               <a href="about">Acerca de</a>
             </li>
-            <li><a href="shop">Compra</a></li>
           </ul>
         </div>
       </nav>
@@ -110,58 +117,16 @@ if(!isset($_SESSION['ingresar'])){
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
-                      <th>Product</th>
+                      <th>Articulo</th>
+                      <th>Cantidad</th>
                       <th>Total</th>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                        <td>$250.00</td>
-                      </tr>
-                      <tr>
-                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
-                        <td>$100.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
-                      </tr>
+                    <tbody id="orden">
                     </tbody>
+                    <th>Total</th>
+                    <td></td>
+                    <td><strong class="mx-2">$</strong><?php echo$total?></td>
                   </table>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-                    <div class="collapse" id="collapsebank">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                    <div class="collapse" id="collapsecheque">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-5">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
-
-                    <div class="collapse" id="collapsepaypal">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
                   <div class="form-group">
                     <button id="rgCompra" data-id="<?php echo $correo?>" class="btn btn-primary btn-lg py-3 btn-block">Comprar</button>
                   </div>
@@ -209,12 +174,6 @@ if(!isset($_SESSION['ingresar'])){
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
@@ -260,6 +219,7 @@ if(!isset($_SESSION['ingresar'])){
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script src="js/agregarcompra.js"></script>
+  <script src="js/verorden.js"></script>
     
   </body>
 </html>

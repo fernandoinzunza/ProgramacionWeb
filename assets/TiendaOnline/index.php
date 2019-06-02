@@ -117,10 +117,11 @@ if(!isset($_SESSION['carrito'])){
               <a href="http://localhost:/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
-              <a href="about">Acerca de</a>
-            </li>
-            <li class="nav-item">
               <a href="shop">Compras</a>
+            </li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item">
+              <a href="about">Acerca de</a>
             </li>
           </ul>
         </div>
@@ -269,12 +270,6 @@ $categorias = $conexion->query($mostrar);
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/libro.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Encuentra tus libros favoritos</h3>
-              <p>Promo desde Mayo 19 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">

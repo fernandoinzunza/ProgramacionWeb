@@ -16,15 +16,24 @@ if(!isset($_SESSION['ingresar'])){
   }
   if(!isset($_SESSION['carrito'])){
     $num = 0;
+    $total = 0;
   }else{
     $arreglo = $_SESSION['carrito'];
     $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
+    }
   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Tienda en Linea</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
@@ -93,10 +102,11 @@ if(!isset($_SESSION['ingresar'])){
             <li class="nav-item">
               <a href="index">Inicio</a>
             </li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
-            </li class="nav-item">
-            <li><a href="shop">Compras</a></li>
+            </li>
           </ul>
         </div>
       </nav>
@@ -141,20 +151,12 @@ if(!isset($_SESSION['ingresar'])){
                     <h3 class="text-black h4 text-uppercase">Total Carrito</h3>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="mx-2">$</strong><strong class="text-black"><?php echo $total?></strong>
                   </div>
                 </div>
 
@@ -203,12 +205,6 @@ if(!isset($_SESSION['ingresar'])){
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
