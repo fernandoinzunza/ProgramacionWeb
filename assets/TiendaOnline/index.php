@@ -187,7 +187,9 @@ $categorias = $conexion->query($mostrar);
         <div class="row">
         <?php while($fila = $categorias->fetch_assoc()){?>
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-            <a class="block-2-item" href="shop">
+            <form action="shop" method="post">
+            <button type="input" style="border-width:0px;" class="block-2-item" href="shop">
+              <input type="hidden" name="categ" value="<?php echo $fila['categoria'];?>">
               <figure class="image">
                 <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:400px;" class="img-fluid">
               </figure>
@@ -195,7 +197,8 @@ $categorias = $conexion->query($mostrar);
                 <span class="text-uppercase">Categorias</span>
                 <h3><?php echo $fila['categoria']?></h3>
               </div>
-            </a>
+          </button>
+        </form>
           </div>
         <?php }?>
         </div>

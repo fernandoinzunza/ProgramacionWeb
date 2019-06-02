@@ -17,6 +17,7 @@ $(document).ready(function(){
             success: function(data){
                 $("#"+numero+"Imagen").attr("src",data[1]);
                 $("#"+numero+"Texto").text(data[0]);
+                window.location.reload();
             }
          });
     });

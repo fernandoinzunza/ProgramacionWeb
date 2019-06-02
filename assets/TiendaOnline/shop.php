@@ -26,14 +26,10 @@ while($resul = mysqli_fetch_array($resultado)){
     $titulopag = $resul[0];
     }
 $conn->close();
-if(!isset($_SESSION['carrito'])){
-  $num = 0;
-}else{
-  $arreglo = $_SESSION['carrito'];
-  $num = count($arreglo);
-  
+$selecCateg ="";
+if(isset($_POST['categ'])){
+  $selecCateg = "si";
 }
-
   ?>
   <head>
   <title>Shoppers &mdash;</title>
@@ -57,7 +53,16 @@ if(!isset($_SESSION['carrito'])){
 </head>
 
 <body>
+<script>
+$(document).ready(function() {
 
+  var selecCate = "<?php echo $selecCateg;?>";
+  if(selecCate == "si" ){
+    var categoriaSelect = "<?php echo $_POST['categ'];?>";
+    showPorCategoria(10,1,categoriaSelect);
+  }
+});
+</script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -142,7 +147,7 @@ if(!isset($_SESSION['carrito'])){
             <div class="row">
               <div class="col-md-12 mb-5">
                 <div class="float-md-left mb-4">
-                  <h2 class="text-black h5">Shop All</h2>
+                  <h2 class="text-black h5" id="tituloCat"></h2>
                 </div>
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
