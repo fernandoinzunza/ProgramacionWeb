@@ -28,7 +28,7 @@ $conn = abrirBD();
 $sql = "SELECT * FROM EDITAR_CARRUSEL";
 $resultado = $conn->query($sql);
 ?>
-<div class="site-section block-3 site-blocks-2 bg-light">
+<div class="site-section block-3 site-blocks-2 bg-light" id="recCarrusel">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -37,8 +37,8 @@ $resultado = $conn->query($sql);
           <div class="item">
             <div class="block-5 text-center">
               <figure class="block-5-image">
+                <img src="img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               </figure>
-                <img src="TiendaOnline/images/carrusel/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               <div class="block-5-text p-5">
                 <h3><a href="#" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
                 <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
