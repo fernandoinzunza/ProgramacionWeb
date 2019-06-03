@@ -40,7 +40,20 @@ $resultado = $conn->query($sql);
                 <img src="img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               </figure>
               <div class="block-5-text p-5">
-                <h3><a href="#" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
+                <h3><a href="#" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
+                if(strlen($fila['titulo_libro'])<30){
+                  echo $fila['titulo_libro'];
+                }
+                else{
+                  $aux = "";
+                  for($i = 0; $i<27; $i++)
+                  {
+                    $aux .= $fila['titulo_libro'][$i];
+                  }
+                  echo $aux."..";
+                }
+                ?>
+                </a></h3>
                 <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
                 <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>"><?php echo $fila['precio'];?></p>
                 <button class="btn btn-primary selec" data-id="<?php echo $fila['id'];?>">Cambiar</button>

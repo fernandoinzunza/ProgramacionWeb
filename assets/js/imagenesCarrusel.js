@@ -5,7 +5,8 @@ $(document).ready(function () {
         $("#cambiar").val(id);
         $.ajax({
             url: 'php/tablaCarrusel.php',
-            type:'GET',
+            type:'POST',
+            data:{seleccionado:id},
             success: function (data) {
                 $("#tablaCarrusel").html(data);
                 $("#modalC").modal('show');
@@ -24,8 +25,7 @@ $(document).ready(function () {
                 actual:actual,
                 nuevo:nuevo
             },
-            success: function (data) {
-              
+            success: function (data) {              
                 location.reload();
                 $("#tablaCarrusel").html('se edito');
             }

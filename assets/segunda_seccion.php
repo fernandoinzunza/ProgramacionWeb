@@ -50,7 +50,7 @@ $categorias = $conn->query($mostrar);
                 <select name="" id="">
                     <?php $resultado = $conn->query($sql);?>
                     <?php while($row = $resultado->fetch_assoc()){?>
-                    <option value=""><?php echo $row['categoria'];?></option>
+                        <option value=""><?php echo $row['categoria'];?>Hola</option>
                     <?php }
                     ?>
                 </select>
