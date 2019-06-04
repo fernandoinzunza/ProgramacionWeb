@@ -23,7 +23,7 @@ $(document).ready(function () {
                     
                         $("#edit2").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
-                        $("#msjbody").text("Editado exitosamente");
+                        $("#msjbody").text(data);
                         $("#msjsis").modal("show");
                         
                     }

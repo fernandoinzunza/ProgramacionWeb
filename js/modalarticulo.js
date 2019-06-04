@@ -16,5 +16,6 @@ $(document).on("click","#mostrar2",function(){
 		$('#des').val(descripcion);
 		$('#pc').val(precio);
 		$('#uni').val(unidades);
+		$("#archivo").html('<input type="file" class="btn btn-info form-control" name="img" id="img">');
 		$('#referencia').attr("src","../assets/img/"+imagen);
 });
