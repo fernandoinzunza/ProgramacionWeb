@@ -75,7 +75,7 @@ elseif(isset($_SESSION['ingresar']))
                 <div class="row mt-3">
                     <div class="col-md-12 col-sm-12 mt-2">
                         <div class="row justify-content-center">
-                            <input type="button" class="btn btn-link hvr-pulse w-100" data-target="#exampleModalCenter"
+                            <input type="button" class="btn btn-link hvr-pulse w-100" id="regModal" data-target="#exampleModalCenter"
                                 data-toggle="modal" value="Registrar">
                         </div>
                     </div>
@@ -167,13 +167,18 @@ elseif(isset($_SESSION['ingresar']))
                                                                     </div>
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row justify-content-center" id="res">
+
+                            </div>
                         </div>
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
                             <button type="submit" id="crear" class="btn btn-outline-success hvr-pulse-shrink">Crear cuenta</button>

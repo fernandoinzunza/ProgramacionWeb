@@ -16,9 +16,9 @@
     $apmat = utf8_encode($usuario->Ap_Mat);
     $correo = utf8_encode($usuario->Correo);
     }
-  $conn = abrirBD();
-  $sql = "select distinct categoria from articulos";
-  $categorias = $conn->query($sql);
+$conn = abrirBD();
+$sql = "select distinct categoria from articulos";
+$categorias = $conn->query($sql);
 $conn=abrirBD();    
 $sql = "SELECT titulo_pag FROM encabezado";
 $resultado = $conn->query($sql);
@@ -104,13 +104,7 @@ $(document).ready(function() {
                       
                       ?>
                     </div>
-<<<<<<< HEAD
-                  </li>
-                  
-                  
-=======
                   </li>                  
->>>>>>> origin/manny
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -129,7 +123,7 @@ $(document).ready(function() {
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
             </li>
             <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
@@ -180,10 +174,6 @@ $(document).ready(function() {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/manny
       </div>
     </div>
     <footer class="site-footer border-top">

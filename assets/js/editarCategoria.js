@@ -23,11 +23,10 @@ $(document).ready(function(){
                         $("#"+numero+"Texto").text(data[0]);
                         location.reload();
                     }
-                    else if(data.length == 1){
+                    else{
                         $("#errorMsj").text(data[0]);
                         $("#modalError").modal('show');
                     }
-                    
                 }
              }); 
          }
@@ -41,7 +40,12 @@ $(document).ready(function(){
                     categoria:select
                 },
                 success: function(data){
-                    location.reload();
+                    if(data != "La categoría seleccionada no existe!")
+                        location.reload();
+                    else{
+                        $("#errorMsj").text(data);
+                        $("#modalError").modal('show');
+                    }
                 }
              });
          }

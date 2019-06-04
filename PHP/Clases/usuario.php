@@ -153,6 +153,55 @@ class Usuario
             echo $error;
         }
     }
+    public function UserExists($username,$correo){
+        try
+        {
+            $resultado=0;
+            $conn = abrirBD();
+        if($sentencia_preparada =$conn->prepare("SELECT count(*)FROM USUARIOS WHERE USERNAME=? AND CORREO=?"))
+            {
+                $sentencia_preparada->bind_param('ss',$usuario,$email);
+                $usuario =$username;
+                $email = $correo;
+                $sentencia_preparada->execute();
+                $sentencia_preparada->bind_result($numero);
+                while($sentencia_preparada->fetch()){
+                $resultado = $numero;
+                }
+                $conn->close();
+            }
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+        $error = $e->getMessage();
+        echo $error;
+        }
+    }
+    public function DiferenteDeAdmin($username,$pass){
+        try
+        {
+            $resultado=0;
+            $conn = abrirBD();
+        if($sentencia_preparada =$conn->prepare("SELECT count(*)FROM ADMINISTRADOR WHERE USUARIO=? AND CONTRA=?"))
+            {
+                $sentencia_preparada->bind_param('ss',$usuario,$contra);
+                $usuario =$username;
+                $contra = $pass;
+                $sentencia_preparada->execute();
+                $sentencia_preparada->bind_result($numero);
+                while($sentencia_preparada->fetch()){
+                $resultado = $numero;
+                }
+                $conn->close();
+            }
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+        $error = $e->getMessage();
+        echo $error;
+        }
+    }
 }
-
 ?>

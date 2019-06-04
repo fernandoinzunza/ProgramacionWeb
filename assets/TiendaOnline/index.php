@@ -114,7 +114,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost8080:/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="shop">Compras</a>
@@ -192,7 +192,7 @@ $categorias = $conexion->query($mostrar);
             <button type="input" style="border-width:0px;" class="block-2-item" href="shop">
               <input type="hidden" name="categ" value="<?php echo $fila['categoria'];?>">
               <figure class="image">
-                <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:400px;" class="img-fluid">
+                <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:450px; width:325px;" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Categorias</span>
@@ -223,7 +223,7 @@ $categorias = $conexion->query($mostrar);
                 <img src="../img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               </figure>
               <div class="block-5-text p-5">
-                <h3><a href="#" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
+                <h3><a href="shop_articulo?cod=<?php echo $fila['id']?>" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
                 if(strlen($fila['titulo_libro'])<22){
                   echo $fila['titulo_libro'];
                 }
@@ -238,8 +238,7 @@ $categorias = $conexion->query($mostrar);
                 ?>
                 </a></h3>
                 <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
-                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>"><?php echo $fila['precio'];?></p>
-                <button class="btn btn-primary selec" data-id="<?php echo $fila['id'];?>">Cambiar</button>
+                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>">$<?php echo $fila['precio'];?></p>
               </div>
             </div>
           </div>

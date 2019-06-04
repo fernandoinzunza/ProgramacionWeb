@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $("#regModal").click(function(){
+        $("#res").html('');
+    });
     $("#crear").click(function () {
         var user = $("#user").val();
         var pass = $("#pass").val();
@@ -23,16 +26,21 @@ $(document).ready(function () {
                         apmat: apmat
                     },
                     success: function (data) {
-                        $("#user").val("");
-                        $("#pass").val("");
-                        $("#email").val("");
-                        $("#nombre").val("");
-                        $("#appat").val("");
-                        $("#apmat").val("");
-                        $(".toast-body").html(data);
-                        $("#toast").addClass("animated");
-                        $("#toast").addClass("rollIn");
-                        $("#exampleModal").modal("show");
+                        if(data == "<p class='alert alert-success text-center w-75'>Se registró correctamente!</p>")
+                        {
+                            $("#user").val("");
+                            $("#pass").val("");
+                            $("#email").val("");
+                            $("#nombre").val("");
+                            $("#appat").val("");
+                            $("#apmat").val("");
+                            $("#res").html(data);
+                        }
+                        else
+                        {
+                            $("#res").html(data)
+                        }
+                        
                     }
                 });
             }
