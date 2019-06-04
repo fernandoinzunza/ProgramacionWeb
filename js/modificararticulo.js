@@ -19,7 +19,8 @@ $(document).ready(function () {
                     processData: false,
                     contentType: false,
                     cache: false,
-                    success: function (data) {
+                    success: function(data){
+                    
                         $("#edit2").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
                         $("#msjbody").text("Editado exitosamente");

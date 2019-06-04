@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 require_once('../../php/Clases/conexion.php');
 session_start();
@@ -15,38 +14,30 @@ if(!isset($_SESSION['ingresar'])){
   $apmat = utf8_encode($usuario->Ap_Mat);
   $correo = utf8_encode($usuario->Correo);
   }
-$cod = $_GET["cod"];
-$conn = abrirBD();
-$sql = "SELECT codigo,titulo,categoria,autor,descripcion,precio,unidades,imagen FROM articulos where codigo = '$cod'";
-$conn = abrirBD();
-$resultado = $conn->query($sql);
-while($resul = mysqli_fetch_array($resultado)){ 
-    $cod = $resul[0];
-    $tit = utf8_encode($resul[1]);
-    $cat = utf8_encode($resul[2]);
-    $aut = utf8_encode($resul[3]);
-    $des = utf8_encode($resul[4]);
-    $prec = utf8_encode($resul[5]);
-    $uni = utf8_encode($resul[6]);
-    $imagenes = $resul[7];
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+    $total = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
     }
-$conn->close();
-if(!isset($_SESSION['carrito'])){
-  $num = 0;
-}else{
-  $arreglo = $_SESSION['carrito'];
-  $num = count($arreglo);
-}
+  }
+
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -57,7 +48,6 @@ if(!isset($_SESSION['carrito'])){
     
   </head>
   <body>
-  
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -69,16 +59,16 @@ if(!isset($_SESSION['carrito'])){
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Tienda En Linea</a>
+                <a href="index" class="js-logo-clone">Tienda Online</a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                  <?php echo $correo?><span class="icon icon-person"></span></a>
+                  <li data-id="<?php echo $correo?>" class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <?php echo $correo?><span class="icon icon-person"></span>
+                  </a>
                   <div class="dropdown-menu">
                       <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
                       <?php
@@ -89,8 +79,6 @@ if(!isset($_SESSION['carrito'])){
                       else{
                         echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
                       }
-                      
-                      
                       ?>
                     </div>
                   </li>
@@ -111,57 +99,53 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="index">Inicio</a>
             </li>
-            <li class="active"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
-              <a href="nav-item">Acerca de</a>
+              <a href="about">Acerca de</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
-
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span><a href="shop">Compras</a><span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
-        </div>
-      </div>
-    </div>  
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="../img/<?php echo $imagenes?>" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-            <h2 class="text-black"><?php echo $tit?></h2>
-            <p><?php echo utf8_decode($aut);?></p>
-            <p class="mb-4"><?php echo utf8_decode($des);?></p>
-            <p><strong class="text-primary h4">$<?php echo $prec?></strong></p>
-        
-            <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 120px;">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-              </div>
-              <input id="cantidad" type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-              <div class="input-group-append">
-                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-              </div>
-            </div>
-
-            </div>
-            <p><a id="carrito" data-id="<?php echo $cod?>" class="buy-now btn btn-sm btn-primary">Añadir al carrito</a></p>
-
-          </div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Carrito</strong></div>
         </div>
       </div>
     </div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-12" method="post">
+            <div class="site-blocks-table">
+              <table class="table table-bordered">
+              <thead class="encabezado">
+                  <tr>
+                    <th class="lead">Folio</th>
+                    <th class="lead">Correo</th>
+                    <th class="lead">Codigo</th>
+                    <th class="lead">Titulo</th>
+                    <th class="lead">Descripcion</th>
+                    <th class="lead">Precio</th>
+                    <th class="lead">Unidades</th>
+                    <th class="lead">Imagen</th>                  
+                  </tr>
+                </thead>
+                <tbody id="tablacompras">
+
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer border-top">
       <div class="container">
         <div class="row">
@@ -214,7 +198,7 @@ if(!isset($_SESSION['carrito'])){
                   <input type="submit" class="btn btn-sm btn-primary" value="Send">
                 </div>
               </form>
-            </div>  
+            </div>
           </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
@@ -230,26 +214,6 @@ if(!isset($_SESSION['carrito'])){
       </div>
     </footer>
   </div>
-  <div class="modal fade" id="msjsis" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modalLabel">
-                    Mensaje del Sistema
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" id="" name="" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="msjbody">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary lead" id="" name="" data-dismiss="modal">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
@@ -258,8 +222,10 @@ if(!isset($_SESSION['carrito'])){
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/agregarcarrito.js"></script>
+  <script src="js/carritodisponible.js"></script>
+  <script src="js/vercompra.js"></script>
   <script src="js/Registrar.js"></script>
+  <script src="js/miscompras.js"></script>
   <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -382,6 +348,27 @@ if(!isset($_SESSION['carrito'])){
       </div>
     </div>
   </div>
+</div>
+<div class="modal fade" id="eliminarcar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea eliminar el articulo del carrito
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" name="borrarcarrito" id="borrarcarrito" data-dismiss="modal">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 </body>
 </html>

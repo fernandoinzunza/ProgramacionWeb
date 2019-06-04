@@ -4,10 +4,22 @@ session_start();
 $codi = $_POST['idcod'];
 $cant = $_POST['cant'];
 $conn = abrirBD();
-$sql = "SELECT codigo,titulo,descripcion,precio,imagen FROM articulos where codigo = '$codi'";
-$conn = abrirBD();
+$sql ="SELECT unidades FROM ARTICULOS WHERE CODIGO = '$codi'";
 $resultado = $conn->query($sql);
-if($resultado){
+$resul = mysqli_fetch_array($resultado);
+$uni = $resul['unidades'];
+if($cant > $uni){
+    echo "mayor";        
+}
+elseif($uni==0){
+    echo"cero";
+}
+else{
+$total = $uni - $cant;
+$sql = "UPDATE ARTICULOS SET UNIDADES = '$total' where codigo = '$codi'";
+$resultado = $conn->query($sql);
+$sql = "SELECT codigo,titulo,descripcion,precio,imagen FROM articulos where codigo = '$codi'";
+$resultado = $conn->query($sql);
     $fila = mysqli_fetch_array($resultado);
     if(!isset($_SESSION['carrito'])){
         $arreglo[0]['codigos'] = $fila['codigo'];
@@ -39,8 +51,9 @@ if($resultado){
         $_SESSION['carrito'] = $arreglo;
         }
     }
-}
-$conn->close();
 $num = count($arreglo);
 echo $num;
+        }
+$conn->close();
+
 ?>

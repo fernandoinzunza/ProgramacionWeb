@@ -35,12 +35,12 @@
 							<div class="form-group has-feedback">
 							<label>Precio:</label>
 								<input type="text" data-error="Necesitas Ingresar El Precio" class="form-control validanumericos" id="pc" name="pc"required>
-								<div class="help-block with-errors">Ingresa el precio</div>
+								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group has-feedback">
 							<label>Unidades:</label>
 								<input type="text"  data-error="Necesitas Ingresar Alguna Cantidad" class="form-control validanumericos" id="uni" name="uni"required>
-								<div class="help-block with-errors">Ingresa alguna cantidad</div>
+								<div class="help-block with-errors"></div>
 							</div>
 							<br>
 							<div class="form-group has-feedback">

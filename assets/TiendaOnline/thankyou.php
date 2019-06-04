@@ -50,7 +50,7 @@ if(!isset($_SESSION['ingresar'])){
             </div>
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Tienda En Linea</a>
+                <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -92,13 +92,14 @@ if(!isset($_SESSION['ingresar'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="index">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a href="about">Acerca de</a>
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li><a href="shop">Compras</a></li>
             <li><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
+            <li class="nav-item">
+              <a href="about">Acerca de</a>
+            </li>
           </ul>
         </div>
       </nav>

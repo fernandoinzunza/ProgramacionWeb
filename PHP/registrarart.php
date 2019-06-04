@@ -1,5 +1,16 @@
 <?php
 require_once('Clases/admin.php');
+require_once("Clases/conexion.php");
+$variable = $_POST['codi'];
+$conn = abrirBD();
+$sql = "SELECT Codigo FROM Articulos where codigo ='$variable'";
+$resultado = $conn->query($sql);
+while($resul = mysqli_fetch_array($resultado)){ 
+    $variable2 = $resul[0];
+    }
+if($variable2 == $variable){
+    echo "existe";
+}else{
 $articulo = new Admin();
 $articulo->setCodigo(strip_tags($_POST['codi']));
 $articulo->setTitulo(strip_tags($_POST['titu']));
@@ -20,6 +31,6 @@ else
     echo "no se pudo";
 }
 $articulo->RegistrarArticulo($articulo);
-
-
+}
+$conn->close();
 ?>

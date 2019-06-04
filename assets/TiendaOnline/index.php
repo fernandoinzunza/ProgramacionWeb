@@ -120,6 +120,7 @@ if(!isset($_SESSION['carrito'])){
               <a href="shop">Compras</a>
             </li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
             </li>

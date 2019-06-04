@@ -20,6 +20,10 @@ $(document).ready(function(){
                 contentType: false,
                 cache: false,
                 success: function(data){
+                    if(data == "existe"){
+                        alert("El Articulo ya existe");
+                    }
+                    else{
                     $('#regisart').modal("hide");
                     $("#msjbody").text("Se Registro Exitosamente!");
                     $('#msjsis').modal("show");
@@ -31,6 +35,7 @@ $(document).ready(function(){
                     $('#prec').val("");
                     $('#unid').val("");
                     $("#tabla").load('../php/verarticulos.php');
+                    }
                 }
             });
         }
