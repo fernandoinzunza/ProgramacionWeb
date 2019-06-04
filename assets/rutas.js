@@ -25,5 +25,8 @@ var modulo = angular.module("rutas", ['ngRoute'])
             .when('/compras', {
                 templateUrl: 'compras.html'
             })
+            .when('/abouta',{
+                templateUrl: 'abouta.html'
+            })
             .otherwise('/');
 });

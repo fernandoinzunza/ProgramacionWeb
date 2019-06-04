@@ -1,7 +1,6 @@
 <?php
 function abrirBD()
 {
-
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
