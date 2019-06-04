@@ -5,39 +5,46 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <center><h4 class="modal-title" id="myModalLabel">Editar usuario</h4></center>
-                </div>
+				</div>
+				<form id="forma" role="form" data-toggle="validator">
                 <div class="modal-body">
 				<div class="container-fluid">
-                    <div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Username:</span>
-						<input type="text" style="width:350px;" class="form-control" id="user" disabled>
+                    <div class="form-group has-feedback">
+						<label for="">Username</label>
+						<input  type="text" class="form-control" id="user" disabled>
                     </div>
-                    <div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Pass:</span>
-						<input type="text" style="width:350px;" class="form-control" id="pass">
+                    <div class="form-group  has-feedback">
+						<label for="">Pass</label>
+						<input data-error="Ingresa una contraseña" type="text"  class="form-control" id="pass" required>
+						<div class="help-block with-errors"></div>
                     </div>
-                    <div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Correo:</span>
-						<input type="text" style="width:350px;" class="form-control" id="correo">
+                    <div class="form-group  has-feedback">
+						<label for="">Correo</label>
+						<input data-error="Ingresa un Correo y/o El Formato no es Correcto" type="text"  class="form-control" id="correo" required>
+						<div class="help-block with-errors"></div>
 					</div>
-					<div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Nombre:</span>
-						<input type="text" style="width:350px;" class="form-control" id="nombre">
+					<div class="form-group has-feedback">
+						<label for="">Nombre</label>
+						<input data-error="Ingresa un Nombre" type="text"  class="form-control" id="nombre" required onkeypress="return soloLetras(event)" required>
+						<div class="help-block with-errors"></div>
 					</div>
-					<div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Ap_Pat:</span>
-						<input type="text" style="width:350px;" class="form-control" id="appat">
+					<div class="form-group has-feedback">
+						<label for="">Ap_Pat</label>
+						<input data-error="Ingresa un Apellido Paterno" type="text"  class="form-control" id="appat" required onkeypress="return soloLetras(event)" required>
+						<div class="help-block with-errors"></div>
 					</div>
-					<div class="form-group input-group">
-						<span class="input-group-addon" style="width:150px;">Ap_Mat:</span>
-						<input type="text" style="width:350px;" class="form-control" id="apmat">
+					<div class="form-group has-feedback">
+						<label for="">Ap_Mat</label>
+						<input data-error="Ingresa un Apellido Materno" type="text"  class="form-control" id="apmat" required onkeypress="return soloLetras(event)" required>
+						<div class="help-block with-errors"></div>
 					</div>					
 				</div>
 				</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-success" id="modificar"> Actualizar</button>
-                </div>
+				</div>
+				</form>
             </div>
         </div>
     </div>

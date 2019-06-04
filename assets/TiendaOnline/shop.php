@@ -92,10 +92,7 @@ if(!isset($_SESSION['carrito'])){
                       
                       ?>
                     </div>
-                  </li>
-                  
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  
+                  </li>                  
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -114,7 +111,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Home</a>
             </li>
             <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
@@ -162,53 +159,6 @@ if(!isset($_SESSION['carrito'])){
                     </ul>
                   <?php }?>
             </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="site-section site-blocks-2">
-              <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4">
-                  <h2>Categories</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/women.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Women</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/children.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Children</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/men.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Men</h3>
-                    </div>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -26,7 +26,6 @@ $nombre = utf8_encode($admin->Usuario);
     <base href="/ProgWeb/assets/"/>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    
           <!-- Bootstrap core CSS     -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
@@ -58,11 +57,13 @@ $nombre = utf8_encode($admin->Usuario);
     <script src="../js/modificar.js"></script>
     <script src="../js/regart.js"></script>
     <script src="../js/eliminar.js"></script>
-    <script src="../js/modalarticulo.js"></script>
-    <script src="../js/modificararticulo.js"></script>
     <script src="../js/eliminararticulo.js"></script>
     <script src="js/style.js"></script>
     <script src="js/imagenesCarrusel.js"></script>
+    <script src="../js/modalarticulo.js"></script>
+    <script src="../js/modificararticulo.js"></script>
+    <script src="../js/validator.js"></script>
+    
 </head>
 
 <body>
@@ -92,13 +93,13 @@ $nombre = utf8_encode($admin->Usuario);
                         </a>
                     </li>
                     <li>
-                        <a href="#/articulos" class="hvr-wobble-horizontal dropdown-toggle">
+                        <a href="#/articulos" class="hvr-wobble-horizontal">
                             <i class="pe-7s-wallet"></i>
                             <p>Articulos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#/compras" class="hvr-wobble-horizontal dropdown-toggle">
+                        <a href="#/compras" class="hvr-wobble-horizontal">
                             <i class="pe-7s-cart"></i>
                             <p>Compras</p>
                         </a>
@@ -235,11 +236,12 @@ $nombre = utf8_encode($admin->Usuario);
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Articulos</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <form method="post" role="form" id="forms" enctype="multipart/form-data" data-toggle="validator">
                 <div class="modal-body">
                     <div class="">
                         <div class="">
@@ -250,69 +252,75 @@ $nombre = utf8_encode($admin->Usuario);
                                             <h4 class="title">Registrar Articulo</h4>
                                         </div>
                                         <div class="content">
-                                            <form method="post" id="forms" enctype="multipart/form-dat" novalidate>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                                 <label>Codigo</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Codigo" id="codi" required>
+                                                                <input data-error="ingrese un código de articulo" type="text" class="form-control"
+                                                                    placeholder="Codigo" id="codi" required onkeypress="return soloLetrasynumeros(event)" required>
+                                                                    <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                                 <label>Titulo</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Titulo" id="titu" required>
+                                                                <input type="text" class="form-control" data-error="Ingrese un titulo"
+                                                                    placeholder="Titulo" id="titu" required onkeypress="return soloLetras(event)" required>
+                                                                    <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                             <label >Categoria</label>
-                                                            <input type="text" class="form-control" placeholder="Categoria"
+                                                            <input type="text" class="form-control" placeholder="Categoria" data-error="Ingresa una Categoria"
                                                                 id="cate" required>
-                                                                
+                                                                <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                             <label>Autor</label>
-                                                            <input type="text" class="form-control" placeholder="Autor"
-                                                                id="auto" required>
+                                                            <input type="text" class="form-control" placeholder="Autor" data-error="Ingresa un Autor"
+                                                                id="auto" required onkeypress="return soloLetras(event)" required>
+                                                                <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                             <label>Descripcion</label>
                                                             <br>
-                                                            <textarea name="descripcion" id="descrip" form="form" rows="4" cols="90 ">
+                                                            <textarea data-error="Ingresa una Descripcion" class="form-control" name="descripcion" id="descrip" form="form" rows="4" cols="90 " required>
                                                             </textarea>
+                                                            <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                             <label>Precio</label>
-                                                            <input type="text" class="form-control" placeholder="Precio"
+                                                            <input type="text" class="form-control validanumericos" placeholder="Precio" data-error="Ingresa un precio"
                                                                 id="prec" required>
+                                                                <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <div class="form-group">
+                                                        <div class="form-group has-feedback">
                                                             <label>Unidades</label>
-                                                            <input type="text" class="form-control"
+                                                            <input data-error="Ingresa una Cantidad" type="text" class="form-control validanumericos"
                                                                 placeholder="Unidades" id="unid" required>
+                                                                <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                         <div class="col-sm-2">
-                                                            <div class="form-group">
+                                                            <div class="form-group has-feedback">
                                                                     <label class="custom-file" id="customFile">Imagen</label>
-                                                                    <input type="file" class="btn btn-primary" name="imagen" id="imagenes">
+                                                                    <input data-error="Ingresa una imagen" type="file" class="btn btn-primary" name="imagen" id="imagenes" required>
+                                                                    <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
                                                 </div>
@@ -321,15 +329,69 @@ $nombre = utf8_encode($admin->Usuario);
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
-                            <button type="button" id="regart" class="btn btn-success">Registrar</button>
-                        </div>
-                        </form>
+                        
                     </div>
                 </div>
+                <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary hvr-shrink" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" id="regart" class="btn btn-success">Registrar</button>
+                        </div>
+                </form>
             </div>
         </div>
 </div>
 </body>
+<script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+<script>
+    function soloLetrasynumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz1234567890";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+<script language="javascript">
+$(function(){
+
+$('.validanumericos').keypress(function(e) {
+  if(isNaN(this.value + String.fromCharCode(e.charCode))) 
+   return false;
+})
+.on("cut copy paste",function(e){
+  e.preventDefault();
+});
+
+});
+</script>
 </html>

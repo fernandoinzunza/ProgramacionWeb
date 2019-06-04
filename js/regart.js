@@ -9,6 +9,9 @@ $(document).ready(function(){
         frmData.append("prec",$("#prec").val());
         frmData.append("unid",$("#unid").val());
         frmData.append("imagen",$("input[name=imagen]")[0].files[0]);
+        if ($('#forms')[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
             $.ajax({
                 url: '../php/registrarart.php',
                 method:'POST',
@@ -30,6 +33,8 @@ $(document).ready(function(){
                     $("#tabla").load('../php/verarticulos.php');
                 }
             });
+        }
+        $('#forms').addClass('was-validated');
     });
 
 });
