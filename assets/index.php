@@ -104,6 +104,12 @@ $nombre = utf8_encode($admin->Usuario);
                             <p>Compras</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="#/abouta" class="hvr-wobble-horizontal dropdown-toggle">
+                            <i class="pe-7s-info"></i>
+                            <p>About</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
