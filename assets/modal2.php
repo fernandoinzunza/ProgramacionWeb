@@ -54,7 +54,7 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							<br>
-							<div class="form-group has-feedback">
+							<div class="form-group">
 							<label>Imagenes:</label>
 								<div class="card text-center" style="width: 18rem; margin: 0 auto;">
 									<img class="card-img-top" style="width: 18rem;" src=""
@@ -62,9 +62,9 @@
 									<div class="card-body">
 										<h5 class="card-title">Imagen principal</h5>
 										<label class="custom-file" id="customFile">
-										<input data-error="Necesitas Ingresar Una Imagen" type="file" class="btn btn-info form-control" name="img" id="img"required>
+										<div id="archivo"></div>
 										<span class="custom-file-control form-control-file"></span>
-										</label><div class="help-block with-errors"></div>
+										</label>
 									</div>
 								</div>
 							</div>						

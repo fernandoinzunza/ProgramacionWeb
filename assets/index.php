@@ -24,7 +24,7 @@ $nombre = utf8_encode($admin->Usuario);
  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Proyecto</title>
-    <base href="/ProgWeb/assets/"/>
+    <base href="/ProgramacionWeb/assets/"/>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Expires" content="0">
@@ -107,6 +107,12 @@ $nombre = utf8_encode($admin->Usuario);
                         <a href="#/compras" class="hvr-wobble-horizontal">
                             <i class="pe-7s-cart"></i>
                             <p>Compras</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/abouta" class="hvr-wobble-horizontal dropdown-toggle">
+                            <i class="pe-7s-info"></i>
+                            <p>About</p>
                         </a>
                     </li>
                 </ul>
