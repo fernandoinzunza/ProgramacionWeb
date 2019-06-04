@@ -7,7 +7,7 @@ $resultado = $conn->query($sql);
 while($resul = mysqli_fetch_array($resultado)){ 
     $titulopag = $resul[0];
     $encimg = utf8_encode($resul[1]);
-    $descrimg = utf8_encode($resul[2]);
+    $descrimg = utf8_encode($resul[2]); 
     $imagenes = $resul[3];
     }
 $conn->close();
