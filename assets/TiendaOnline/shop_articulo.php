@@ -31,10 +31,16 @@ while($resul = mysqli_fetch_array($resultado)){
     $imagenes = $resul[7];
     }
 $conn->close();
+if(!isset($_SESSION['carrito'])){
+  $num = 0;
+}else{
+  $arreglo = $_SESSION['carrito'];
+  $num = count($arreglo);
+}
 ?>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -59,15 +65,11 @@ $conn->close();
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Shoppers</a>
+                <a href="index" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -92,11 +94,10 @@ $conn->close();
                       ?>
                     </div>
                   </li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count" id="cars"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -109,13 +110,15 @@ $conn->close();
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="active">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
-            </li>
-            <li class="active">
-              <a href="about">Acerca de</a>
+            <li class="nav-item">
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="active"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
+            <li class="nav-item">
+              <a href="nav-item">Acerca de</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -124,7 +127,7 @@ $conn->close();
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span><a href="shop">Compras</a><span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $tit ?></strong></div>
         </div>
       </div>
     </div>  
@@ -140,20 +143,7 @@ $conn->close();
             <p><?php echo utf8_decode($aut);?></p>
             <p class="mb-4"><?php echo utf8_decode($des);?></p>
             <p><strong class="text-primary h4">$<?php echo $prec?></strong></p>
-            <div class="mb-1 d-flex">
-              <label for="option-sm" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
-              </label>
-              <label for="option-md" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">Medium</span>
-              </label>
-              <label for="option-lg" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">Large</span>
-              </label>
-              <label for="option-xl" class="d-flex mr-3 mb-3">
-                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra Large</span>
-              </label>
-            </div>
+        
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
               <div class="input-group-prepend">
@@ -205,12 +195,6 @@ $conn->close();
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
@@ -399,6 +383,5 @@ $conn->close();
     </div>
   </div>
 </div>
-
-  </body>
+</body>
 </html>

@@ -37,6 +37,13 @@ while($resul = mysqli_fetch_array($resultado)){
     $tw = utf8_encode($resul[4]);
     }
 $conn->close();
+    if(!isset($_SESSION['carrito'])){
+      $num = 0;
+    }else{
+      $arreglo = $_SESSION['carrito'];
+      $num = count($arreglo);
+    }
+    
 ?>
 <html lang="en">
   <head>
@@ -68,15 +75,11 @@ $conn->close();
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Acerca de</a>
+                <a href="index" class="js-logo-clone">Tienda en Linea</a>
               </div>
             </div>
 
@@ -102,12 +105,10 @@ $conn->close();
                     </div>
                   </li>
                   
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
@@ -122,12 +123,14 @@ $conn->close();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost:8088/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
             </li>
-            <li class="nav-item"><a href="shop">Compras</a></li>
           </ul>
         </div>
       </nav>
@@ -135,7 +138,7 @@ $conn->close();
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
               class="text-black">Acerca de</strong></div>
         </div>
       </div>
@@ -229,8 +232,6 @@ $conn->close();
         </div>
       </div>
     </div>
-
-    
     <footer class="site-footer border-top">
       <div class="container">
         <div class="row">

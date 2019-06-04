@@ -5,6 +5,9 @@ $(document).ready(function(){
         frmData.append("encimg",$("#encimg").val());
         frmData.append("descrimg",$("#descrimg").val());
         frmData.append("imagen",$("input[name=imagen]")[0].files[0]);
+        if ($('#seccion')[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
                 $.ajax({
                     url: '../php/modificarenc.php',
                     method: 'POST',
@@ -15,7 +18,11 @@ $(document).ready(function(){
                     success: function (data) {
                         $("#msjbody").text("Editado exitosamente");
                         $("#msjsis").modal("show");
+                        location.reload();
                     }
          });
+        }
+        $('#seccion').addClass('was-validated');
     });
+    
 });

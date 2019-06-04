@@ -9,6 +9,9 @@ $(document).ready(function () {
         frmData.append("pc",$("#pc").val());
         frmData.append("uni",$("#uni").val());
         frmData.append("img",$("input[name=img]")[0].files[0]);
+        if ($('#form')[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
                 $.ajax({
                     url: '../php/modificararticulo.php',
                     method: 'POST',
@@ -16,12 +19,16 @@ $(document).ready(function () {
                     processData: false,
                     contentType: false,
                     cache: false,
-                    success: function (data) {
-                        $("#edit").modal("hide");
+                    success: function(data){
+                    
+                        $("#edit2").modal("hide");
                         $("#tabla").load('../php/verarticulos.php');
                         $("#msjbody").text("Editado exitosamente");
                         $("#msjsis").modal("show");
+                        
                     }
                 });
+            }
+            $('#form').addClass('was-validated');
     });
 });

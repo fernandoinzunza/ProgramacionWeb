@@ -17,5 +17,4 @@ $(document).on("click","#mostrar2",function(){
 		$('#pc').val(precio);
 		$('#uni').val(unidades);
 		$('#referencia').attr("src","../assets/img/"+imagen);
-		$('#img').val(imagen);
 });

@@ -2,8 +2,12 @@
 require_once('../../php/Clases/conexion.php');
 session_start();
 if(!isset($_SESSION['ingresar'])){
-  header("Location: index.php");
-  } else{
+  header("Location: index");
+  }
+  elseif(!isset($_SESSION['carrito'])){
+    header("Location: index");
+  }
+  else{
   require_once('../../php/Clases/usuario.php');
   $usuario = new Usuario();
   $user = $_SESSION['username'];
@@ -14,11 +18,24 @@ if(!isset($_SESSION['ingresar'])){
   $apmat = utf8_encode($usuario->Ap_Mat);
   $correo = utf8_encode($usuario->Correo);
   }
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,10 +46,7 @@ if(!isset($_SESSION['ingresar'])){
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
     
   </head>
@@ -45,15 +59,11 @@ if(!isset($_SESSION['ingresar'])){
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index" class="js-logo-clone">Shoppers</a>
+                <a href="index" class="js-logo-clone">Tienda En Linea</a>
               </div>
             </div>
 
@@ -61,11 +71,10 @@ if(!isset($_SESSION['ingresar'])){
               <div class="site-top-icons">
                 <ul>
                   <li><a href="#"><?php echo $correo?><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -80,12 +89,14 @@ if(!isset($_SESSION['ingresar'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="active">
-              <a href="index">Inicio</a>
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
+            <li><a href="shop">Compras</a></li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="active">
               <a href="about">Acerca de</a>
             </li>
-            <li><a href="shop">Compra</a></li>
           </ul>
         </div>
       </nav>
@@ -94,78 +105,29 @@ if(!isset($_SESSION['ingresar'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <a href="cart">Carrito</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Compra</strong></div>
         </div>
       </div>
     </div>
 
     <div class="site-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12">
-            <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
-            </div>
-          </div>
-        </div>
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <h2 class="h3 mb-3 text-black">Tu Orden</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
-                      <th>Product</th>
+                      <th>Articulo</th>
+                      <th>Cantidad</th>
                       <th>Total</th>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                        <td>$250.00</td>
-                      </tr>
-                      <tr>
-                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
-                        <td>$100.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
-                      </tr>
+                    <tbody id="orden">
                     </tbody>
+                    <th>Total</th>
+                    <td></td>
+                    <td><strong class="mx-2">$</strong><?php echo$total?></td>
                   </table>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-                    <div class="collapse" id="collapsebank">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                    <div class="collapse" id="collapsecheque">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-5">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button" aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
-
-                    <div class="collapse" id="collapsepaypal">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                      </div>
-                    </div>
-                  </div>
                   <div class="form-group">
                     <button id="rgCompra" data-id="<?php echo $correo?>" class="btn btn-primary btn-lg py-3 btn-block">Comprar</button>
                   </div>
@@ -213,12 +175,6 @@ if(!isset($_SESSION['ingresar'])){
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
-              <p>Promo from  nuary 15 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
@@ -264,6 +220,7 @@ if(!isset($_SESSION['ingresar'])){
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script src="js/agregarcompra.js"></script>
+  <script src="js/verorden.js"></script>
     
   </body>
 </html>

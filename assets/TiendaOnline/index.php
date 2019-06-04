@@ -30,6 +30,12 @@ $conn->close();
 $conn = abrirBD();
 $sql = "SELECT * FROM EDITAR_CARRUSEL";
 $resultado = $conn->query($sql);
+if(!isset($_SESSION['carrito'])){
+  $num = 0;
+}else{
+  $arreglo = $_SESSION['carrito'];
+  $num = count($arreglo);
+}
 ?>
 <html lang="en">
   <head>
@@ -53,7 +59,6 @@ $resultado = $conn->query($sql);
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-  
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -61,12 +66,7 @@ $resultado = $conn->query($sql);
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
-
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
                 <a href="index.php" class="js-logo-clone"><?php echo $titulopag ?></a>
@@ -95,11 +95,10 @@ $resultado = $conn->query($sql);
                       ?>
                     </div>
                   </li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"><?php echo $num ?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -115,13 +114,15 @@ $resultado = $conn->query($sql);
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="shop">Compras</a>
+              <a href="http://localhost8080:/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about">Acerca de</a>
+              <a href="shop">Compras</a>
+            </li>
+            <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
+            <li class="nav-item">
+              <a href="about">Acerca de</a>
             </li>
           </ul>
         </div>
@@ -136,7 +137,7 @@ $resultado = $conn->query($sql);
             <div class="intro-text text-center text-md-left">
               <p class="mb-4"style="color:white"><?php echo $descrimg?></p>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Compra ya!</a>
+                <a href="shop" class="btn btn-sm btn-primary">Compra ya!</a>
               </p>
             </div>
           </div>
@@ -177,43 +178,31 @@ $resultado = $conn->query($sql);
         </div>
       </div>
     </div>
-
+<?php 
+$sql = 'select distinct categoria from articulos';
+$mostrar = 'select * from editar_categorias';
+$conexion = abrirBD();
+$categorias = $conexion->query($mostrar);
+?>
     <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
+        <?php while($fila = $categorias->fetch_assoc()){?>
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-            <a class="block-2-item" href="#">
+            <form action="shop" method="post">
+            <button type="input" style="border-width:0px;" class="block-2-item" href="shop">
+              <input type="hidden" name="categ" value="<?php echo $fila['categoria'];?>">
               <figure class="image">
-                <img src="images/horror.jpg" alt="" class="img-fluid">
+                <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:400px;" class="img-fluid">
               </figure>
               <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Horror</h3>
+                <span class="text-uppercase">Categorias</span>
+                <h3><?php echo $fila['categoria']?></h3>
               </div>
-            </a>
+          </button>
+        </form>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img src="images/libro2.jpg" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Mistery</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img src="images/libro3.jpg" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Science fiction</h3>
-              </div>
-            </a>
-          </div>
+        <?php }?>
         </div>
       </div>
     </div>
@@ -229,19 +218,33 @@ $resultado = $conn->query($sql);
             <div class="nonloop-block-3 owl-carousel">
               
             <?php while($fila = $resultado->fetch_assoc()){?>
-              <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
+          <div class="item">
+            <div class="block-5 text-center">
+              <figure class="block-5-image">
+                <img src="../img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               </figure>
-                <img src="images/carrusel/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
-              <div class="block-4-text p-4">
-                <h3><a href="#" id="<?php echo $fila['id']."Titulo";?>"><?php echo $fila['titulo_libro'];?></a></h3>
+              <div class="block-5-text p-5">
+                <h3><a href="#" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
+                if(strlen($fila['titulo_libro'])<22){
+                  echo $fila['titulo_libro'];
+                }
+                else{
+                  $aux = "";
+                  for($i = 0; $i<15; $i++)
+                  {
+                    $aux .= $fila['titulo_libro'][$i];
+                  }
+                  echo $aux."..";
+                }
+                ?>
+                </a></h3>
                 <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
                 <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>"><?php echo $fila['precio'];?></p>
+                <button class="btn btn-primary selec" data-id="<?php echo $fila['id'];?>">Cambiar</button>
               </div>
             </div>
           </div>
-              <?php }?>
+          <?php }?>
 
             </div>
           </div>
@@ -282,12 +285,6 @@ $resultado = $conn->query($sql);
             </div>
           </div>
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/libro.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Encuentra tus libros favoritos</h3>
-              <p>Promo desde Mayo 19 &mdash; 25, 2019</p>
-            </a>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">

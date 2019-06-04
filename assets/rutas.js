@@ -11,10 +11,10 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'articulos.html'
             })
             .when('/gestor/Encabezado',{
-                templateUrl: 'primera_seccion.html'
+                templateUrl: 'primera_seccion.php'
             })
             .when('/gestor/Categorias',{
-                templateUrl: 'segunda_seccion.html'
+                templateUrl: 'segunda_seccion.php'
             })
             .when('/gestor/Carrusel',{
                 templateUrl: 'tercera_seccion.php'

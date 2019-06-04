@@ -9,9 +9,14 @@ $(document).ready(function(){
             },
             success:function(data){
                 if(data == "no"){
-                    alert("necesitas loguearte prro bandido");
+                    alert("necesitas Inicias Sesión");
                 }else{
-                    location.href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/checkout.php";
+                    if (data == "tampoco") {
+                    alert("necesitas realizar una compra por lo menos");
+                    } else {
+                        location.href="http://localhost:8080/ProgWeb/assets/TiendaOnline/checkout";    
+                    }
+                    
                 }
             }
         });

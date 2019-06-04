@@ -1,12 +1,12 @@
 <?php
 require_once ("conexion.php");
 $conn = abrirBD();
-if (! (isset($_GET['PaginaNumero']))) {
+if (! (isset($_POST['PaginaNumero']))) {
     $PaginaNumero = 1;
 } else {
-    $PaginaNumero = $_GET['PaginaNumero'];
+    $PaginaNumero = $_POST['PaginaNumero'];
 }
-$categoria = $_GET['categoria'];
+$categoria = $_POST['categoria'];
 
 $CantidadPagina = 9;
 
@@ -30,15 +30,23 @@ $results = mysqli_query($conn, $sqlQuery);
 ?>
 
     <?php foreach ($results as $data) { ?>
-        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" >
+        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" style="height:450px; width:275px;">
         <div class="block-4 text-center border">
           <figure class="block-4-image">
             <a href="shop_articulo?cod=<?php echo $data['codigo'] ?>"><img src="../img/<?php echo $data['imagen']?>" alt="Image placeholder" class="img-fluid" style="width: 18rem; height: 18rem;"></a>
           </figure>
           <div class="block-4-text p-4">
-            <h3><a href="shop_articulo?cod=<?php echo $data['codigo'] ?>"><?php echo $data['titulo']?></a></h3>
-            <p class="text-primary font-weight-bold"><?php echo $data['precio']?></p>
-            <button class="btn btn-info codigo" data-id="<?php echo $data['codigo']?>">Ver descripcion</button>
+            <h3><a href="shop_articulo?cod=<?php echo $data['codigo'] ?>" class="tituloLetra"><?php if(strlen($data['titulo'])>30){
+              $cadena = "";
+                  for($i = 0; $i<25;$i++)
+                  {
+                    $cadena .= $data['titulo'][$i];
+                  }
+                  $cadena.="...";
+                  echo $cadena;
+            } else{echo $data['titulo'];}?></a></h3>
+            <p class="text-primary font-weight-bold">$<?php echo $data['precio']?></p>
+            <button class="btn btn-info codigo" onclick="window.location.href='shop_articulo?cod=<?php echo $data['codigo']?>'" data-id="<?php echo $data['codigo']?>">Agregar al carrito <i class="fas fa-cart-plus"></i></button>
           </div>
         </div>
       </div>
