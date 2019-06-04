@@ -1,12 +1,12 @@
 <?php
 require_once ("conexion.php");
 $conn = abrirBD();
-if (! (isset($_GET['PaginaNumero']))) {
+if (! (isset($_POST['PaginaNumero']))) {
     $PaginaNumero = 1;
 } else {
-    $PaginaNumero = $_GET['PaginaNumero'];
+    $PaginaNumero = $_POST['PaginaNumero'];
 }
-$categoria = $_GET['categoria'];
+$categoria = $_POST['categoria'];
 
 $CantidadPagina = 9;
 

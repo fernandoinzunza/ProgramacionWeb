@@ -21,7 +21,7 @@ $categorias = $conn->query($mostrar);
                 <select name="" id="<?php echo $fila['numero'];?>Select" style="width:100%; height:45px;">
                     <?php $resultado = $conn->query($sql);?>
                     <?php while($row = $resultado->fetch_assoc()){?>
-                    <option value="<?php echo $row['categoria'];?>"><?php echo $row['categoria'];?></option>
+                        <option value="<?php echo $row['categoria'];?>" <?php if($fila['categoria']==$row['categoria']){echo "selected";}?>><?php echo $row['categoria'];?></option>
                     <?php }
                     ?>
                 </select>
@@ -50,7 +50,7 @@ $categorias = $conn->query($mostrar);
                 <select name="" id="">
                     <?php $resultado = $conn->query($sql);?>
                     <?php while($row = $resultado->fetch_assoc()){?>
-                    <option value=""><?php echo $row['categoria'];?></option>
+                        <option value=""><?php echo $row['categoria'];?></option>
                     <?php }
                     ?>
                 </select>

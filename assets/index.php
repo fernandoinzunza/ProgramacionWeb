@@ -17,6 +17,7 @@ $nombre = utf8_encode($admin->Usuario);
 <?php include('modal2.php');?>
 <?php include('imagenModal.php');?>
 <?php include('modalCarrusel.php');?>
+<?php include('modalError.php');?>
 <html lang="en" ng-app='rutas'>
 <head>
     <meta charset="utf-8" />

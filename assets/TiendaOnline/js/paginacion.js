@@ -1,7 +1,7 @@
 
 function showRecords(CantidadPagina, PaginaNumero) {
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "php/paginar.php",
         data: {"PaginaNumero":  PaginaNumero },
         cache: false,
@@ -10,14 +10,14 @@ function showRecords(CantidadPagina, PaginaNumero) {
             
         },
         success: function(html) {
+            $("#tituloCat").text('Todos');
             $("#catalogo").html(html);
-        
         }
     });
 }
 function showPorCategoria(CantidadPagina, PaginaNumero, categoria) {
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "php/paginarCategorias.php",
         data: {"PaginaNumero": PaginaNumero , "categoria":categoria},
         cache: false,
@@ -25,8 +25,8 @@ function showPorCategoria(CantidadPagina, PaginaNumero, categoria) {
             
         },
         success: function(html) {
+            $("#tituloCat").text(categoria);
             $("#catalogo").html(html);
-        
         }
     });
 }

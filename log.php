@@ -64,7 +64,7 @@ elseif(isset($_SESSION['ingresar']))
                         <div class="col">
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" class="form-control" placeholder="Password" name="contra">
+                                <input type="password" class="form-control" placeholder="Password" name="contra">
                             </div>
                         </div>
                     </div>
@@ -73,14 +73,9 @@ elseif(isset($_SESSION['ingresar']))
                     </div>
                 </form>
                 <div class="row mt-3">
-                    <div class="col-md-6 col-sm-12 mt-2">
+                    <div class="col-md-12 col-sm-12 mt-2">
                         <div class="row justify-content-center">
-                            <button class="btn btn-link hvr-pulse">Olvide mi contraseña</button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 mt-2">
-                        <div class="row justify-content-center">
-                            <input type="button" class="btn btn-link hvr-pulse" data-target="#exampleModalCenter"
+                            <input type="button" class="btn btn-link hvr-pulse w-100" data-target="#exampleModalCenter"
                                 data-toggle="modal" value="Registrar">
                         </div>
                     </div>

@@ -24,18 +24,25 @@ if(!file_exists($ruta_guardar_archivo))
 }   
 
 */  
-    $arreglo = array();
-    if(move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta_guardar_archivo))
-    {   
-        $update ="UPDATE EDITAR_CATEGORIAS SET CATEGORIA='$categoria', IMAGEN='$nombre_imagen' where numero ='$numero'";
-        $conn->query($update);
-        $arreglo[0] = $categoria;
-        $arreglo[1] = "TiendaOnline/images/categorias/".$nombre_imagen;
-        echo json_encode($arreglo);
-    }
-    else
-    {
-    echo "no se pudo";
-    }   
-
+if( $_FILES['imagen']['type'] != "image/jpg" && $_FILES['imagen']['type'] != "image/png"){
+    $arr = array();
+    $arr[0] = "La imagen debe ser de formato .png o .jpg!";
+    echo json_encode($arr);
+}
+else 
+{
+        $arreglo = array();
+        if(move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta_guardar_archivo))
+        {      
+            $update ="UPDATE EDITAR_CATEGORIAS SET CATEGORIA='$categoria', IMAGEN='$nombre_imagen' where numero ='$numero'";
+            $conn->query($update);
+            $arreglo[0] = $categoria;
+            $arreglo[1] = "TiendaOnline/images/categorias/".$nombre_imagen;
+            echo json_encode($arreglo);
+        }
+        else
+        {
+            echo "no se pudo";
+        }
+}   
 ?>
