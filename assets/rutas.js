@@ -20,13 +20,13 @@ var modulo = angular.module("rutas", ['ngRoute'])
                 templateUrl: 'tercera_seccion.php'
             })
             .when('/gestor/Footer',{
-                templateUrl: 'cuarta_seccion.html'
+                templateUrl: 'cuarta_seccion.php'
             })
             .when('/compras', {
                 templateUrl: 'compras.html'
             })
             .when('/abouta',{
-                templateUrl: 'abouta.html'
+                templateUrl: 'abouta.php'
             })
             .otherwise('/');
 });
