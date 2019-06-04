@@ -7,6 +7,9 @@ $(document).ready(function () {
         var appat = $("#appat").val();
         var apmat = $("#apmat").val();
         var mens = $("#msjbody");
+        if ($('#forma')[0].checkValidity() === false) {
+            event.stopPropagation();
+        } else {
                 $.ajax({
                     url: '../php/modificar.php',
                     method: 'POST',
@@ -25,6 +28,7 @@ $(document).ready(function () {
                         $("#msjsis").modal("show");
                     }
                 });
-        
+            }
+            $('#forma').addClass('was-validated');
     });
 });

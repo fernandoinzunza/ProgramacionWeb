@@ -114,7 +114,7 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="nav site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost8080:/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item">
               <a href="shop">Compras</a>
