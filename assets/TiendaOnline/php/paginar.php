@@ -81,7 +81,7 @@ $results = mysqli_query($conn, $sqlQuery);
 </ul>
 
 </td>
-        <td align="right" valign="top">
+  <td align="right" valign="top">
 	     Pagina <?php echo $PaginaNumero; ?> de <?php echo $pagesCount; ?>
 	</td>
     </tr>

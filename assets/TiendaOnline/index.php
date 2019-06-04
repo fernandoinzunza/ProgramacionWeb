@@ -221,10 +221,26 @@ $categorias = $conexion->query($mostrar);
           <div class="item">
             <div class="block-5 text-center">
               <figure class="block-5-image">
-                <img src="../img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
+                <?php 
+                if(!file_exists('../img/'.$fila['id_img']))
+                {
+                  $imagen = "nodis/nodisponible.png";
+                }
+                else{
+                  $imagen = $fila['id_img'];
+                }
+                ?>
+                <img src="../img/<?php echo $imagen?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
               </figure>
               <div class="block-5-text p-5">
-                <h3><a href="shop_articulo?cod=<?php echo $fila['id']?>" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
+                <h3><a href="
+                <?php if($imagen == "nodis/nodisponible.png"){
+                  echo "#";
+                }
+                else
+                {
+                  echo "shop_articulo?cod=".$fila['id'];
+                }?>" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
                 if(strlen($fila['titulo_libro'])<22){
                   echo $fila['titulo_libro'];
                 }

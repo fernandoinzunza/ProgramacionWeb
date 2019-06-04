@@ -9,7 +9,7 @@ $(document).ready(function(){
             },
             success:function(data){
             alert(data);
-            location.href="http://localhost:8080/ProgWeb/assets/TiendaOnline/thankyou";    
+            location.href="http://localhost/ProgWeb/assets/TiendaOnline/thankyou";    
             }
         });
     });

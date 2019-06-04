@@ -21,12 +21,12 @@ if ($buscarUsuarios->num_rows > 0)
 	{
 		$tabla.=
 		'<tr>
-            <td><span id ="username"</span>'.utf8_encode($fila['username']).'</td>
-            <td><span id = "pass'.$fila['username'].'"</span>'.utf8_encode($fila['pass']).'</td>   
-			<td><span id = "correo'.$fila['username'].'"</span>'.utf8_encode($fila['correo']).'</td>
-			<td><span id = "nombre'.$fila['username'].'"</span>'.utf8_encode($fila['nombre']).'</td>
-			<td><span id = "appat'.$fila['username'].'"</span>'.utf8_encode($fila['ap_pat']).'</td>
-			<td><span id = "apmat'.$fila['username'].'"</span>'.utf8_encode($fila['ap_mat']).'</td>
+            <td><span id ="username"</span>'.utf8_decode(utf8_encode($fila['username'])).'</td>
+            <td><span id = "pass'.$fila['username'].'"</span>'.utf8_decode(utf8_encode($fila['pass'])).'</td>   
+			<td><span id = "correo'.$fila['username'].'"</span>'.utf8_decode(utf8_encode($fila['correo'])).'</td>
+			<td><span id = "nombre'.$fila['username'].'"</span>'.utf8_decode(utf8_encode($fila['nombre'])).'</td>
+			<td><span id = "appat'.$fila['username'].'"</span>'.utf8_decode(utf8_encode($fila['ap_pat'])).'</td>
+			<td><span id = "apmat'.$fila['username'].'"</span>'.utf8_decode(utf8_encode($fila['ap_mat'])).'</td>
 			<td><div class="font-icon-list">
 			<div class="font-icon-detail"><button type="button" id="mostrar" value="'.$fila['username'].'" ><i class="pe-7s-diskette"></i></button>
 			</div></div></td>

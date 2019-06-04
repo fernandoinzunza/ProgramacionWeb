@@ -14,7 +14,7 @@ $(document).ready(function(){
                     if (data == "tampoco") {
                     alert("necesitas realizar una compra por lo menos");
                     } else {
-                        location.href="http://localhost:8080/ProgWeb/assets/TiendaOnline/checkout";    
+                        location.href="http://localhost/ProgWeb/assets/TiendaOnline/checkout";    
                     }
                     
                 }

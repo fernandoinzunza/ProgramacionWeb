@@ -144,7 +144,7 @@ elseif(isset($_SESSION['ingresar']))
                                                         <div class="form-group">
                                                             <label>Nombre(s)</label>
                                                             <input type="text" class="form-control" placeholder="Nombre"
-                                                                id="nombre" required>
+                                                                id="nombre" required onkeypress=" return soloLetras(event)">
                                                                 <div class="invalid-feedback">Ingresa tu nombre!
                                                                     </div>
                                                         </div>
@@ -153,7 +153,7 @@ elseif(isset($_SESSION['ingresar']))
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
                                                             <input type="text" class="form-control"
-                                                                placeholder="Apellido Paterno" id="appat" required>
+                                                                placeholder="Apellido Paterno" onkeypress="return soloLetras(event)" id="appat" required>
                                                                 <div class="invalid-feedback">Ingresa tu apellido paterno!
                                                                 </div>
                                                         </div>
@@ -163,7 +163,7 @@ elseif(isset($_SESSION['ingresar']))
                                                             <label>Apellido Materno</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Apellido Materno" id="apmat" required>
-                                                                <div class="invalid-feedback">Ingresa tu apellido materno!
+                                                                <div class="invalid-feedback" onkeypress="return soloLetras(event)">Ingresa tu apellido materno!
                                                                     </div>
                                                         </div>
                                                     </div>
@@ -187,7 +187,59 @@ elseif(isset($_SESSION['ingresar']))
                     </div>
                 </div>
             </div>
-</body>
+</body><script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+<script>
+    function soloLetrasynumeros(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz1234567890";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+<script language="javascript">
+$(function(){
+
+$('.validanumericos').keypress(function(e) {
+  if(isNaN(this.value + String.fromCharCode(e.charCode))) 
+   return false;
+})
+.on("cut copy paste",function(e){
+  e.preventDefault();
+});
+
+});
+</script>
 
 <!--   Core JS Files   -->
 

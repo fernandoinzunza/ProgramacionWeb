@@ -24,13 +24,13 @@ if ($buscarUsuarios->num_rows > 0)
 		$tabla.=
 		'<tr>
             <td><span id ="codigo"</span>'.utf8_encode($fila['codigo']).'</td>
-            <td><span id = "titulo'.$fila['codigo'].'"</span>'.utf8_encode($fila['titulo']).'</td>   
-			<td><span id = "categoria'.$fila['codigo'].'"</span>'.utf8_encode($fila['categoria']).'</td>
-			<td><span id = "autor'.$fila['codigo'].'"</span>'.utf8_encode($fila['autor']).'</td>
-            <td><span id = "descripcion'.$fila['codigo'].'"</span>'.utf8_encode($fila['descripcion']).'</td>
+            <td><span id = "titulo'.$fila['codigo'].'"</span>'.utf8_decode(utf8_encode($fila['titulo'])).'</td>   
+			<td><span id = "categoria'.$fila['codigo'].'"</span>'.utf8_decode(utf8_encode($fila['categoria'])).'</td>
+			<td><span id = "autor'.$fila['codigo'].'"</span>'.utf8_decode(utf8_encode($fila['autor'])).'</td>
+            <td><span id = "descripcion'.$fila['codigo'].'"</span>'.utf8_decode(utf8_encode($fila['descripcion'])).'</td>
 			<td><span id = "precio'.$fila['codigo'].'"</span>'.utf8_encode($fila['precio']).'</td>
 			<td><span id = "unidades'.$fila['codigo'].'"</span>'.utf8_encode($fila['unidades']).'</td>
-			<td><span id = "imagen'.$fila['codigo'].'"</span>'.utf8_encode($fila['imagen']).'</td>
+			<td><span id = "imagen'.$fila['codigo'].'"</span>'.utf8_decode(utf8_encode($fila['imagen'])).'</td>
 			<td><div class="font-icon-list">
 			<div class="font-icon-detail"><button type="button" id="mostrar2" value="'.$fila['codigo'].'" ><i class="pe-7s-diskette"></i></button>
 			</div></div></td>
