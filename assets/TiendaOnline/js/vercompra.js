@@ -9,7 +9,7 @@ $(document).ready(function(){
             },
             success:function(data){
                 if(data == "no"){
-                    alert("necesitas loguearte prro bandido");
+                    alert("necesitas Inicias Sesión");
                 }else{
                     if (data == "tampoco") {
                     alert("necesitas realizar una compra por lo menos");

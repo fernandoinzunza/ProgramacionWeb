@@ -89,10 +89,11 @@ if(!isset($_SESSION['ingresar'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="active">
-              <a href="index">Inicio</a>
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="active">
               <a href="about">Acerca de</a>
             </li>

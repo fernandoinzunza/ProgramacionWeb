@@ -12,9 +12,18 @@ $(document).ready(function(){
             cant:cant
             },
             success: function(data){
-            mens.text("Agregado Correctamente al Carrito");
-            $("#msjsis").modal("show");
-            $("#cars").text(data);
+            if(data == "mayor"){
+                mens.text("La Cantidad Excede a la cantidad de articulos registrados");
+                $("#msjsis").modal("show");
+            }
+            else if(data =="cero"){
+                mens.text("no hay productos");
+                $("#msjsis").modal("show");
+            }else{
+                mens.text("Agregado Correctamente al Carrito");
+                $("#msjsis").modal("show");
+                $("#cars").text(data);
+                }
             }
         });
     });

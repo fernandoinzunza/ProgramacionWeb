@@ -1,62 +1,51 @@
-<!DOCTYPE html>
 <?php
 require_once('../../php/Clases/conexion.php');
 session_start();
-  if(!isset($_SESSION['ingresar'])){
-    $correo="";
-    } else{
-    require_once('../../php/Clases/usuario.php');
-    $usuario = new Usuario();
-    $user = $_SESSION['username'];
-    $usuario->ObtenerDatos($user,$usuario);
-    $name = $usuario;
-    $nombre = utf8_encode($usuario->Nombre);
-    $appat = utf8_encode($usuario->Ap_Pat);
-    $apmat = utf8_encode($usuario->Ap_Mat);
-    $correo = utf8_encode($usuario->Correo);
+if(!isset($_SESSION['ingresar'])){
+  $correo="";
+  } else{
+  require_once('../../php/Clases/usuario.php');
+  $usuario = new Usuario();
+  $user = $_SESSION['username'];
+  $usuario->ObtenerDatos($user,$usuario);
+  $name = $usuario;
+  $nombre = utf8_encode($usuario->Nombre);
+  $appat = utf8_encode($usuario->Ap_Pat);
+  $apmat = utf8_encode($usuario->Ap_Mat);
+  $correo = utf8_encode($usuario->Correo);
+  }
+  if(!isset($_SESSION['carrito'])){
+    $num = 0;
+    $total = 0;
+  }else{
+    $arreglo = $_SESSION['carrito'];
+    $num = count($arreglo);
+    $total = 0;
+    foreach($arreglo as $key => $fila){
+      $precio = $fila['precios'];
+      $cantidad = $fila['cantidad'];
+      $operacion = $precio * $cantidad;
+      $total = $total + $operacion;
     }
-$conn = abrirBD();
-$sql = "SELECT titulo_pag,encabezado_img,descripcion_img,img_principal FROM encabezado";
-$conn = abrirBD();
-$resultado = $conn->query($sql);
-while($resul = mysqli_fetch_array($resultado)){ 
-    $titulopag = $resul[0];
-    $encimg = utf8_encode($resul[1]);
-    $descrimg = utf8_encode($resul[2]);
-    $imagenes = $resul[3];
-    }
-$conn->close();
+  }
 
-$conn = abrirBD();
-$sql = "SELECT * FROM EDITAR_CARRUSEL";
-$resultado = $conn->query($sql);
-if(!isset($_SESSION['carrito'])){
-  $num = 0;
-}else{
-  $arreglo = $_SESSION['carrito'];
-  $num = count($arreglo);
-}
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tienda en línea</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.3.14/angular-route.min.js"></script>
-    <script src="http://code.angularjs.org/1.3.14/i18n/angular-locale_es-es.js"></script>
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
+    
   </head>
   <body>
   <div class="site-wrap">
@@ -67,20 +56,20 @@ if(!isset($_SESSION['carrito'])){
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
             </div>
+
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.php" class="js-logo-clone"><?php echo $titulopag ?></a>
+                <a href="index" class="js-logo-clone">Tienda Online</a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <li data-id="<?php echo $correo?>" class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                   <?php echo $correo?><span class="icon icon-person"></span>
                   </a>
-                    <div class="dropdown-menu">
+                  <div class="dropdown-menu">
                       <button class="dropdown-item"><a href="#" data-toggle="modal" data-target="#modal">Registrarme</a></button>
                       <?php
                       if(isset($_SESSION['ingresar'])){
@@ -90,35 +79,29 @@ if(!isset($_SESSION['carrito'])){
                       else{
                         echo '<button class="dropdown-item"><a href="../../log.php" >Ingresar</a></button>';
                       }
-                      
-                      
                       ?>
                     </div>
                   </li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count"><?php echo $num ?></span>
+                      <span class="count" id="cars"><?php echo $num?></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
                 </ul>
               </div> 
             </div>
-
           </div>
         </div>
       </div> 
-     <div class="container"> 
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
-          <ul class="nav site-menu js-clone-nav d-none d-md-block">
+          <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="index">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a href="shop">Compras</a>
-            </li>
+            <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
             <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
@@ -127,126 +110,38 @@ if(!isset($_SESSION['carrito'])){
           </ul>
         </div>
       </nav>
-    </div>
     </header>
-    <div class="site-blocks-cover" style="background: url(../img/<?php echo $imagenes?>);" data-aos="fade">
+    <div class="bg-light py-3">
       <div class="container">
-        <div class="row align-items-start align-items-md-center justify-content-end">
-          <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2" style="color:white"><?php echo $encimg?></h1>
-            <div class="intro-text text-center text-md-left">
-              <p class="mb-4"style="color:white"><?php echo $descrimg?></p>
-              <p>
-                <a href="shop" class="btn btn-sm btn-primary">Compra ya!</a>
-              </p>
-            </div>
-          </div>
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Carrito</strong></div>
         </div>
       </div>
     </div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-12" method="post">
+            <div class="site-blocks-table">
+              <table class="table table-bordered">
+              <thead class="encabezado">
+                  <tr>
+                    <th class="lead">Folio</th>
+                    <th class="lead">Correo</th>
+                    <th class="lead">Codigo</th>
+                    <th class="lead">Titulo</th>
+                    <th class="lead">Descripcion</th>
+                    <th class="lead">Precio</th>
+                    <th class="lead">Unidades</th>
+                    <th class="lead">Imagen</th>                  
+                  </tr>
+                </thead>
+                <tbody id="tablacompras">
 
-    <div class="site-section site-section-sm site-blocks-1">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-truck"></span>
+                </tbody>
+              </table>
             </div>
-            <div class="text">
-              <h2 class="text-uppercase">Envios Gratis</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-refresh2"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Devoluciones gratis</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-help"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Soporte al cliente</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<?php 
-$sql = 'select distinct categoria from articulos';
-$mostrar = 'select * from editar_categorias';
-$conexion = abrirBD();
-$categorias = $conexion->query($mostrar);
-?>
-    <div class="site-section site-blocks-2">
-      <div class="container">
-        <div class="row">
-        <?php while($fila = $categorias->fetch_assoc()){?>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-            <form action="shop" method="post">
-            <button type="input" style="border-width:0px;" class="block-2-item" href="shop">
-              <input type="hidden" name="categ" value="<?php echo $fila['categoria'];?>">
-              <figure class="image">
-                <img src="images/categorias/<?php echo $fila['imagen']?>" alt="" style="height:450px; width:325px;" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Categorias</span>
-                <h3><?php echo $fila['categoria']?></h3>
-              </div>
-          </button>
-        </form>
-          </div>
-        <?php }?>
-        </div>
-      </div>
-    </div>
-    <div class="site-section block-3 site-blocks-2 bg-light" data-aos="fade" data-aos-delay="100">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Productos sugeridos</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="nonloop-block-3 owl-carousel">
-              
-            <?php while($fila = $resultado->fetch_assoc()){?>
-          <div class="item">
-            <div class="block-5 text-center">
-              <figure class="block-5-image">
-                <img src="../img/<?php echo $fila['id_img'];?>" id="<?php echo $fila['id']."Carrusel";?>" alt="Image placeholder" style="height: 400px !important;">
-              </figure>
-              <div class="block-5-text p-5">
-                <h3><a href="shop_articulo?cod=<?php echo $fila['id']?>" title ="<?php echo $fila['titulo_libro']?>"id="<?php echo $fila['id']."Titulo";?>"><?php 
-                if(strlen($fila['titulo_libro'])<22){
-                  echo $fila['titulo_libro'];
-                }
-                else{
-                  $aux = "";
-                  for($i = 0; $i<15; $i++)
-                  {
-                    $aux .= $fila['titulo_libro'][$i];
-                  }
-                  echo $aux."..";
-                }
-                ?>
-                </a></h3>
-                <p class="mb-0" id="<?php echo $fila['id']."Autor";?>"><?php echo $fila['autor'];?></p>
-                <p class="text-primary font-weight-bold" id="<?php echo $fila['id']."Precio";?>">$<?php echo $fila['precio'];?></p>
-              </div>
-            </div>
-          </div>
-          <?php }?>
-
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -310,7 +205,7 @@ $categorias = $conexion->query($mostrar);
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved
+            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
@@ -326,10 +221,11 @@ $categorias = $conexion->query($mostrar);
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <link rel="stylesheet" href="css/animate.min.css">
-  <script src="js/Registrar.js"></script>
-
   <script src="js/main.js"></script>
+  <script src="js/carritodisponible.js"></script>
+  <script src="js/vercompra.js"></script>
+  <script src="js/Registrar.js"></script>
+  <script src="js/miscompras.js"></script>
   <div class="modal fade" id="cerrar" tabindex="-1" role="dialog" aria-label="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -453,5 +349,26 @@ $categorias = $conexion->query($mostrar);
     </div>
   </div>
 </div>
-  </body>
+<div class="modal fade" id="eliminarcar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Seguro que desea eliminar el articulo del carrito
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" name="borrarcarrito" id="borrarcarrito" data-dismiss="modal">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
 </html>

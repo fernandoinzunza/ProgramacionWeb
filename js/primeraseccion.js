@@ -5,7 +5,7 @@ $(document).ready(function(){
         frmData.append("encimg",$("#encimg").val());
         frmData.append("descrimg",$("#descrimg").val());
         frmData.append("imagen",$("input[name=imagen]")[0].files[0]);
-        if ($('#forms')[0].checkValidity() === false) {
+        if ($('#seccion')[0].checkValidity() === false) {
             event.stopPropagation();
         } else {
                 $.ajax({
@@ -22,6 +22,7 @@ $(document).ready(function(){
                     }
          });
         }
+        $('#seccion').addClass('was-validated');
     });
     
 });

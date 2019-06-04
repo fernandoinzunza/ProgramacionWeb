@@ -33,7 +33,7 @@ if(!isset($_SESSION['ingresar'])){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tienda en Linea</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
@@ -82,7 +82,6 @@ if(!isset($_SESSION['ingresar'])){
                       ?>
                     </div>
                   </li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -104,6 +103,7 @@ if(!isset($_SESSION['ingresar'])){
             </li>
             <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
               <a href="about">Acerca de</a>
             </li>

@@ -40,7 +40,7 @@ if(!isset($_SESSION['carrito'])){
 ?>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Proyecto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -65,10 +65,6 @@ if(!isset($_SESSION['carrito'])){
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
@@ -98,7 +94,6 @@ if(!isset($_SESSION['carrito'])){
                       ?>
                     </div>
                   </li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -116,10 +111,11 @@ if(!isset($_SESSION['carrito'])){
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/proyectoweb/ProgramacionWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="active"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
+            <li class="nav-item"><a href="miscompras">Mis Compras</a></li>
             <li class="nav-item">
               <a href="nav-item">Acerca de</a>
             </li>
