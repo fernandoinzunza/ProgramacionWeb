@@ -17,9 +17,17 @@ $(document).ready(function(){
                 contentType: false,
                 cache: false,
                 success: function(data){
-                    $("#"+numero+"Imagen").attr("src",data[1]);
-                    $("#"+numero+"Texto").text(data[0]);
-                    location.reload();
+                    if(data.length>1)
+                    {
+                        $("#"+numero+"Imagen").attr("src",data[1]);
+                        $("#"+numero+"Texto").text(data[0]);
+                        location.reload();
+                    }
+                    else if(data.length == 1){
+                        $("#errorMsj").text(data[0]);
+                        $("#modalError").modal('show');
+                    }
+                    
                 }
              }); 
          }
