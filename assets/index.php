@@ -279,8 +279,18 @@ $nombre = utf8_encode($admin->Usuario);
                                                     <div class="col-md-6">
                                                         <div class="form-group has-feedback">
                                                             <label >Categoria</label>
-                                                            <input type="text" class="form-control" placeholder="Categoria" data-error="Ingresa una Categoria"
-                                                                id="cate" required>
+                                                            <select class="form-control" name="cate" id="cate" requirerd>
+                                                                <option value="Drama" selected>Drama</option>
+                                                                <option value="Infantil">Infantil</option>
+                                                                <option value="Misterio">Misterio</option>
+                                                                <option value="Terror">Terror</option>
+                                                                <option value="Horror">Horror</option>
+                                                                <option value="Romance">Romance</option>
+                                                                <option value="Comedia">Comedia</option>
+                                                                <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                                                                <option value="Aventura">Aventura</option>
+                                                                <option value="Cuentos">Cuentos</option>
+                                                            </select>
                                                                 <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>

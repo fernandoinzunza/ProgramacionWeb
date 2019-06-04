@@ -17,10 +17,21 @@
 								<input data-error="Necesitas Ingresar Un Titulo" placeholder="Titulo" type="text" class="form-control" id="tit" name="titulo" onkeypress="return soloLetras(event)" required>
 								<div class="help-block with-errors"></div>
 							</div>
-							<div class="form-group">
+							<div class="form-group has-feedback">
 							<label>Categoria:</label>
-								<input  type="text"  class="form-control" id="cat" name="cat" onkeypress="return soloLetras(event)" required>
-								<div class="help-block with-errors"></div>
+								<select class="form-control" name="cat" id="cat"  requirerd>
+									<option value="Drama">Drama</option>
+									<option value="Infantil">Infantil</option>
+									<option value="Misterio">Misterio</option>
+									<option value="Terror">Terror</option>
+									<option value="Horror">Horror</option>
+									<option value="Romance">Romance</option>
+									<option value="Comedia">Comedia</option>
+									<option value="Ciencia Ficcion">Ciencia Ficcion</option>
+									<option value="Aventura">Aventura</option>
+									<option value="Cuentos">Cuentos</option>
+								</select>
+								<div class="help-block with-erros"></div>
 							</div>
 							<div class="form-group has-feedback">
 							<label>Autor:</label>

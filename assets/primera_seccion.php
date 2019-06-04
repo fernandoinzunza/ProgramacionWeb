@@ -17,7 +17,7 @@ $conn->close();
     <script src="../js/primeraseccion.js"></script>
 </head>
 <div>
-    <form id="seccion" method="post" enctype="multipart/form-data" role="form" data-toggle="validator">
+    <form id="seccion" method="post" enctype="multipart/form-data" ="roleform" data-toggle="validator">
         <div class="form-row filtros" >
             <div class="md-form">
                 <div class="row">
