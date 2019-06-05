@@ -102,7 +102,7 @@ $conn->close();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li><a href="shop">Compras</a></li>
             <li><a href="cart">Carrito</a></li>
@@ -146,17 +146,19 @@ $conn->close();
               </div>
               <div class="col-md-6 col-lg-3">
                 <ul class="list-unstyled">
-                  <li><a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a></li>
+                  <li><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-3">
                 <ul class="list-unstyled">
-                  <li><a href="shop">Shop</a></li>
+                  <li><a href="shop">Compras</a></li>
+                  <li><a href="cart">Carrito</a></li>
+                  <li><a href="miscompras">Mis Compras</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-3">
                 <ul class="list-unstyled">
-                  <li><a href="about">About</a></li>
+                  <li><a href="about">Acerca de</a></li>
                 </ul>
               </div>
             </div>

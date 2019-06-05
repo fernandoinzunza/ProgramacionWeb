@@ -121,7 +121,7 @@ $conn->close();
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost:8080/ProgWeb/assets/TiendaOnline/">Inicio</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="active"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>

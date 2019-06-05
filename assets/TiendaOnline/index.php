@@ -29,7 +29,7 @@ $conn->close();
 
 $conn = abrirBD();
 $sql = "SELECT * FROM EDITAR_CARRUSEL";
-$resultado = $conn->query($sql);
+$resCar = $conn->query($sql);
 if(!isset($_SESSION['carrito'])){
   $num = 0;
 }else{
@@ -164,7 +164,7 @@ $conn->close();
             </div>
             <div class="text">
               <h2 class="text-uppercase">Envios Gratis</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <p>A todo los rincones del pais</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -173,17 +173,10 @@ $conn->close();
             </div>
             <div class="text">
               <h2 class="text-uppercase">Devoluciones gratis</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <p>Si el Producto no es de tu agrado los primeros 3 dias puedes hacer una devolucion</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-help"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Soporte al cliente</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -226,8 +219,7 @@ $categorias = $conexion->query($mostrar);
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
-              
-            <?php while($fila = $resultado->fetch_assoc()){?>
+            <?php while($fila = $resCar->fetch_assoc()){?>
           <div class="item">
             <div class="block-5 text-center">
               <figure class="block-5-image">
@@ -287,7 +279,7 @@ $categorias = $conexion->query($mostrar);
               </div>
               <div class="col-md-6 col-lg-3">
                 <ul class="list-unstyled">
-                  <li><a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a></li>
+                  <li><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-3">

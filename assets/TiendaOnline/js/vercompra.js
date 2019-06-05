@@ -14,11 +14,7 @@ $(document).ready(function(){
                     if (data == "tampoco") {
                     alert("necesitas realizar una compra por lo menos");
                     } else {
-<<<<<<< HEAD
                         location.href="http://localhost/ProgWeb/assets/TiendaOnline/checkout";    
-=======
-                        location.href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/checkout";    
->>>>>>> origin/manny
                     }
                     
                 }

@@ -25,6 +25,7 @@ $(document).ready(function () {
                         $("#tabla").load('../php/verarticulos.php');
                         $("#msjbody").text(data);
                         $("#msjsis").modal("show");
+                        location.reload();
                         
                     }
                 });

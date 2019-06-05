@@ -133,7 +133,7 @@ $(document).ready(function() {
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item">
-              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a>
+              <a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a>
             </li>
             <li class="nav-item"><a href="shop">Compras</a></li>
             <li class="nav-item"><a href="cart">Carrito</a></li>
@@ -148,8 +148,8 @@ $(document).ready(function() {
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <strong
-              class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a> <span class="mx-2 mb-0">/</span> <strong
+              class="text-black">Compras</strong></div>
         </div>
       </div>
     </div>

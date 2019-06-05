@@ -158,11 +158,11 @@ $conn->close();
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="row">
               <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigation</h3>
+                <h3 class="footer-heading mb-4">Navegacion</h3>
               </div>
               <div class="col-md-6 col-lg-3">
                 <ul class="list-unstyled">
-                  <li><a href="http://localhost:8088/ProgramacionWeb/assets/TiendaOnline/">Home</a></li>
+                  <li><a href="http://localhost/ProgWeb/assets/TiendaOnline/">Inicio</a></li>
                 </ul>
               </div>
               <div class="col-md-6 col-lg-3">
